@@ -1,0 +1,27 @@
+{
+  "name": "TipAdvisor",
+  "version": "1.0.0",
+  "description": "TipAdvisor",
+  "dependencies": {
+    "gulp": "^3.5.6",
+    "gulp-sass": "^0.7.1",
+    "gulp-concat": "^2.2.0",
+    "gulp-minify-css": "^0.3.0",
+    "gulp-rename": "^1.2.0"
+  },
+  "devDependencies": {
+    "bower": "^1.3.3",
+    "gulp-util": "^2.2.14",
+    "shelljs": "^0.3.0",
+    "karma": "~0.12.9",
+    "karma-phantomjs-launcher": "~0.1.4",
+    "karma-jasmine": "~0.1.5",
+    "karma-ng-scenario": "~0.1.0",
+    "karma-junit-reporter": "~0.2.2",
+    "karma-coverage": "~0.2.1"
+  },
+  "scripts": {
+    "test": "node_modules/karma/bin/karma start tests/karma.config.js",
+    "ios": "ionic emulate ios"
+  }
+}
