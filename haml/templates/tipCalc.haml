@@ -5,7 +5,6 @@
         .header Bill
         .cur-bill
           {{ bill.dollars + "." + bill.cents | currency }}
-          / %input{ type: "number", "ng-model" => "bill", "ng-change" => "calcTotals()" }
       .tip-container
         .header Tip
         .cur-tip-per
