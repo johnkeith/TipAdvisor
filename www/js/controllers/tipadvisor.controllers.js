@@ -31,7 +31,7 @@ angular.module("tipadvisor.controllers", [])
         dollars: "0",
         cents: ""
       };
-      $scope.tip = "0";
+      $scope.tip = "15";
       $scope.billWithTip = "0";
       $scope.centsPressed = false;
   }]);
