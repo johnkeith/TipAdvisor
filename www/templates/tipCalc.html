@@ -9,11 +9,8 @@
       </div>
       <div class='tip-container'>
         <div class='header'>Tip</div>
-        <div class='cur-tip-per'>
-          {{ tip + "%" }}
-        </div>
         <div class='cur-tip'>
-          {{ tipInCur | currency }}
+          ({{ tip + "%" }}) {{ tipInCur | currency }}
         </div>
       </div>
       <div class='tip-slider-container'>

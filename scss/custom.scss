@@ -5,6 +5,8 @@ $ebony-clay: rgba(34, 49, 63, 1);
 $jaffa-orange: rgba(235, 151, 78, 1);
 $sunset-orange: rgba(246, 71, 71, 1);
 
+$top-bar-border: rgba(248, 248, 248, 1);
+
 $max-width: 100%;
 $max-height: 100%;
 
@@ -16,7 +18,7 @@ html {
 
 }
 body {
-  background: $niagara-green;
+  background: $curious-blue;
   color: white;
   font-family: 'Lato', sans-serif;
   -webkit-tap-highlight-color:rgba(0,0,0,0);
@@ -37,9 +39,9 @@ body {
 }
 
 .bill-container{
-  background: $niagara-green;
-  border-bottom: 2px solid white;
-  font-size: 1.8em;
+  background: $curious-blue;
+  border-bottom: 2px solid darken($curious-blue, 10%);
+  font-size: 1.5em;
   padding:10px;
   .header{
     display: inline-block;
@@ -56,83 +58,30 @@ body {
     display: table;
     clear: both;
   }
-  background: $niagara-green;
-  font-size: 1.8em;
+  background: $curious-blue;
+  font-size: 1.5em;
   padding: 10px;
   .header{
     display: inline-block;
     float: left;
     width: 33.33%;
   }
-  .cur-tip-per{
-    display: inline-block;
-    float: left;
-    text-align: center;
-    width: 33.33%;
-  }
-  .cur-tip {
+  .cur-tip{
     display: inline-block;
     float: right;
-    overflow: hidden;
     text-align: right;
-    width: 33.33%;
-  }
-}
-
-.total-container{
-  background: $niagara-green;
-  font-size: 1.8em;
-  padding: 10px;
-  .header{
-    display: inline-block;
-  }
-  .cur-total{
-    display: inline-block;
-    float: right;
-  }
-}
-
-.num-btns-container {
-  background: $niagara-green;
-  width:100%;
-  .row-btns {
-    padding-left:0px;
-    text-align: center;
-    &:last-child{
-      margin-bottom:5px;
-    }
-    .num-btn {
-      &:hover {
-        background: white;
-        color: $niagara-green;
-      }
-      &:active {
-        background: $niagara-green;
-        color: white;
-      }
-      background: rgba(255,255,255,0);
-      border: 2px solid white;
-      border-radius: 50%;
-      color: white;
-      display: inline-block;
-      height: 70px;
-      margin:0 10px 2px 0;
-      outline: none;
-      text-align: center;
-      width:70px;
-    }
   }
 }
 
 .tip-slider-container {
-  background: $niagara-green;
-  border-bottom: 2px solid white;
+  background: $curious-blue;
+  border-bottom: 0px solid $top-bar-border;
   padding: 0 10px 10px 10px;
   .tip-slider {
     &::-webkit-slider-thumb {
       -webkit-appearance: none;
       border-radius: 50%;
-      border:2px solid white;
+      border:2px solid $top-bar-border;
       background: $sunset-orange;
       height: 20px;
       outline:none;
@@ -145,12 +94,82 @@ body {
     background: white;
     display: inline-block;
     height: 6px;
+    -webkit-transform: translate3d(0px,0px,0px);
     width: 100%;
   }
 }
 
+.total-container{
+  background: darken($curious-blue, 10%);
+  border-bottom: 0px solid $top-bar-border;
+  font-size: 1.5em;
+  padding: 10px;
+  .header{
+    display: inline-block;
+  }
+  .cur-total{
+    display: inline-block;
+    float: right;
+  }
+}
+.num-btns-container {
+  margin-top:10px;
+  width:100%;
+  .row-btns {
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    padding-left:0px;
+    text-align: center;
+    &:last-child{
+    }
+    .num-btn {
+      &:active {
+        background: $sunset-orange;
+        color: white;
+        transform: scale(1.1);
+        transition: 0.2s ease-in;
+      }
+      // &:active {
+      //   background: white;
+      //   color: $ebony-clay;
+      // }
+      background: rgba(255,255,255,1);
+      border: 0px solid black;
+      border-radius: 50%;
+      color: $ebony-clay;
+      cursor: pointer;
+      display: inline-block;
+      height: 80px;
+      margin:0px 0px 2px 0;
+      outline: none;
+      text-align: center;
+      width: 80px;
+      -webkit-tap-highlight-color: white;
+    }
+  }
+}
+
+@media (max-height: 480px) {
+  .num-btns-container {
+    .row-btns {
+      .num-btn {
+        height:60px;
+        width:60px;
+      }
+    }
+  }
+}
 // ionic customizations
 
 .pane {
-  background: $niagara-green;
+  background: $curious-blue;
+}
+.bar {
+  border-bottom: none;
+}
+.bar.bar-stable {
+  border-color: transparent;
 }
