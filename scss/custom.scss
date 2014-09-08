@@ -18,7 +18,7 @@ html {
 
 }
 body {
-  background: $curious-blue;
+  background: darken($curious-blue, 10%);
   color: white;
   font-family: 'Lato', sans-serif;
   -webkit-tap-highlight-color:rgba(0,0,0,0);
@@ -39,8 +39,8 @@ body {
 }
 
 .bill-container{
-  background: $curious-blue;
-  border-bottom: 2px solid darken($curious-blue, 10%);
+  background: $niagara-green;
+  border-bottom: 2px solid darken($niagara-green, 10%);
   font-size: 1.5em;
   padding:10px;
   .header{
@@ -49,6 +49,7 @@ body {
   .cur-bill{
     display: inline-block;
     float: right;
+    font-weight: bold;
   }
 }
 
@@ -58,7 +59,7 @@ body {
     display: table;
     clear: both;
   }
-  background: $curious-blue;
+  background: $niagara-green;
   font-size: 1.5em;
   padding: 10px;
   .header{
@@ -69,13 +70,14 @@ body {
   .cur-tip{
     display: inline-block;
     float: right;
+    font-weight: bold;
     text-align: right;
   }
 }
 
 .tip-slider-container {
-  background: $curious-blue;
-  border-bottom: 0px solid $top-bar-border;
+  background: $niagara-green;
+  border-bottom: 2px solid darken($niagara-green, 10%);
   padding: 0 10px 10px 10px;
   .tip-slider {
     &::-webkit-slider-thumb {
@@ -100,7 +102,7 @@ body {
 }
 
 .total-container{
-  background: darken($curious-blue, 10%);
+  background: $curious-blue;
   border-bottom: 0px solid $top-bar-border;
   font-size: 1.5em;
   padding: 10px;
@@ -110,6 +112,7 @@ body {
   .cur-total{
     display: inline-block;
     float: right;
+    font-weight: bold;
   }
 }
 .num-btns-container {
@@ -165,7 +168,7 @@ body {
 // ionic customizations
 
 .pane {
-  background: $curious-blue;
+  background: darken($curious-blue, 10%);
 }
 .bar {
   border-bottom: none;
