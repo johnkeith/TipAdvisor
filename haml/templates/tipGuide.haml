@@ -3,5 +3,7 @@
     .list.guide-list
       .item.item-avatar-left{ "ng-repeat" => "country in guide" }
         %img{ src: "./img/{{ country.code }}.png"}
-        %h2 {{ country.name }}: {{ country.avgTip }}
+        %h2 
+          {{ country.name }}: 
+          %span {{ country.avgTip }}
         %p {{ country.notes }}

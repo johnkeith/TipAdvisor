@@ -168,6 +168,9 @@ body {
     position: static !important;
   }
   h2 {
+    span {
+      font-weight: 300;
+    }
     display: inline-block;
   }
   p {

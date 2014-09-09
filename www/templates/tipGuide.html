@@ -3,7 +3,10 @@
     <div class='list guide-list'>
       <div class='item item-avatar-left' ng-repeat='country in guide'>
         <img src='./img/{{ country.code }}.png'>
-        <h2>{{ country.name }}: {{ country.avgTip }}</h2>
+        <h2>
+          {{ country.name }}:
+          <span>{{ country.avgTip }}</span>
+        </h2>
         <p>{{ country.notes }}</p>
       </div>
     </div>
