@@ -34,4 +34,8 @@ angular.module("tipadvisor.controllers", [])
       $scope.tip = "15";
       $scope.billWithTip = "0";
       $scope.centsPressed = false;
+  }])
+  .controller("tipGuideCtrl", ["$scope", "tipGuideFac",
+    function($scope, tipGuideFac){
+      $scope.guide = tipGuideFac.allCountries();
   }]);

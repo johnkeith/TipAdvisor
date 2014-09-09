@@ -133,17 +133,14 @@ body {
       }
       &:active {
         background: $sunset-orange;
-        border: none;
+        border: 1px solid transparent;
+        border-bottom-width:4px;
         color: white;
         -webkit-transform: scale(1.1);
         transform: scale(1.1);
         -webkit-transition: 0.2s ease-in;
         transition: 0.2s ease-in;
       }
-      // &:active {
-      //   background: white;
-      //   color: $ebony-clay;
-      // }
       background: rgba(255,255,255,1);
       border: 1px solid darken($curious-blue, 20%);
       border-bottom-width:4px;
@@ -160,6 +157,12 @@ body {
       -webkit-tap-highlight-color: white;
     }
   }
+}
+
+.guide-list p {
+  overflow: visible;
+  text-overflow: none;
+  white-space: normal;
 }
 
 @media (max-height: 480px) {

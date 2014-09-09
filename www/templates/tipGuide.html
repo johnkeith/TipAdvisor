@@ -1,0 +1,12 @@
+<ion-view title='TipGuide'>
+  <ion-content ng-controller='tipGuideCtrl'>
+    <div class='list guide-list'>
+      <div class='item item-avatar-left' ng-repeat='country in guide'>
+        <img src='./img/{{ country.code }}.png'>
+        <h2>{{ country.name }}</h2>
+        <h3>{{ country.avgTip }}</h3>
+        <p>{{ country.notes }}</p>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
