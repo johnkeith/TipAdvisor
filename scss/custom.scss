@@ -42,7 +42,7 @@ body {
   background: $niagara-green;
   border-bottom: 2px solid darken($niagara-green, 10%);
   font-size: 1.5em;
-  padding:10px;
+  padding: 20px 10px 20px 10px;
   .header{
     display: inline-block;
   }
@@ -61,7 +61,7 @@ body {
   }
   background: $niagara-green;
   font-size: 1.5em;
-  padding: 10px;
+  padding: 20px 10px 10px 10px;
   .header{
     display: inline-block;
     float: left;
@@ -78,7 +78,7 @@ body {
 .tip-slider-container {
   background: $niagara-green;
   border-bottom: 2px solid darken($niagara-green, 10%);
-  padding: 0 10px 10px 10px;
+  padding: 0 10px 20px 10px;
   .tip-slider {
     &::-webkit-slider-thumb {
       -webkit-appearance: none;
@@ -90,7 +90,8 @@ body {
       width: 20px;
     }
     &::-webkit-slider-thumb:active {
-      transform: scale(1.4);
+      -webkit-transform: scale(1.4);
+      transform: scale(1.6);
     }
     -webkit-appearance: none;
     background: white;
@@ -105,7 +106,7 @@ body {
   background: $curious-blue;
   border-bottom: 0px solid $top-bar-border;
   font-size: 1.5em;
-  padding: 10px;
+  padding: 20px 10px 20px 10px;
   .header{
     display: inline-block;
   }
@@ -129,8 +130,11 @@ body {
     .num-btn {
       &:active {
         background: $sunset-orange;
+        border: none;
         color: white;
+        -webkit-transform: scale(1.1);
         transform: scale(1.1);
+        -webkit-transition: 0.2s ease-in;
         transition: 0.2s ease-in;
       }
       // &:active {
@@ -145,7 +149,8 @@ body {
       cursor: pointer;
       display: inline-block;
       font-size: 1.4em;
-      height: 87px;
+      // height: 87px;
+      height: 72px;
       margin:0px 0px 0px 0;
       outline: none;
       text-align: center;
@@ -159,7 +164,7 @@ body {
   .num-btns-container {
     .row-btns {
       .num-btn {
-        height:65px;
+        height:50px;
         width:102px;
       }
     }
