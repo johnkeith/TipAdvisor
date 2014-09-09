@@ -20,6 +20,10 @@ angular.module('tipAdvisor', [
       .state('guide', {
         url: '/guide',
         templateUrl: "./templates/guide.html"
+      })
+      .state('settings', {
+        url: '/settings',
+        templateUrl: "./templates/settings.html"
       });
     $urlRouterProvider.otherwise('/');
   }
