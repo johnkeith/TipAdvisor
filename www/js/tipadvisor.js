@@ -16,6 +16,10 @@ angular.module('tipAdvisor', [
       .state('calc', {
         url: '/',
         templateUrl: "./templates/tipCalc.html"
+      })
+      .state('guide', {
+        url: '/guide',
+        templateUrl: "./templates/guide.html"
       });
     $urlRouterProvider.otherwise('/');
   }
