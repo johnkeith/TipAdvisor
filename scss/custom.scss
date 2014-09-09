@@ -101,21 +101,6 @@ body {
     width: 100%;
   }
 }
-
-.total-container{
-  background: $niagara-green;
-  border-bottom: 2px solid darken($niagara-green, 20%);
-  font-size: 1.5em;
-  padding: 20px 10px 20px 10px;
-  .header{
-    display: inline-block;
-  }
-  .cur-total{
-    display: inline-block;
-    float: right;
-    font-weight: bold;
-  }
-}
 .num-btns-container {
   margin-top:1px;
   width:100%;
@@ -125,11 +110,20 @@ body {
       display: table;
       clear: both;
     }
+    &:last-child {
+      .num-btn {
+        border-bottom-width:3px;
+      }
+    }
     padding-left:0px;
     text-align: center;
     .num-btn {
       &:first-child {
         border-right-width:0px;
+        border-left-width:3px;
+      }
+      &:last-child {
+        border-right-width:3px;
       }
       &:active {
         background: $sunset-orange;
@@ -142,7 +136,8 @@ body {
         transition: 0.2s ease-in;
       }
       background: rgba(255,255,255,1);
-      border: 1px solid darken($curious-blue, 20%);
+      border: 1px solid $niagara-green;
+      // border: 1px solid darken($curious-blue, 20%);
       border-bottom-width:4px;
       color: $ebony-clay;
       cursor: pointer;
@@ -159,6 +154,20 @@ body {
   }
 }
 
+.total-container{
+  background: $niagara-green;
+  // border-bottom: 2px solid darken($niagara-green, 20%);
+  font-size: 1.5em;
+  padding: 20px 10px 20px 10px;
+  .header{
+    display: inline-block;
+  }
+  .cur-total{
+    display: inline-block;
+    float: right;
+    font-weight: bold;
+  }
+}
 .guide-list {
   .item-avatar-left {
     padding-left: 16px;
@@ -166,6 +175,7 @@ body {
   img {
     display: inline-block;
     position: static !important;
+    vertical-align: middle;
   }
   h2 {
     span {
@@ -173,8 +183,11 @@ body {
       font-weight: 300;
     }
     display: inline-block;
+    margin-left: 5px;
+    vertical-align: middle;
   }
   p {
+    margin-top:5px;
     overflow: visible;
     text-overflow: none;
     white-space: normal;
@@ -198,7 +211,8 @@ body {
   }
 }
 .pane {
-  background: darken($curious-blue, 20%);
+  background: $niagara-green;
+  // background: darken($curious-blue, 20%);
 }
 .bar {
   border-bottom: none;
@@ -206,3 +220,14 @@ body {
 .bar.bar-stable {
   border-color: transparent;
 }
+
+.fade-in-out.ng-enter, .fade-in-out .ng-enter {
+  -webkit-animation: fadeIn 0.3s;
+  -moz-animation: fadeIn 0.3s;
+  animation: fadeIn 0.3s;
+  position: absolute; }
+.fade-in-out.ng-leave, .fade-in-out .ng-leave {
+  -webkit-animation: fadeOut 0.3s;
+  -moz-animation: fadeOut 0.3s;
+  animation: fadeOut 0.3s;
+  position: absolute; }
