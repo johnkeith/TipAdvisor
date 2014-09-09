@@ -159,10 +159,22 @@ body {
   }
 }
 
-.guide-list p {
-  overflow: visible;
-  text-overflow: none;
-  white-space: normal;
+.guide-list {
+  .item-avatar-left {
+    padding-left: 16px;
+  }
+  img {
+    display: inline-block;
+    position: static !important;
+  }
+  h2 {
+    display: inline-block;
+  }
+  p {
+    overflow: visible;
+    text-overflow: none;
+    white-space: normal;
+  } 
 }
 
 @media (max-height: 480px) {
