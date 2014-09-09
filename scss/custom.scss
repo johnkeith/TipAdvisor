@@ -40,7 +40,7 @@ body {
 
 .bill-container{
   background: $niagara-green;
-  border-bottom: 2px solid darken($niagara-green, 10%);
+  border-bottom: 2px solid darken($niagara-green, 20%);
   font-size: 1.5em;
   padding: 20px 10px 20px 10px;
   .header{
@@ -59,7 +59,7 @@ body {
     display: table;
     clear: both;
   }
-  background: $niagara-green;
+  background: $curious-blue;
   font-size: 1.5em;
   padding: 20px 10px 10px 10px;
   .header{
@@ -76,8 +76,8 @@ body {
 }
 
 .tip-slider-container {
-  background: $niagara-green;
-  border-bottom: 2px solid darken($niagara-green, 10%);
+  background: $curious-blue;
+  border-bottom: 2px solid darken($curious-blue, 20%);
   padding: 0 10px 20px 10px;
   .tip-slider {
     &::-webkit-slider-thumb {
@@ -103,8 +103,8 @@ body {
 }
 
 .total-container{
-  background: $curious-blue;
-  border-bottom: 0px solid $top-bar-border;
+  background: $niagara-green;
+  border-bottom: 2px solid darken($niagara-green, 20%);
   font-size: 1.5em;
   padding: 20px 10px 20px 10px;
   .header{
@@ -117,7 +117,7 @@ body {
   }
 }
 .num-btns-container {
-  margin-top:2px;
+  margin-top:1px;
   width:100%;
   .row-btns {
     &:after {
@@ -128,6 +128,9 @@ body {
     padding-left:0px;
     text-align: center;
     .num-btn {
+      &:first-child {
+        border-right-width:0px;
+      }
       &:active {
         background: $sunset-orange;
         border: none;
@@ -142,19 +145,18 @@ body {
       //   color: $ebony-clay;
       // }
       background: rgba(255,255,255,1);
-      border: 2px solid darken($curious-blue, 10%);
-      border-right-width:1px;
-      border-left-width:1px;
+      border: 1px solid darken($curious-blue, 10%);
+      border-bottom-width:4px;
       color: $ebony-clay;
       cursor: pointer;
       display: inline-block;
       font-size: 1.4em;
       // height: 87px;
       height: 72px;
-      margin:0px 0px 0px 0;
+      margin:0px 0px 0px 0px;
       outline: none;
       text-align: center;
-      width: 102px;
+      width: 103px;
       -webkit-tap-highlight-color: white;
     }
   }
@@ -171,7 +173,11 @@ body {
   }
 }
 // ionic customizations
-
+.header-bar {
+  button:active {
+    color:$sunset-orange;
+  }
+}
 .pane {
   background: darken($curious-blue, 10%);
 }
