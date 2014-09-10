@@ -1,6 +1,40 @@
 angular.module("tipadvisor.services", [])
   .factory('tipCalcFac', function(){
+    var calc = {
+      bill: { dollars: "0", cents: ""}, 
+      tip: "15", 
+      billWithTip: "0", 
+      centsPressed: false
+    }
+
     return {
+      getBill: function(){
+        return calc.bill;
+      }, 
+      setBillDollars: function(d){
+        calc.bill.dollars = d;
+      },
+      setBillCents: function(c){
+        calc.bill.cents = c;
+      },
+      getTip: function(){
+        return calc.tip;
+      },
+      setTip: function(t){
+        calc.tip = t;
+      }, 
+      getBillWithTip: function(){
+        return calc.billWithTip;
+      }, 
+      setBillWithTip: function(bwt){
+        calc.billWithTip = bwt;
+      }, 
+      getCentsPressed: function(){
+        return calc.centsPressed;
+      },
+      setCentsPressed: function(bool){
+        calc.centsPressed = bool;
+      },
       percentConvertor: function(percent){
         percent = parseFloat(percent);
 
