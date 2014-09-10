@@ -1,7 +1,10 @@
 <ion-view title='TipGuide'>
   <ion-content ng-controller='tipGuideCtrl'>
     <div class='list guide-list'>
-      <div class='item item-avatar-left' ng-repeat="country in guide | orderBy : 'name' : reverse">
+      <label class='item item-input'>
+        <input ng-model='search.$' placeholder='Search' type='text'>
+      </label>
+      <div class='item item-avatar-left' ng-repeat="country in guide | filter : search | orderBy : 'name' : reverse">
         <img src='./img/{{ country.code }}.png'>
         <h2>
           {{ country.name }}:

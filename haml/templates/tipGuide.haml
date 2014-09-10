@@ -1,7 +1,9 @@
 %ion-view{ title: "TipGuide"}
   %ion-content{ "ng-controller" => "tipGuideCtrl" }
     .list.guide-list
-      .item.item-avatar-left{ "ng-repeat" => "country in guide | orderBy : 'name' : reverse" }
+      %label.item.item-input
+        %input{ type: "text", "ng-model" => "search.$", placeholder: "Search" }
+      .item.item-avatar-left{ "ng-repeat" => "country in guide | filter : search | orderBy : 'name' : reverse" }
         %img{ src: "./img/{{ country.code }}.png"}
         %h2 
           {{ country.name }}: 
