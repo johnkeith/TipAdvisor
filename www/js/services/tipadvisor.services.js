@@ -3,7 +3,8 @@ angular.module("tipadvisor.services", [])
     var calc = {
       bill: { dollars: "0", cents: ""}, 
       tip: "15", 
-      billWithTip: "0", 
+      billWithTip: "0",
+      tipInCur: "0", 
       centsPressed: false
     }
 
@@ -28,6 +29,12 @@ angular.module("tipadvisor.services", [])
       }, 
       setBillWithTip: function(bwt){
         calc.billWithTip = bwt;
+      },
+      getTipInCur: function(){
+        return calc.tipInCur;
+      },
+      setTipInCur: function(tic){
+        calc.tipInCur = tic;
       }, 
       getCentsPressed: function(){
         return calc.centsPressed;
