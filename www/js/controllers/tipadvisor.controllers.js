@@ -1,6 +1,6 @@
 angular.module("tipadvisor.controllers", [])
   .controller("tipCalcCtrl", ["$scope", "tipCalcFac", "$state", "$ionicGesture",
-    function($scope, tipCalcFac, $state, $ionicGesture){
+    function($scope, tipCalcFac, $state, $ionicGesture, calcTemplate){
       // $scope.onSwipeRight = function(){
       //   $state.go('/settings');
       // };

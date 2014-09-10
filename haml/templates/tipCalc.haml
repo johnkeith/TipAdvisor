@@ -16,32 +16,4 @@
         .header Total
         .cur-total
           {{ billWithTip | currency }}
-      .num-btns-container
-        .row-btns
-          %button.num-btn{ type: "button", "ng-click" => "btnInput('1')" }
-            .num-btn-text 1
-          %button.num-btn{ type: "button", "ng-click" => "btnInput('2')" }
-            .num-btn-text 2
-          %button.num-btn{ type: "button", "ng-click" => "btnInput('3')" }
-            .num-btn-text 3
-        .row-btns
-          %button.num-btn{ type: "button", "ng-click" => "btnInput('4')" }
-            .num-btn-text 4
-          %button.num-btn{ type: "button", "ng-click" => "btnInput('5')" }
-            .num-btn-text 5
-          %button.num-btn{ type: "button", "ng-click" => "btnInput('6')" }
-            .num-btn-text 6
-        .row-btns
-          %button.num-btn{ type: "button", "ng-click" => "btnInput('7')" }
-            .num-btn-text 7
-          %button.num-btn{ type: "button", "ng-click" => "btnInput('8')" }
-            .num-btn-text 8
-          %button.num-btn{ type: "button", "ng-click" => "btnInput('9')" }
-            .num-btn-text 9
-        .row-btns
-          %button.num-btn{ type: "button", "ng-click" => "btnInput('0')" }
-            .num-btn-text 0
-          %button.num-btn{ type: "button", "ng-click" => "btnInput('.')" }
-            .num-btn-text .
-          %button.num-btn{ type: "button", "ng-click" => "btnInput('C')" }
-            .num-btn-text C
+      %div{ "calc" => "" }
