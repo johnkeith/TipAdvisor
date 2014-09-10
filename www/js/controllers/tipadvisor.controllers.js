@@ -44,6 +44,9 @@ angular.module("tipadvisor.controllers", [])
       $scope.billWithTip = tipCalcFac.getBillWithTip();
       $scope.centsPressed = tipCalcFac.getCentsPressed();
       $scope.tipInCur = tipCalcFac.getTipInCur();
+      $scope.$watch('tip', function(n, o){
+        tipCalcFac.setTip(n);
+      });
   }])
   .controller("tipGuideCtrl", ["$scope", "tipGuideFac",
     function($scope, tipGuideFac){
