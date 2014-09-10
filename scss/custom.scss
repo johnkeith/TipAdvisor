@@ -118,10 +118,9 @@ body {
   }
 }
 
-.num-btns-container {
+.num-btns-container { 
   width:100%;
   .row-btns {
-
     &:after {
       content: "";
       display: table;
@@ -174,6 +173,22 @@ body {
       -webkit-tap-highlight-color: white;
     }
   }
+}
+
+.hidden-calc {
+  margin-top:100px;
+  -webkit-transition: 0.5s linear all;
+  -moz-transition: 0.5s linear all;
+  -ms-transition: 0.5s linear all;
+  -o-transition: 0.5s linear all;
+  transition: 0.5s linear all;
+  -ms-opacity: 0;
+  opacity: 0;  
+}
+.slide-up-calc {
+  margin-top:0px;
+  -ms-opacity: 1;
+  opacity: 1;
 }
 
 
