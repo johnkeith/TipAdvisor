@@ -1,6 +1,22 @@
 angular.module("tipadvisor.controllers", [])
-  .controller("tipCalcCtrl", ["$scope", "tipCalcFac",
-    function($scope, tipCalcFac){
+  .controller("tipCalcCtrl", ["$scope", "tipCalcFac", "$state", "$ionicGesture",
+    function($scope, tipCalcFac, $state, $ionicGesture){
+      // $scope.onSwipeRight = function(){
+      //   $state.go('/settings');
+      // };
+      // $scope.onSwipeLeft = function(){
+      //   $state.go('/guide');
+      // };
+      var element = angular.element(document.querySelector('body'));
+      
+      $ionicGesture.on('swiperight', function(e){
+        $state.go('settings');
+      }, element);
+
+      $ionicGesture.on('swipeleft', function(e){
+        $state.go('guide');
+      }, element);
+
       $scope.btnInput = function(btnVal){
         if(btnVal == "C"){
           $scope.clearBill();
@@ -48,7 +64,21 @@ angular.module("tipadvisor.controllers", [])
         tipCalcFac.setTip(n);
       });
   }])
-  .controller("tipGuideCtrl", ["$scope", "tipGuideFac",
-    function($scope, tipGuideFac){
+  .controller("tipGuideCtrl", ["$scope", "tipGuideFac", "$state", "$ionicGesture",
+    function($scope, tipGuideFac, $state, $ionicGesture){
+      var element = angular.element(document.querySelector('body'));
+      
+      $ionicGesture.on('swiperight', function(e){
+        $state.go('calc');
+      }, element);
+
       $scope.guide = tipGuideFac.allCountries();
+  }])
+  .controller("settingsCtrl", ["$scope", "$state", "$ionicGesture",
+    function($scope, $state, $ionicGesture){
+      var element = angular.element(document.querySelector('body'));
+      
+      $ionicGesture.on('swipeleft', function(e){
+        $state.go('calc');
+      }, element);
   }]);
