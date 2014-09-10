@@ -9,11 +9,11 @@ angular.module("tipadvisor.controllers", [])
       // };
       var element = angular.element(document.querySelector('body'));
       
-      $ionicGesture.on('swiperight', function(e){
+      $ionicGesture.on('swipeleft', function(e){
         $state.go('settings');
       }, element);
 
-      $ionicGesture.on('swipeleft', function(e){
+      $ionicGesture.on('swiperight', function(e){
         $state.go('guide');
       }, element);
 
@@ -68,7 +68,7 @@ angular.module("tipadvisor.controllers", [])
     function($scope, tipGuideFac, $state, $ionicGesture){
       var element = angular.element(document.querySelector('body'));
       
-      $ionicGesture.on('swiperight', function(e){
+      $ionicGesture.on('swipeleft', function(e){
         $state.go('calc');
       }, element);
 
@@ -78,7 +78,7 @@ angular.module("tipadvisor.controllers", [])
     function($scope, $state, $ionicGesture){
       var element = angular.element(document.querySelector('body'));
       
-      $ionicGesture.on('swipeleft', function(e){
+      $ionicGesture.on('swiperight', function(e){
         $state.go('calc');
       }, element);
   }]);

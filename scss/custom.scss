@@ -149,11 +149,11 @@ body {
       }
       &:active {
         background: $sunset-orange;
-        // border: 1px solid transparent;
+        border: 1px solid transparent;
         // border-bottom-width:4px;
         color: white;
-        // -webkit-transform: scale(1.1);
-        // transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
         -webkit-transition: 0.2s ease-in;
         transition: 0.2s ease-in;
       }
