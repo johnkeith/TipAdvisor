@@ -61,7 +61,6 @@ body {
     clear: both;
   }
   background: $curious-blue;
-  // border-top: 2px solid darken($curious-blue, 20%);
   font-size: 1.5em;
   padding: 20px 10px 10px 10px;
   .header{
@@ -161,14 +160,12 @@ body {
       background: white;
       border: none;
       border: 1px solid darken($niagara-green, 20%);
-      // border: 1px solid darken($curious-blue, 20%);
       border-bottom-width:1px;
       color: $ebony-clay;
       cursor: pointer;
       display: inline-block;
       float: left;
       font-size: 1.4em;
-      // height: 87px;
       height: 73px;
       margin:0px;
       outline: none;
