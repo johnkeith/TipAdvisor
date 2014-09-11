@@ -17,10 +17,11 @@
     <!-- <link href='http://fonts.googleapis.com/css?family=Kalam:400,700' rel='stylesheet' type='text/css'> -->
   </head>
   <body class='platform-ios' ng-app='tipAdvisor'>
-    <!-- %ion-header-bar.header-bar.bar-stable -->
-    <!-- %button.button.button-icon.icon.ion-ios7-world-outline{ "ui-sref" => "guide" } -->
-    <!-- %h1.title{ "ui-sref" => "calc" } TipAdvisor -->
-    <!-- %button.button.button-icon.icon.ion-ios7-gear-outline{ "ui-sref" => "settings"} -->
+    <ion-header-bar class='header-bar bar-stable'>
+      <button class='button button-icon icon ion-ios7-world-outline' ui-sref='guide'></button>
+      <h1 class='title' ui-sref='calc'>TipAdvisor</h1>
+      <button class='button button-icon icon ion-ios7-gear-outline' ui-sref='settings'></button>
+    </ion-header-bar>
     <ion-nav-view animation='fade-in-out'></ion-nav-view>
   </body>
 </html>

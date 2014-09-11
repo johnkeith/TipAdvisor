@@ -41,9 +41,9 @@ body {
 
 .bill-container{
   background: $niagara-green;
-  border-bottom: 2px solid darken($niagara-green, 20%);
+  border-bottom: 0px solid darken($niagara-green, 20%);
   font-size: 1.6em;
-  padding: 30px 15px 30px 15px;
+  padding: 20px 15px 20px 15px;
   .header{
     display: inline-block;
   }
@@ -51,6 +51,7 @@ body {
     display: inline-block;
     float: right;
     font-weight: bold;
+    font-size: 22px;
   }
 }
 
@@ -62,7 +63,7 @@ body {
   }
   background: $curious-blue;
   font-size: 1.6em;
-  padding: 30px 15px 10px 15px;
+  padding: 20px 15px 10px 15px;
   .header{
     display: inline-block;
     float: left;
@@ -72,14 +73,15 @@ body {
     display: inline-block;
     float: right;
     font-weight: bold;
+    font-size: 22px;
     text-align: right;
   }
 }
 
 .tip-slider-container {
   background: $curious-blue;
-  border-bottom: 2px solid darken($curious-blue, 20%);
-  padding: 0 15px 30px 15px;
+  border-bottom: 0px solid darken($curious-blue, 20%);
+  padding: 0 15px 20px 15px;
   .tip-slider {
     &::-webkit-slider-thumb {
       -webkit-appearance: none;
@@ -105,9 +107,9 @@ body {
 
 .total-container{
   background: $niagara-green;
-  border-bottom: 2px solid darken($niagara-green, 20%);
+  border-bottom: 0px solid darken($niagara-green, 20%);
   font-size: 1.6em;
-  padding: 30px 15px 30px 15px;
+  padding: 20px 15px 20px 15px;
   .header{
     display: inline-block;
   }
@@ -115,6 +117,7 @@ body {
     display: inline-block;
     float: right;
     font-weight: bold;
+    font-size: 22px;
   }
 }
 
@@ -159,7 +162,7 @@ body {
       }
       background: white;
       border: none;
-      border: 1px solid darken($niagara-green, 20%);
+      border: 1px solid white;
       border-bottom-width:1px;
       color: $ebony-clay;
       cursor: pointer;
@@ -192,15 +195,8 @@ body {
   opacity: 1;
 }
 
-.fixed-list {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-}
-
 .guide-list {
-  padding-top:45px;
+
   .item-avatar-left {
     padding-left: 16px;
   }
@@ -241,21 +237,21 @@ body {
   box-shadow: none;
   margin: 0px;
 }
-.card-niagara {
+.card-curious-blue {
   .item {
     &:last-child {
       border-bottom-right-radius: 0px;
       border-bottom-left-radius: 0px;
     }
-    background: $niagara-green;
-    border-width:2px;
+    background: $curious-blue;
+    border-width:0px;
     border-top-width: 0px;
     border-right-width: 0px;
     border-left-width: 0px;
     border-radius: 0px;
     border-color: darken($niagara-green, 20%);
     color: white;
-    font-size: 1.6em;
+    font-size: 1.3em;
     padding: 20px 10px 20px 10px;
     .toggle {
       margin: 1px;
@@ -288,7 +284,7 @@ body {
   }
 }
 .pane {
-  background: white;
+  background: $niagara-green;
 }
 .bar {
   border-bottom: 0px solid transparent;
