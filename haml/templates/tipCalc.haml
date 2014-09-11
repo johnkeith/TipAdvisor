@@ -1,4 +1,4 @@
-%ion-view{ title: "TipCalc", "animation" => "fade-in" }
+%ion-view{ title: "TipCalc" }
   %ion-content{ "ng-controller" => "tipCalcCtrl", "scroll" => "false" }
     .calc-container
       .bill-container
@@ -9,9 +9,8 @@
         .header Tip
         .cur-tip
           ({{ tip + "%" }}) {{ tipInCur | currency }}
-          
       .tip-slider-container
-        %input.tip-slider{ type: "range", min: "0", max: "30", step: "1", "ng-model" => "tip", "ng-change" => "calcTotals()" }
+        %input.tip-slider.super-scaled-range{ type: "range", min: "0", max: "30", step: "1", "ng-model" => "tip", "ng-change" => "calcTotals()" }
       .total-container
         .header Total
         .cur-total

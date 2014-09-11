@@ -93,7 +93,7 @@ body {
       width: 20px;
     }
     &::-webkit-slider-thumb:active {
-      -webkit-transform: scale(1.4);
+      -webkit-transform: scale(1.6);
       transform: scale(1.6);
     }
     -webkit-appearance: none;
@@ -121,7 +121,9 @@ body {
   }
 }
 
-.num-btns-container { 
+.num-btns-container {
+  bottom: 0;
+  position: absolute; 
   width:100%;
   .row-btns {
     &:after {
@@ -180,7 +182,6 @@ body {
 }
 
 .hidden-calc {
-  margin-top:100px;
   -webkit-transition: 0.5s linear all;
   -moz-transition: 0.5s linear all;
   -ms-transition: 0.5s linear all;
@@ -190,7 +191,6 @@ body {
   opacity: 0;  
 }
 .slide-up-calc {
-  margin-top:0px;
   -ms-opacity: 1;
   opacity: 1;
 }
