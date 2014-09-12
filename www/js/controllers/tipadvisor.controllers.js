@@ -81,4 +81,9 @@ angular.module("tipadvisor.controllers", [])
       $ionicGesture.on('swiperight', function(e){
         $state.go('calc');
       }, element);
+
+      $scope.taxToggle = false;
+      $scope.taxToggleClk = function(){
+        
+      }
   }]);

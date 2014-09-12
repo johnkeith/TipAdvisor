@@ -6,5 +6,30 @@ angular.module('tipadvisor.directives', [])
         link: function(scope, element, attrs){
           $animate.addClass(element, 'slide-up-calc');
         }
-      }
+      };
+  }])
+  .directive('showCalc', ["$compile",
+    function($compile){
+      return function(scope, element, attrs){
+        element.bind("click", function(){
+          console.log("I'm in the directive");
+          // var calcSpace = angular.element(document.getElementById('calc-space'));
+          // var ionContent = angular.element(document.getElementById('calc-showable'));
+          // if (calcSpace == null){
+          //   ionContent.append($compile("<div calc></div>")(scope));
+          // }
+          // else {
+          //   calcSpace.remove();
+          // }
+        });
+      };
   }]);
+  // .directive('showCalc', ["$compile",
+  //   function(){
+  //     console.log("I'm in the func!");
+  //     return {
+  //       link: function(scope, element, attrs){
+  //         console.log("I'm in the linking function");
+  //       }
+  //     }
+  // }]);

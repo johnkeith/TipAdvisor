@@ -252,12 +252,14 @@ body {
     border-color: darken($niagara-green, 20%);
     color: white;
     font-size: 1.3em;
+    opacity: 1;
     padding: 20px 10px 20px 10px;
     .toggle {
       margin: 1px;
     }
   }
 }
+
 
 @media (max-height: 480px) {
   .num-btns-container {
