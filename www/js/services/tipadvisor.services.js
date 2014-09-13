@@ -1,12 +1,12 @@
 angular.module("tipadvisor.services", [])
   .factory('tipCalcFac', function(){
     var calc = {
-      bill: { dollars: "0", cents: ""}, 
-      tip: "15", 
+      bill: { dollars: "0", cents: ""},
+      tip: "15",
       billWithTip: "0",
-      tipInCur: "0", 
+      tipInCur: "0",
       centsPressed: false
-    }
+    };
 
     return {
       getBill: function(){
@@ -87,9 +87,21 @@ angular.module("tipadvisor.services", [])
     return {
       allCountries: function(){
         return tipGuide;
-      }, 
+      },
       getById: function(id){
         return tipGuide[id];
       }
-    }
+    };
+  })
+  .factory('taxPercent', function(){
+    var taxInfo = {
+      ints: "", 
+      fracts: "", 
+      subTax: false
+    };
+    return {
+      getTaxPer: function(){
+        return taxInfo;
+      }
+    };
   });

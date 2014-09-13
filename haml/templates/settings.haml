@@ -4,12 +4,11 @@
       .item.item-toggle.item-text-wrap
         Subtract Sales Tax
         %label.toggle.toggle-niagara
-          %input{ type: "checkbox", "ng-model" => "taxToggle", "showcalc" => "" }
+          %input{ type: "checkbox", "ng-model" => "taxPer.subTax", "showcalc" => "" }
           .track
             .handle
-      .item{ "ng-show" => "taxToggle" }
-        Test text
-    / %div{ "calc" => "", "ng-if" => "taxToggle" }
+      .item{ "ng-show" => "taxPer.subTax" }
+        {{taxPer.ints}}.{{taxPer.fracts}}%
         
     
 

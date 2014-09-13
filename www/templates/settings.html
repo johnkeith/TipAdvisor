@@ -4,16 +4,15 @@
       <div class='item item-toggle item-text-wrap'>
         Subtract Sales Tax
         <label class='toggle toggle-niagara'>
-          <input ng-model='taxToggle' showcalc='' type='checkbox'>
+          <input ng-model='taxPer.subTax' showcalc='' type='checkbox'>
           <div class='track'>
             <div class='handle'></div>
           </div>
         </label>
       </div>
-      <div class='item' ng-show='taxToggle'>
-        Test text
+      <div class='item' ng-show='taxPer.subTax'>
+        {{taxPer.ints}}.{{taxPer.fracts}}%
       </div>
     </div>
-    <!-- %div{ "calc" => "", "ng-if" => "taxToggle" } -->
   </ion-content>
 </ion-view>

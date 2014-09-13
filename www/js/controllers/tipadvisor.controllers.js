@@ -1,12 +1,6 @@
 angular.module("tipadvisor.controllers", [])
   .controller("tipCalcCtrl", ["$scope", "tipCalcFac", "$state", "$ionicGesture",
     function($scope, tipCalcFac, $state, $ionicGesture, calcTemplate){
-      // $scope.onSwipeRight = function(){
-      //   $state.go('/settings');
-      // };
-      // $scope.onSwipeLeft = function(){
-      //   $state.go('/guide');
-      // };
       var element = angular.element(document.querySelector('body'));
       
       $ionicGesture.on('swipeleft', function(e){
@@ -41,20 +35,11 @@ angular.module("tipadvisor.controllers", [])
         tipCalcFac.setTipInCur($scope.tipInCur);
       };
       $scope.clearBill = function(){
-        // tipCalcFac.setBillDollars("0");
-        // tipCalcFac.setBillCents("");
-        // tipCalcFac.setCentsPressed(false);
         $scope.bill.dollars = "0";
         $scope.bill.cents = "";
         $scope.centsPressed = false;
       };
-      // $scope.bill = {
-      //   dollars: "0",
-      //   cents: ""
-      // };
-      // $scope.tip = "15";
-      // $scope.billWithTip = "0";
-      // $scope.centsPressed = false;
+
       $scope.bill = tipCalcFac.getBill();
       $scope.tip = tipCalcFac.getTip();
       $scope.billWithTip = tipCalcFac.getBillWithTip();
@@ -64,6 +49,7 @@ angular.module("tipadvisor.controllers", [])
         tipCalcFac.setTip(n);
       });
   }])
+
   .controller("tipGuideCtrl", ["$scope", "tipGuideFac", "$state", "$ionicGesture",
     function($scope, tipGuideFac, $state, $ionicGesture){
       var element = angular.element(document.querySelector('body'));
@@ -74,16 +60,34 @@ angular.module("tipadvisor.controllers", [])
 
       $scope.guide = tipGuideFac.allCountries();
   }])
-  .controller("settingsCtrl", ["$scope", "$state", "$ionicGesture",
-    function($scope, $state, $ionicGesture){
+
+  .controller("settingsCtrl", ["$scope", "$state", "$ionicGesture", "taxPercent",
+    function($scope, $state, $ionicGesture, taxPercent){
       var element = angular.element(document.querySelector('body'));
       
       $ionicGesture.on('swiperight', function(e){
         $state.go('calc');
       }, element);
 
-      $scope.taxToggle = false;
-      $scope.taxToggleClk = function(){
-        
-      }
+      $scope.taxPer = taxPercent.getTaxPer(); 
+      $scope.btnInput = function(btnVal){
+        if(btnVal == "C"){
+          $scope.clearTaxPer();
+        }
+        else if(btnVal == "."){
+          $scope.decPressed = true;
+        }
+        else if($scope.decPressed == true && $scope.taxPer.fracts.length < 4){
+          $scope.taxPer.fracts += btnVal;
+        }
+        else if($scope.decPressed == false && $scope.taxPer.ints.length < 3){
+          $scope.taxPer.ints += btnVal;
+        }
+      };
+      $scope.decPressed = false;
+      $scope.clearTaxPer = function(){
+        $scope.taxPer.ints = "0";
+        $scope.taxPer.fracts = "0";
+        $scope.decPressed = false;
+      };
   }]);
