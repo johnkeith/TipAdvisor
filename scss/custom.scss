@@ -120,11 +120,14 @@ body {
     font-size: 22px;
   }
 }
-
+.from-top {
+  margin-top: 100px;
+}
 .num-btns-container {
   bottom: 0;
-  position: absolute; 
+  position: fixed; 
   width:100%;
+  z-index: 1000;
   .row-btns {
     &:after {
       content: "";

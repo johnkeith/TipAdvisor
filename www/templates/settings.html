@@ -4,7 +4,7 @@
       <div class='item item-toggle item-text-wrap'>
         Subtract Sales Tax
         <label class='toggle toggle-niagara'>
-          <input ng-model='taxToggle' type='checkbox'>
+          <input ng-model='taxToggle' showcalc='' type='checkbox'>
           <div class='track'>
             <div class='handle'></div>
           </div>
@@ -14,6 +14,6 @@
         Test text
       </div>
     </div>
-    <div showCalc=''>Show Calc</div>
+    <!-- %div{ "calc" => "", "ng-if" => "taxToggle" } -->
   </ion-content>
 </ion-view>
