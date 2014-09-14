@@ -198,7 +198,14 @@ body {
   opacity: 1;
 }
 #calc-showable {
-
+  -webkit-transition: 0.5s linear all;
+  -moz-transition: 0.5s linear all;
+  -ms-transition: 0.5s linear all;
+  -o-transition: 0.5s linear all;
+  transition: 0.5s linear all;
+}
+#calc-showable.ng-hide {
+  opacity: 0;
 }
 
 .guide-list {

@@ -1,5 +1,5 @@
 <ion-view title='TipAdvisorSettings'>
-  <ion-content id='calc-showable' ng-controller='settingsCtrl' scroll='false'>
+  <ion-content ng-controller='settingsCtrl' scroll='false'>
     <div class='card-curious-blue'>
       <div class='item item-toggle item-text-wrap'>
         Subtract Sales Tax
@@ -14,6 +14,6 @@
         {{taxPerConverted}}%
       </div>
     </div>
-    <div calc='' ng-show='taxPer.subTax'></div>
+    <div calc='' id='calc-showable' ng-show='taxPer.subTax'></div>
   </ion-content>
 </ion-view>
