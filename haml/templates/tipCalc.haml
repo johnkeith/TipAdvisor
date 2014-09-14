@@ -8,7 +8,7 @@
       .tip-container
         .header Tip
         .cur-tip
-          ({{ tip + "%" }}) {{ tipInCur | currency }}
+          {{ tipInCur | currency }} ({{ tip + "%" }})
       .tip-slider-container
         %input.tip-slider.super-scaled-range{ type: "range", min: "0", max: "30", step: "1", "ng-model" => "tip", "ng-change" => "calcTotals()" }
       .total-container

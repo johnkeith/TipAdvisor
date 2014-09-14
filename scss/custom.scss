@@ -20,7 +20,7 @@ html {
 }
 body {
   background: darken($curious-blue, 10%);
-  color: white;
+  color: #1F1F21;
   font-family: 'Lato', sans-serif;
   -webkit-tap-highlight-color:rgba(0,0,0,0);
 }
@@ -31,93 +31,67 @@ body {
   margin:0 auto;
 }
 
-.title-bar {
-  background: $niagara-green;
-  color: white;
-  font-family: 'Kalam', cursive;
-  font-size:1em;
-  text-align: center;
-}
-
 .bill-container{
-  background: $niagara-green;
-  border-bottom: 0px solid darken($niagara-green, 20%);
-  font-size: 1.6em;
-  padding: 20px 15px 20px 15px;
+  padding: 10px;
   .header{
-    display: inline-block;
+    color: #FF3A2D;
+    font-size: 1.4em;
+    padding-bottom: 5px;
   }
   .cur-bill{
-    display: inline-block;
-    float: right;
-    font-weight: bold;
-    font-size: 22px;
+    font-size: 1.8em;
   }
 }
 
 .tip-container{
-  &:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-  background: $curious-blue;
-  font-size: 1.6em;
-  padding: 20px 15px 10px 15px;
+  padding: 10px;
   .header{
-    display: inline-block;
-    float: left;
-    width: 33.33%;
+    color: #FF3A2D;
+    font-size: 1.4em;
+    padding-bottom: 5px;
   }
   .cur-tip{
-    display: inline-block;
-    float: right;
-    font-weight: bold;
-    font-size: 22px;
-    text-align: right;
+    font-size: 1.8em;
   }
 }
 
 .tip-slider-container {
-  background: $curious-blue;
-  border-bottom: 0px solid darken($curious-blue, 20%);
-  padding: 0 15px 20px 15px;
   .tip-slider {
     &::-webkit-slider-thumb {
       -webkit-appearance: none;
-      border-radius: 50%;
       border:2px solid $top-bar-border;
+      border-radius: 50%;
       background: $sunset-orange;
-      height: 20px;
+      height: 30px;
       outline:none;
-      width: 20px;
+      width: 30px;
     }
     &::-webkit-slider-thumb:active {
       -webkit-transform: scale(1.6);
       transform: scale(1.6);
     }
     -webkit-appearance: none;
-    background: white;
+    background: black;
     display: inline-block;
-    height: 6px;
+    height: 4px;
     -webkit-transform: translate3d(0px,0px,0px);
     width: 100%;
+    // -ms-transform: rotate(270deg); /* IE 9 */
+    // -webkit-transform: rotate(270deg); /* Chrome, Safari, Opera */
+    // transform: rotate(270deg);
+    z-index: 10000;
   }
 }
 
 .total-container{
-  background: $niagara-green;
-  border-bottom: 0px solid darken($niagara-green, 20%);
-  font-size: 1.6em;
-  padding: 20px 15px 20px 15px;
+  padding: 10px;
   .header{
-    display: inline-block;
+    color: #FF3A2D;
+    font-size: 1.4em;
+    padding-bottom: 5px;
   }
   .cur-total{
-    display: inline-block;
-    float: right;
-    font-weight: bold;
-    font-size: 22px;
+    font-size: 1.8em;
   }
 }
 .from-top {
@@ -299,7 +273,7 @@ body {
   }
 }
 .pane {
-  background: $niagara-green;
+  background: white;
 }
 .bar {
   border-bottom: 0px solid transparent;
