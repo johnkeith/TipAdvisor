@@ -57,9 +57,9 @@ angular.module("tipadvisor.services", [])
         bill = billObj.dollars + "." + billObj.cents;
         return parseFloat(bill);
       },
-      defaultCalc: function(bill, percent){
-        bill = parseFloat(bill);
-        return bill += bill * percent;
+      defaultCalc: function(bill, tipPercent, tax){
+        bill -= tax
+        return bill += bill * tipPercent;
       }
     }
   })
@@ -102,6 +102,23 @@ angular.module("tipadvisor.services", [])
     return {
       getTaxPer: function(){
         return taxInfo;
+      },
+      taxForBill: function(bill){
+        percent = parseFloat(taxInfo.ints + "." + taxInfo.fracts) / 100;
+        if (isNaN(percent) || percent === 0){
+          return 0
+        }
+        else {
+          return bill * percent;
+        }
+      },
+      conToString: function(){
+        if (taxInfo.ints == "" && taxInfo.fracts == ""){
+          return "0.0";
+        }
+        else {
+          return taxInfo.ints + "." + taxInfo.fracts;
+        }
       }
     };
   });

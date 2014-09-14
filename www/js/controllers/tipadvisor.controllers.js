@@ -1,6 +1,6 @@
 angular.module("tipadvisor.controllers", [])
-  .controller("tipCalcCtrl", ["$scope", "tipCalcFac", "$state", "$ionicGesture",
-    function($scope, tipCalcFac, $state, $ionicGesture, calcTemplate){
+  .controller("tipCalcCtrl", ["$scope", "tipCalcFac", "$state", "$ionicGesture", "taxPercent",
+    function($scope, tipCalcFac, $state, $ionicGesture, taxPercent){
       var element = angular.element(document.querySelector('body'));
       
       $ionicGesture.on('swipeleft', function(e){
@@ -26,13 +26,23 @@ angular.module("tipadvisor.controllers", [])
         }
         $scope.calcTotals();
       };
+
       $scope.calcTotals = function(){
         tipConverted = tipCalcFac.percentConvertor($scope.tip);
         billConverted = tipCalcFac.billConvertor($scope.bill);
-        $scope.billWithTip = tipCalcFac.defaultCalc(billConverted, tipConverted);
+        taxAmount = taxPercent.taxForBill(billConverted);
+
+        $scope.billWithTip = tipCalcFac.defaultCalc(billConverted, tipConverted, taxAmount);
         tipCalcFac.setBillWithTip($scope.billWithTip);
+        
         $scope.tipInCur = $scope.billWithTip - billConverted;
         tipCalcFac.setTipInCur($scope.tipInCur);
+
+        console.log(tipConverted);
+        console.log(billConverted);
+        console.log(taxAmount);
+        console.log($scope.billWithTip);
+        console.log($scope.tipInCur);
       };
       $scope.clearBill = function(){
         $scope.bill.dollars = "0";
@@ -69,7 +79,14 @@ angular.module("tipadvisor.controllers", [])
         $state.go('calc');
       }, element);
 
-      $scope.taxPer = taxPercent.getTaxPer(); 
+      $scope.taxPer = taxPercent.getTaxPer();
+
+      $scope.taxPerConverted = taxPercent.conToString();
+      $scope.updateTaxPerConverted = function(){
+        $scope.taxPerConverted = taxPercent.conToString();
+      }
+      // NEED TO FIGURE OUT WHY SCOPE WATCH IS NOT REFIRING THE FUNC TO CONVERT TO A STRING
+
       $scope.btnInput = function(btnVal){
         if(btnVal == "C"){
           $scope.clearTaxPer();
@@ -77,17 +94,18 @@ angular.module("tipadvisor.controllers", [])
         else if(btnVal == "."){
           $scope.decPressed = true;
         }
-        else if($scope.decPressed == true && $scope.taxPer.fracts.length < 4){
+        else if($scope.decPressed == true && $scope.taxPer.fracts.length < 3){
           $scope.taxPer.fracts += btnVal;
         }
-        else if($scope.decPressed == false && $scope.taxPer.ints.length < 3){
+        else if($scope.decPressed == false && $scope.taxPer.ints.length < 2){
           $scope.taxPer.ints += btnVal;
         }
+        $scope.updateTaxPerConverted();
       };
       $scope.decPressed = false;
       $scope.clearTaxPer = function(){
-        $scope.taxPer.ints = "0";
-        $scope.taxPer.fracts = "0";
+        $scope.taxPer.ints = "";
+        $scope.taxPer.fracts = "";
         $scope.decPressed = false;
       };
   }]);

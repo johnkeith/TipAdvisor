@@ -125,7 +125,7 @@ body {
 }
 .num-btns-container {
   bottom: 0;
-  position: fixed; 
+  position: absolute; 
   width:100%;
   z-index: 1000;
   .row-btns {
