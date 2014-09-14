@@ -1,14 +1,15 @@
 %ion-view{ title: "TipAdvisorSettings" }
-  %ion-content#calc-showable{ "ng-controller" => "settingsCtrl" }
+  %ion-content#calc-showable{ "ng-controller" => "settingsCtrl", "scroll" => "false" }
     .card-curious-blue
       .item.item-toggle.item-text-wrap
         Subtract Sales Tax
         %label.toggle.toggle-niagara
-          %input{ type: "checkbox", "ng-model" => "taxPer.subTax", "showcalc" => "" }
+          %input{ type: "checkbox", "ng-model" => "taxPer.subTax" }
           .track
             .handle
       .item{ "ng-show" => "taxPer.subTax" }
         {{taxPerConverted}}%
+    %div{ "calc" => "", "ng-show" => "taxPer.subTax" }
         
     
 

@@ -113,8 +113,14 @@ angular.module("tipadvisor.services", [])
         }
       },
       conToString: function(){
-        if (taxInfo.ints == "" && taxInfo.fracts == ""){
+        if (taxInfo.ints === "" && taxInfo.fracts === ""){
           return "0.0";
+        }
+        else if (taxInfo.ints === "" && taxInfo.fracts !== "") {
+          return "0." + taxInfo.fracts;
+        }
+        else if (taxInfo.ints !== "" && taxInfo.fracts === "") {
+          return taxInfo.ints + ".0";
         }
         else {
           return taxInfo.ints + "." + taxInfo.fracts;
