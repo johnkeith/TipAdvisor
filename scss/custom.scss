@@ -4,6 +4,7 @@ $curious-blue: rgba(30, 139, 195, 1);
 $ebony-clay: rgba(34, 49, 63, 1);
 $jaffa-orange: rgba(235, 151, 78, 1);
 $sunset-orange: rgba(246, 71, 71, 1);
+$picton-blue: rgba(34, 167, 240, 1);
 
 $top-bar-bg: rgba(248, 248, 248, 1);
 $top-bar-border: rgba(248, 248, 248, 1);
@@ -47,6 +48,9 @@ body {
   }
 }
 
+.tax-container {
+
+}
 .tip-container{
   padding: 10px;
   .header{
@@ -90,6 +94,7 @@ body {
     z-index: 10000;
   }
 }
+
 
 .total-container{
   padding: 10px;
