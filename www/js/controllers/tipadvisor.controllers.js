@@ -11,6 +11,8 @@ angular.module("tipadvisor.controllers", [])
         $state.go('guide');
       }, element);
 
+      $scope.calcVisible = true;
+
       $scope.btnInput = function(btnVal){
         if(btnVal == "C"){
           $scope.clearBill();
@@ -21,7 +23,7 @@ angular.module("tipadvisor.controllers", [])
         else if($scope.centsPressed == true && $scope.bill.cents.length < 2){
           $scope.bill.cents += btnVal;
         }
-        else if($scope.centsPressed == false && $scope.bill.dollars.length < 8){
+        else if($scope.centsPressed == false && $scope.bill.dollars.length < 7){
           $scope.bill.dollars += btnVal;
         }
         $scope.calcTotals();

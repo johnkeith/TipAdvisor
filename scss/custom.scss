@@ -5,6 +5,9 @@ $ebony-clay: rgba(34, 49, 63, 1);
 $jaffa-orange: rgba(235, 151, 78, 1);
 $sunset-orange: rgba(246, 71, 71, 1);
 $picton-blue: rgba(34, 167, 240, 1);
+$crusta: rgba(242, 120, 75, 1);
+$sunglo: rgba(226, 106, 106, 1);
+$lynch: rgba(108, 122, 137, 1);
 
 $top-bar-bg: rgba(248, 248, 248, 1);
 $top-bar-border: rgba(248, 248, 248, 1);
@@ -21,7 +24,7 @@ html {
 }
 body {
   background: darken($curious-blue, 10%);
-  color: #1F1F21;
+  color: white;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
   -webkit-tap-highlight-color:rgba(0,0,0,0);
 }
@@ -34,78 +37,120 @@ body {
 .button-right {
   float: right;
 }
+.calc-container {
+  height: 100%;
+  text-align: left;
+}
 
 .bill-container{
-  padding: 10px 10px 20px 10px;
-  .header{
-    color: #FF3A2D;
-    font-size: 2em;
-    padding-bottom: 10px;
-  }
+  background: $sunglo;
+  padding: 20px 5px 20px 5px;
+  width: 100%;
   .cur-bill{
+    font-size: 2.1em;
+    float: right;
+    vertical-align: middle;
+  }
+  .label{
+    color: darken($sunglo, 20%);
     font-size: 2.4em;
-    padding-left: 10px;
+    font-weight: bold;
+  }
+  &:hover, &:hover .label {
+    background: white;
+    cursor: pointer;
+    color: $lynch;
   }
 }
 
 .tax-container {
+  background: $sunglo;
+    padding: 20px 5px 20px 5px;
 
+  width: 100%;
+  .cur-tax{
+    font-size: 2.1em;
+    float: right;
+    vertical-align: middle;
+  }
+  .label{
+    color: darken($sunglo, 20%);
+    font-size: 2.4em;
+    font-weight: bold;
+  }
+  &:hover, &:hover .label {
+    background: white;
+    cursor: pointer;
+    color: $lynch;
+  }
 }
 .tip-container{
-  padding: 10px;
-  .header{
-    color: #FF3A2D;
-    font-size: 2em;
-    padding-bottom: 10px;
-  }
+  background: $picton-blue;
+  padding: 20px 5px 20px 5px;
+
+  width: 100%;
   .cur-tip{
+    font-size: 2.1em;
+    float: right;
+    vertical-align: middle;
+  }
+  .label{
+    color: darken($picton-blue, 20%);
     font-size: 2.4em;
-    padding-left: 10px;
+    font-weight: bold;
   }
 }
 
 .tip-slider-container {
-  padding-top: 10px;
-  padding-bottom: 10px;
+  background: $picton-blue;
+  padding: 20px 0px 30px 0px;
+
+  width: 100%;
   .tip-slider {
     &::-webkit-slider-thumb {
       -webkit-appearance: none;
-      border:2px solid $top-bar-border;
+      border:3px solid white;
       border-radius: 50%;
-      background: $sunset-orange;
-      height: 45px;
+      background: $sunglo;
+      height: 40px;
       outline:none;
-      width: 45px;
+      width: 40px;
     }
     &::-webkit-slider-thumb:active {
       -webkit-transform: scale(1.2);
       transform: scale(1.2);
+      z-index: 10000;
     }
     -webkit-appearance: none;
     border-radius: 0;
-    background: black;
-    display: inline-block;
-    height: 2px;
+    background: white;
+    display: block;
+    height: 6px;
     -webkit-transform: translate3d(0px,0px,0px);
     width: 100%;
     // -ms-transform: rotate(270deg); /* IE 9 */
     // -webkit-transform: rotate(270deg); /* Chrome, Safari, Opera */
     // transform: rotate(270deg);
     z-index: 10000;
+    vertical-align: middle;
   }
 }
 
 
 .total-container{
-  padding: 10px;
-  .header{
-    color: #FF3A2D;
-    font-size: 2em;
-    padding-bottom: 10px;
-  }
+  background: $niagara-green;
+  color: white;
+  padding: 20px 5px 20px 5px;
+  width: 100%;
   .cur-total{
+    font-size: 2.1em;
+    float: right;
+    vertical-align: middle;
+  }
+  .label{
+    color: darken($niagara-green, 20%);
     font-size: 2.4em;
-    padding-left: 10px;
+    font-weight: bold;
   }
 }
 .from-top {
@@ -119,7 +164,7 @@ body {
   .row-btns {
     &:after {
       content: "";
-      display: table;
+      
       clear: both;
     }
     &:first-child {
@@ -130,7 +175,7 @@ body {
     &:last-child {
       .num-btn {
         border-bottom-width:0px;
-        height: 74px;
+        height: 69px;
       }
     }
     .num-btn {
@@ -144,7 +189,7 @@ body {
         width: 106px;
       }
       &:active {
-        background: $sunset-orange;
+        background: $sunglo;
         // border: 1px solid transparent;
         // border-bottom-width:4px;
         color: white;
@@ -155,14 +200,14 @@ body {
       }
       background: white;
       border: none;
-      border: 1px solid white;
+      border: 0.5px solid #ddd;
       border-bottom-width:1px;
-      color: $ebony-clay;
+      color: $lynch;
       cursor: pointer;
       display: inline-block;
       float: left;
-      font-size: 1.4em;
-      height: 73px;
+      font-size: 1.3em;
+      height: 68px;
       margin:0px;
       outline: none;
       text-align: center;
@@ -310,7 +355,7 @@ body {
   }
 }
 // ionic customizations
-.header-bar {
+.label-bar {
   button:active {
     color:$sunset-orange;
   }

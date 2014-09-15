@@ -3,17 +3,21 @@
     / %button.button-right.button.button-icon.icon.ion-ios7-gear-outline{ "ui-sref" => "settings"}
     .calc-container
       .bill-container
-        .header Bill
         .cur-bill
           {{ bill.dollars + "." + bill.cents | currency }}
+        .label Bill
+      .tax-container 
+        .cur-tax
+          (0%) $0.00
+        .label Tax
       .tip-container
-        .header Tip
         .cur-tip
-          {{ tipInCur | currency }} ({{ tip + "%" }})
+          ({{ tip + "%" }}) {{ tipInCur | currency }}
+        .label Tip
       .tip-slider-container
         %input.tip-slider.super-scaled-range{ type: "range", min: "0", max: "30", step: "1", "ng-model" => "tip", "ng-change" => "calcTotals()" }
       .total-container
-        .header Total
         .cur-total
           {{ billWithTip | currency }}
+        .label Total
       %div{ "calc" => "", "ng-show" => "calcVisible" }
