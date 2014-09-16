@@ -114,7 +114,7 @@ angular.module("tipadvisor.controllers", [])
         $scope.decPressed = false;
       };
   }])
-  .controller("testCtrl", ["$scope",
-    function($scope){
-      
+  .controller("testCtrl", ["$scope", "bill", "tax", "tip",
+    function($scope, bill, tax, tip){
+      $scope.bill = "Something";
   }]);
