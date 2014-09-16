@@ -29,8 +29,20 @@
     </ion-slide>
     <ion-slide>
       <div class='slide-box slide-total'>
-        <div class='number'></div>
-        <div class='label'>Total</div>
+        <div class='slide-content'>
+          <div class='summary summary-bill'>
+            <div class='summary-content'>Bill: {{ billAsCurrency | currency }}</div>
+          </div>
+          <div class='summary summary-tip'>
+            <div class='summary-content'>Tip: ({{ tipAsPercent | number }} %) {{ tipAsCurrency | currency }}</div>
+          </div>
+          <div class='summary summary-tax'>
+            <div class='summary-content'>Tax: ({{ taxAsPercent | number }} %) {{ taxAsCurrency | currency }}</div>
+          </div>
+          <div class='summary summary-total'>
+            <div class='summary-content'>Total:</div>
+          </div>
+        </div>
       </div>
     </ion-slide>
   </ion-slide-box>

@@ -20,8 +20,15 @@
           .label Tax
     %ion-slide
       .slide-box.slide-total
-        .number 
-        .label Total
+        .slide-content
+          .summary.summary-bill 
+            .summary-content Bill: {{ billAsCurrency | currency }}
+          .summary.summary-tip
+            .summary-content Tip: ({{ tipAsPercent | number }} %) {{ tipAsCurrency | currency }} 
+          .summary.summary-tax
+            .summary-content Tax: ({{ taxAsPercent | number }} %) {{ taxAsCurrency | currency }}
+          .summary.summary-total
+            .summary-content Total: 
   %p ACTIVE SECTION: {{ activeSection }}
   %button{"ng-click" => "insertTestData()"} INSERT TEST DATA
   %div{ "calc" => "" }

@@ -211,7 +211,7 @@ body {
       display: inline-block;
       float: left;
       font-size: 1.3em;
-      height: 66px;
+      height: 67px;
       margin:0px;
       outline: none;
       text-align: center;
@@ -398,6 +398,33 @@ $debian-red: RGBA(212, 14, 82, 1);
   }
   &.slide-total {
     background: $dark-purple;
+    .slide-content {
+      font-size: 25px;
+      font-weight: bold;
+      text-align: right;
+      .summary {
+        display: table;
+        height: 75px;
+        padding-right: 15px;
+        width: 100%;
+        .summary-content {
+          display: table-cell;
+          vertical-align: middle;
+        }
+      }
+      .summary-bill {
+        background: $blue-green;
+      }
+      .summary-tip {
+        background: $lemon;
+      }
+      .summary-tax {
+        background: $debian-red;
+      }
+      .summary-total {
+        background: $dark-purple;
+      }
+    }
   }
 }
 
