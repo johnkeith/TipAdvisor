@@ -14,7 +14,8 @@ angular.module("tipadvisor.controllers", [])
       $scope.calcVisible = true;
       $scope.centsPressed = false;
       // making centsPressed a global scope var b/c it needs to be
-      // access by both services
+      // accessed by both services
+
       $scope.btnInput = function(btnVal){
         if(btnVal == "C"){
           $scope.clearBill();
@@ -112,4 +113,8 @@ angular.module("tipadvisor.controllers", [])
         $scope.taxPer.fracts = "";
         $scope.decPressed = false;
       };
+  }])
+  .controller("testCtrl", ["$scope",
+    function($scope){
+      
   }]);
