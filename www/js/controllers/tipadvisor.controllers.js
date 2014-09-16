@@ -126,5 +126,19 @@ angular.module("tipadvisor.controllers", [])
       $scope.addCents = function(c){
         bill.addToFracts(c);
       };
+  }])
+  .controller('sliderView', ["$scope", "bill", "tax", "tip", 
+    function($scope, bill, tip, tax){
+      $scope.activeSection = 0;
+      $scope.slideHasChanged = function(i){
+        $scope.activeSection = i;
+      };
 
+      $scope.decimalPressed = false;
+      $scope.btnInput = function(b){
+        // check what section is active
+        // check if the decimal has been pressed
+        // check what the input says to do
+        // fire recalculations
+      }
   }]);

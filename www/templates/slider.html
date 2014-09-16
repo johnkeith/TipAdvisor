@@ -1,1 +1,39 @@
-<input class='tip-slider super-scaled-range' max='30' min='0' ng-change='calcTotals()' ng-model='tip' step='1' type='range'>
+<div ng-controller='sliderView' scroll='false'>
+  <ion-slide-box does-continue='true' on-slide-changed='slideHasChanged($index)' show-pager='false'>
+    <ion-slide>
+      <div class='slide-box slide-bill'>
+        <div class='slide-content'>
+          <div class='number'></div>
+          <div class='label'>Bill</div>
+        </div>
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <div class='slide-box slide-tip'>
+        <h1>TIP</h1>
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <div class='slide-box slide-tax'>
+        <h1>TAX</h1>
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <div class='slide-box slide-total'>
+        <h1>TOTAL</h1>
+      </div>
+    </ion-slide>
+  </ion-slide-box>
+  <p>ACTIVE SECTION: {{ activeSection }}</p>
+  <!-- <ion-slide-box on-slide-changed="slideHasChanged($index)"> -->
+  <!-- <ion-slide> -->
+  <!-- <div class="box blue"><h1>BLUE</h1></div> -->
+  <!-- </ion-slide> -->
+  <!-- <ion-slide> -->
+  <!-- <div class="box yellow"><h1>YELLOW</h1></div> -->
+  <!-- </ion-slide> -->
+  <!-- <ion-slide> -->
+  <!-- <div class="box pink"><h1>PINK</h1></div> -->
+  <!-- </ion-slide> -->
+  <!-- </ion-slide-box> -->
+</div>

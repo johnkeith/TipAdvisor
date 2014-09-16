@@ -358,6 +358,34 @@ body {
     }
   }
 }
+
+.slide-box {
+  height: 300px;
+  .slide-content {
+    text-align: center;
+    .number {
+
+    }
+    .label {
+
+    }
+  }
+  &.slide-bill {
+    background: $niagara-green;
+  }
+  &.slide-tax {
+    background: $sunglo;
+  }
+  &.slide-tip {
+    background: $picton-blue;
+  }
+  &.slide-total {
+    background: $ebony-clay;
+  }
+}
+
+
+
 // ionic customizations
 .label-bar {
   button:active {

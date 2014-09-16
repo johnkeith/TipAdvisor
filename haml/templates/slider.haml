@@ -1,0 +1,28 @@
+%div{ "ng-controller" => "sliderView", "scroll" => "false" }
+  %ion-slide-box{ "on-slide-changed" => "slideHasChanged($index)", "show-pager" => "false", "does-continue" => "true" }
+    %ion-slide
+      .slide-box.slide-bill
+        .slide-content
+          .number 
+          .label Bill
+    %ion-slide
+      .slide-box.slide-tip
+        %h1 TIP
+    %ion-slide
+      .slide-box.slide-tax
+        %h1 TAX
+    %ion-slide
+      .slide-box.slide-total
+        %h1 TOTAL
+  %p ACTIVE SECTION: {{ activeSection }}
+  / <ion-slide-box on-slide-changed="slideHasChanged($index)">
+  /   <ion-slide>
+  /     <div class="box blue"><h1>BLUE</h1></div>
+  /   </ion-slide>
+  /   <ion-slide>
+  /     <div class="box yellow"><h1>YELLOW</h1></div>
+  /   </ion-slide>
+  /   <ion-slide>
+  /     <div class="box pink"><h1>PINK</h1></div>
+  /   </ion-slide>
+  / </ion-slide-box>
