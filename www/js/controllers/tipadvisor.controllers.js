@@ -127,18 +127,61 @@ angular.module("tipadvisor.controllers", [])
         bill.addToFracts(c);
       };
   }])
-  .controller('sliderView', ["$scope", "bill", "tax", "tip", 
+  .controller('sliderView', ["$scope", "bill", "tip", "tax", 
     function($scope, bill, tip, tax){
+      // Testing scopes
+      $scope.bill = bill.get();
+      $scope.tip = tip.get();
+      $scope.tax = tax.get();
+      // 
+
+      // keep track of slider position
       $scope.activeSection = 0;
       $scope.slideHasChanged = function(i){
         $scope.activeSection = i;
       };
 
+      // init scopes
+      $scope.billAsCurrency = bill.getAsString();
+      $scope.tipAsCurrency = tip.getAsString();
+      $scope.tipAsPercent = tip.calcTipOfBillAsPercent($scope.billAsCurrency);
+      $scope.taxAsCurrency = tax.getAsString();
+      $scope.taxAsPercent = tax.calcTaxOfBillAsPercent($scope.billAsCurrency);
+
+      $scope.calcTip = function(){
+        $scope.tipAsCurrency = tip.getAsString();
+        $scope.tipAsPercent = tip.calcTipOfBillAsPercent($scope.billAsCurrency);
+      };
+
+      $scope.calcTax = function(){
+        $scope.taxAsCurrency = tax.getAsString();
+        $scope.taxAsPercent = tax.calcTaxOfBillAsPercent($scope.billAsCurrency);
+      };
+
+      $scope.calcBill = function(){
+        $scope.billAsCurrency = bill.getAsString();
+      };
+
+      $scope.calcTotal = function(){
+        $scope.total = "lots of methods!"
+      }
+
       $scope.decimalPressed = false;
       $scope.btnInput = function(b){
-        // check what section is active
-        // check if the decimal has been pressed
-        // check what the input says to do
-        // fire recalculations
-      }
+        bill.addToDollars(b);
+        $scope.calcBill();
+      };
+
+
+      $scope.insertTestData = function(){
+        $scope.bill.dollars = "20";
+        $scope.bill.cents = "20";
+        $scope.tip.dollars = "3";
+        $scope.tip.cents = "8";
+        $scope.tax.dollars = "1";
+        $scope.tax.cents = "4";
+        $scope.calcBill();
+        $scope.calcTip();
+        $scope.calcTax();
+      };
   }]);

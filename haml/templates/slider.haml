@@ -3,18 +3,28 @@
     %ion-slide
       .slide-box.slide-bill
         .slide-content
-          .number 
+          .number {{ billAsCurrency | currency }}
           .label Bill
     %ion-slide
       .slide-box.slide-tip
-        %h1 TIP
+        .slide-content
+          .number {{ tipAsCurrency | currency }}
+          .percent {{ tipAsPercent | number }} %
+          / %input.range.super-scaled-range{ type: "range", min: "0", max: "30", step: "1", "ng-model" => "tip", "ng-change" => "calcTotals()" }
+          .label Tip
     %ion-slide
       .slide-box.slide-tax
-        %h1 TAX
+        .slide-content
+          .number {{ taxAsCurrency | currency }}
+          .percent {{ taxAsPercent | number }} %
+          .label Tax
     %ion-slide
       .slide-box.slide-total
-        %h1 TOTAL
+        .number 
+        .label Total
   %p ACTIVE SECTION: {{ activeSection }}
+  %button{"ng-click" => "insertTestData()"} INSERT TEST DATA
+  %div{ "calc" => "" }
   / <ion-slide-box on-slide-changed="slideHasChanged($index)">
   /   <ion-slide>
   /     <div class="box blue"><h1>BLUE</h1></div>

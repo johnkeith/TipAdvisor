@@ -15,10 +15,10 @@ angular.module("tipadvisor.services", [])
       getAsFloat: function(){
         return parseFloat(this.getAsString());
       },
-      addToInts: function(d){
+      addToDollars: function(d){
         bill.dollars += d;
       },
-      addToFracts: function(c){
+      addToCents: function(c){
         bill.cents += c;
       },
       clear: function(){
@@ -44,10 +44,10 @@ angular.module("tipadvisor.services", [])
       getAsFloat: function(){
         return parseFloat(this.getAsString());
       },
-      addToInts: function(d){
+      addToDollars: function(d){
         tax.dollars += d;
       },
-      addToFracts: function(c){
+      addToCents: function(c){
         tax.cents += c;
       },
       clear: function(){
@@ -56,6 +56,9 @@ angular.module("tipadvisor.services", [])
       },
       setDefaultTax: function(d){
         tax.defaultTaxPercent = d;
+      },
+      calcTaxOfBillAsPercent: function(b){
+        return this.getAsFloat() / b;
       }
     };
   })
@@ -63,8 +66,8 @@ angular.module("tipadvisor.services", [])
     var tip = {
       defaultTipPercent: "15.0",
       // will change to what is stored server side
-      tipPercentInts: "15",
-      tipPercentFracts: "0"
+      dollars: "0",
+      cents: "0"
     };
 
     return {
@@ -72,23 +75,23 @@ angular.module("tipadvisor.services", [])
         return tip;
       },
       getAsString: function(){
-        return tip.tipPercentInts + "." + tip.tipPercentFracts;
+        return tip.dollars + "." + tip.cents;
       },
       getAsFloat: function(){
         return parseFloat(this.getAsString());
       },
-      addToInts: function(i){
-        tip.tipPercentInts += i;
+      addToDollars: function(i){
+        tip.dollars += i;
       },
-      addToFracts: function(f){
-        tip.tipPercentFracts += f;
+      addToCents: function(f){
+        tip.cents += f;
       },
       clear: function(){
         tip.tipPercentInts = "0";
         tip.tipPercentFracts = "0";
       },
-      convertTipToPercent: function(){
-        return parseFloat(this.getAsString()) / 100;
+      calcTipOfBillAsPercent: function(b){
+        return parseFloat(this.getAsString()) / b;
       },
       setDefaultTip: function(d){
         defaultPercentTip = d;
@@ -96,7 +99,7 @@ angular.module("tipadvisor.services", [])
     };
   })
 
-  
+
   .factory('tipCalcFac', function(){
     var calc = {
       bill: { dollars: "0", cents: ""},

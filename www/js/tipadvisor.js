@@ -15,7 +15,7 @@ angular.module('tipAdvisor', [
     'use strict';
     $stateProvider
       .state('calc', {
-        url: '/',
+        url: '/calc',
         templateUrl: "./templates/tipCalc.html"
       })
       .state('guide', {
@@ -31,7 +31,7 @@ angular.module('tipAdvisor', [
         templateUrl: "./templates/test.html"
       })
       .state('slider', {
-        url: '/slider',
+        url: '/',
         templateUrl: "./templates/slider.html"
       });
     $urlRouterProvider.otherwise('/');

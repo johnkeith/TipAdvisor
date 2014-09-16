@@ -3,28 +3,40 @@
     <ion-slide>
       <div class='slide-box slide-bill'>
         <div class='slide-content'>
-          <div class='number'></div>
+          <div class='number'>{{ billAsCurrency | currency }}</div>
           <div class='label'>Bill</div>
         </div>
       </div>
     </ion-slide>
     <ion-slide>
       <div class='slide-box slide-tip'>
-        <h1>TIP</h1>
+        <div class='slide-content'>
+          <div class='number'>{{ tipAsCurrency | currency }}</div>
+          <div class='percent'>{{ tipAsPercent | number }} %</div>
+          <!-- %input.range.super-scaled-range{ type: "range", min: "0", max: "30", step: "1", "ng-model" => "tip", "ng-change" => "calcTotals()" } -->
+          <div class='label'>Tip</div>
+        </div>
       </div>
     </ion-slide>
     <ion-slide>
       <div class='slide-box slide-tax'>
-        <h1>TAX</h1>
+        <div class='slide-content'>
+          <div class='number'>{{ taxAsCurrency | currency }}</div>
+          <div class='percent'>{{ taxAsPercent | number }} %</div>
+          <div class='label'>Tax</div>
+        </div>
       </div>
     </ion-slide>
     <ion-slide>
       <div class='slide-box slide-total'>
-        <h1>TOTAL</h1>
+        <div class='number'></div>
+        <div class='label'>Total</div>
       </div>
     </ion-slide>
   </ion-slide-box>
   <p>ACTIVE SECTION: {{ activeSection }}</p>
+  <button ng-click='insertTestData()'>INSERT TEST DATA</button>
+  <div calc=''></div>
   <!-- <ion-slide-box on-slide-changed="slideHasChanged($index)"> -->
   <!-- <ion-slide> -->
   <!-- <div class="box blue"><h1>BLUE</h1></div> -->

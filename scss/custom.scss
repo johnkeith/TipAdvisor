@@ -359,28 +359,45 @@ body {
   }
 }
 
-.slide-box {
-  height: 300px;
-  .slide-content {
-    text-align: center;
-    .number {
+// slider colors
+$blue-green: RGBA(11, 153, 188, 1);
+$dark-purple: RGBA(92, 45, 80, 1);
+$lemon: RGBA(252, 224, 20, 1);
+$debian-red: RGBA(212, 14, 82, 1);
 
+.slide-box {
+  color: white;
+  display: table;
+  height: 300px;
+  width: 100%;
+  .slide-content {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    .number {
+      font-size: 60px;
+    }
+    .percent {
+      padding-top: 50px;
+      font-size: 50px;
     }
     .label {
-
+      font-size:50px;
+      font-weight: bold;
+      padding-top: 50px;
     }
   }
   &.slide-bill {
-    background: $niagara-green;
+    background: $blue-green;
   }
   &.slide-tax {
-    background: $sunglo;
+    background: $debian-red;
   }
   &.slide-tip {
-    background: $picton-blue;
+    background: $lemon;
   }
   &.slide-total {
-    background: $ebony-clay;
+    background: $dark-purple;
   }
 }
 
