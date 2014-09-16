@@ -116,5 +116,15 @@ angular.module("tipadvisor.controllers", [])
   }])
   .controller("testCtrl", ["$scope", "bill", "tax", "tip",
     function($scope, bill, tax, tip){
-      $scope.bill = "Something";
+      $scope.bill = bill.get();
+      $scope.tip = tip.get();
+      $scope.tipAsPercent = tip.convertTipToPercent();
+
+      $scope.addDollars = function(d){
+        bill.addToInts(d)
+      };
+      $scope.addCents = function(c){
+        bill.addToFracts(c);
+      };
+
   }]);

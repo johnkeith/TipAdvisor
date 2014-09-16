@@ -6,53 +6,97 @@ angular.module("tipadvisor.services", [])
     };
 
     return {
-      getBillString: function(){
+      get: function(){
+        return bill;
+      },
+      getAsString: function(){
         return bill.dollars + "." + bill.cents;
       },
-      getBillFloat: function(){
-        return parseFloat(getBillString());
+      getAsFloat: function(){
+        return parseFloat(this.getAsString());
       },
-      setBillDollars: function(d){
-        bill.dollars = d;
+      addToInts: function(d){
+        bill.dollars += d;
       },
-      setBillCents: function(c){
-        bill.cents = c;
+      addToFracts: function(c){
+        bill.cents += c;
       },
-      clearBill: function(){
+      clear: function(){
         bill.dollars = "0";
         bill.cents = "";
       }
     };
   })
   .factory('tax', function(){
-
-  })
-  .factory('tip', function(){
-    var tip = {
-      defaultTip: "15.0",
-      // will change to what is stored server side
-      tipInts: "15",
-      tipFracts: "0",
+    var tax = {
+      defaultTaxPercent: "0",
+      dollars: "0",
+      cents: ""
     };
 
     return {
-      getTipString: function(){
-        return tip.tipInts + "." + tipFracts;
+      get: function(){
+        return tax;
       },
-      setTipInts: function(i){
-        tip.tipInts = i;
+      getAsString: function(){
+        return tax.dollars + "." + tax.cents;
       },
-      setTipFracts: function(f){
-        tip.tipFracts = f;
+      getAsFloat: function(){
+        return parseFloat(this.getAsString());
       },
-      convertTipToPercent: function(){
-        return parseFloat(getTipString()) / 100;
+      addToInts: function(d){
+        tax.dollars += d;
       },
-      setDefaultTip: function(t){
-        defaultTip = t;
+      addToFracts: function(c){
+        tax.cents += c;
+      },
+      clear: function(){
+        tax.dollars = "0";
+        tax.cents = "";
+      },
+      setDefaultTax: function(d){
+        tax.defaultTaxPercent = d;
       }
     };
   })
+  .factory('tip', function(){
+    var tip = {
+      defaultTipPercent: "15.0",
+      // will change to what is stored server side
+      tipPercentInts: "15",
+      tipPercentFracts: "0"
+    };
+
+    return {
+      get: function(){
+        return tip;
+      },
+      getAsString: function(){
+        return tip.tipPercentInts + "." + tip.tipPercentFracts;
+      },
+      getAsFloat: function(){
+        return parseFloat(this.getAsString());
+      },
+      addToInts: function(i){
+        tip.tipPercentInts += i;
+      },
+      addToFracts: function(f){
+        tip.tipPercentFracts += f;
+      },
+      clear: function(){
+        tip.tipPercentInts = "0";
+        tip.tipPercentFracts = "0";
+      },
+      convertTipToPercent: function(){
+        return parseFloat(this.getAsString()) / 100;
+      },
+      setDefaultTip: function(d){
+        defaultPercentTip = d;
+      }
+    };
+  })
+
+  
   .factory('tipCalcFac', function(){
     var calc = {
       bill: { dollars: "0", cents: ""},

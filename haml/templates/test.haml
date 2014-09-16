@@ -1,2 +1,9 @@
 / Start testing things out by putting in the ng test ctrl
-%p {{ bill }}
+%div{ "ng-controller" => "testCtrl"}
+  %p Bill Dollars: {{ bill.dollars }}
+  %p Bill Cents: {{ bill.cents }}
+  %button{ "ng-click" => "addDollars(8)"} Add Dollar
+  %button{ "ng-click" => "addCents(4)"} Add Cents
+  %p Tip Percent Ints {{ tip.tipPercentInts }}
+  %p Tip Percent Fracts {{ tip.tipPercentFracts }}
+  %p Tip As Percent {{ tipAsPercent }} %

@@ -1,2 +1,10 @@
 <!-- Start testing things out by putting in the ng test ctrl -->
-<p>{{ bill }}</p>
+<div ng-controller='testCtrl'>
+  <p>Bill Dollars: {{ bill.dollars }}</p>
+  <p>Bill Cents: {{ bill.cents }}</p>
+  <button ng-click='addDollars(8)'>Add Dollar</button>
+  <button ng-click='addCents(4)'>Add Cents</button>
+  <p>Tip Percent Ints {{ tip.tipPercentInts }}</p>
+  <p>Tip Percent Fracts {{ tip.tipPercentFracts }}</p>
+  <p>Tip As Percent {{ tipAsPercent }} %</p>
+</div>
