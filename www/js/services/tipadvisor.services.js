@@ -1,4 +1,58 @@
 angular.module("tipadvisor.services", [])
+  .factory('bill', function(){
+    var bill = {
+      dollars: "0",
+      cents: ""
+    };
+
+    return {
+      getBillString: function(){
+        return bill.dollars + "." + bill.cents;
+      },
+      getBillFloat: function(){
+        return parseFloat(getBillString());
+      },
+      setBillDollars: function(d){
+        bill.dollars = d;
+      },
+      setBillCents: function(c){
+        bill.cents = c;
+      },
+      clearBill: function(){
+        bill.dollars = "0";
+        bill.cents = "";
+      }
+    };
+  })
+  .factory('tax', function(){
+
+  })
+  .factory('tip', function(){
+    var tip = {
+      defaultTip: "15.0",
+      // will change to what is stored server side
+      tipInts: "15",
+      tipFracts: "0",
+    };
+
+    return {
+      getTipString: function(){
+        return tip.tipInts + "." + tipFracts;
+      },
+      setTipInts: function(i){
+        tip.tipInts = i;
+      },
+      setTipFracts: function(f){
+        tip.tipFracts = f;
+      },
+      convertTipToPercent: function(){
+        return parseFloat(getTipString()) / 100;
+      },
+      setDefaultTip: function(t){
+        defaultTip = t;
+      }
+    };
+  })
   .factory('tipCalcFac', function(){
     var calc = {
       bill: { dollars: "0", cents: ""},
