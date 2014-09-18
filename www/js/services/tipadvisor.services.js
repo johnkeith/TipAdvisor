@@ -24,6 +24,14 @@ angular.module("tipadvisor.services", [])
       clear: function(){
         bill.dollars = "0";
         bill.cents = "";
+      },
+      input: function(btnVal, decimalPressed){
+        if (decimalPressed === true && bill.cents.length < 2){
+          bill.cents += btnVal;
+        }
+        else if (decimalPressed === false && bill.dollars.length < 7){
+          bill.dollars += btnVal;
+        }
       }
     };
   })
@@ -57,8 +65,21 @@ angular.module("tipadvisor.services", [])
       setDefaultTax: function(d){
         tax.defaultTaxPercent = d;
       },
-      calcTaxOfBillAsPercent: function(b){
-        return this.getAsFloat() / b;
+      calcAsPercent: function(b){
+        if (b == 0){
+          return 0;
+        }
+        else {
+          return this.getAsFloat() / b * 100;
+        }
+      },
+      input: function(btnVal, decimalPressed){
+        if (decimalPressed === true && tax.cents.length < 2){
+          tax.cents += btnVal;
+        }
+        else if (decimalPressed === false && tax.dollars.length < 7){
+          tax.dollars += btnVal;
+        }
       }
     };
   })
@@ -67,12 +88,19 @@ angular.module("tipadvisor.services", [])
       defaultTipPercent: "15.0",
       // will change to what is stored server side
       dollars: "0",
-      cents: "0"
+      cents: "0",
+      percent: "15"
     };
 
     return {
       get: function(){
         return tip;
+      },
+      getPercent: function(){
+        return tip.percent;
+      },
+      setPercent: function(p){
+        tip.percent = p;
       },
       getAsString: function(){
         return tip.dollars + "." + tip.cents;
@@ -87,14 +115,30 @@ angular.module("tipadvisor.services", [])
         tip.cents += f;
       },
       clear: function(){
-        tip.tipPercentInts = "0";
-        tip.tipPercentFracts = "0";
+        tip.dollars = "0";
+        tip.cents = "0";
       },
-      calcTipOfBillAsPercent: function(b){
-        return parseFloat(this.getAsString()) / b;
+      setPercent: function(p){
+        tip.percent = p;
+      },
+      calcAsPercent: function(b){
+        if (b == 0){
+          return 0;
+        }
+        else {
+          return this.getAsFloat() / b * 100;
+        }
       },
       setDefaultTip: function(d){
         defaultPercentTip = d;
+      },
+      input: function(btnVal, decimalPressed){
+        if (decimalPressed === true && tip.cents.length < 2){
+          tip.cents += btnVal;
+        }
+        else if (decimalPressed === false && tip.dollars.length < 7){
+          tip.dollars += btnVal;
+        }
       }
     };
   })

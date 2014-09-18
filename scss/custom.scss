@@ -220,13 +220,14 @@ body {
     }
   }
 }
-
-.hidden-calc {
+#calc {
   -webkit-transition: 0.5s linear all;
   -moz-transition: 0.5s linear all;
   -ms-transition: 0.5s linear all;
   -o-transition: 0.5s linear all;
   transition: 0.5s linear all;
+}
+.hidden-calc {
   -ms-opacity: 0;
   opacity: 0;  
 }
@@ -370,21 +371,53 @@ $debian-red: RGBA(212, 14, 82, 1);
   display: table;
   height: 300px;
   width: 100%;
+  &.slide-box-lg {
+    height: 650px;
+  }
   .slide-content {
     display: table-cell;
     text-align: center;
     vertical-align: middle;
-    .number {
-      font-size: 60px;
-    }
-    .percent {
-      padding-top: 50px;
-      font-size: 50px;
-    }
     .label {
       font-size:50px;
       font-weight: bold;
+    }
+    .number {
+      font-size: 60px;
       padding-top: 50px;
+    }
+    .percent {
+      padding-top: 50px;
+      padding-bottom: 50px;
+      font-size: 50px;
+    }
+    .range {
+      -webkit-appearance: none;
+      border-radius: 0;
+      background: white;
+      display: block;
+      height: 6px;
+      position: absolute;
+      -webkit-transform: translate3d(0px,0px,0px);
+      width: 100%;
+      // -ms-transform: rotate(270deg); /* IE 9 */
+      // -webkit-transform: rotate(270deg); /* Chrome, Safari, Opera */
+      // transform: rotate(270deg);
+      &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        border: 3px solid white;
+        border-radius: 50%;
+        background: $dark-purple;
+        height: 35px;
+        outline:none;
+        width: 35px;
+      }
+      &::-webkit-slider-thumb:active {
+        background: white;
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+        z-index: 10000;
+      }
     }
   }
   &.slide-bill {
@@ -398,13 +431,14 @@ $debian-red: RGBA(212, 14, 82, 1);
   }
   &.slide-total {
     background: $dark-purple;
+    z-index: 10000;
     .slide-content {
       font-size: 25px;
       font-weight: bold;
-      text-align: right;
+      text-align: left;
       .summary {
         display: table;
-        height: 75px;
+        height: 25%;
         padding-right: 15px;
         width: 100%;
         .summary-content {
@@ -427,8 +461,6 @@ $debian-red: RGBA(212, 14, 82, 1);
     }
   }
 }
-
-
 
 // ionic customizations
 .label-bar {

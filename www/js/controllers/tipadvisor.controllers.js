@@ -118,58 +118,102 @@ angular.module("tipadvisor.controllers", [])
     function($scope, bill, tax, tip){
       $scope.bill = bill.get();
       $scope.tip = tip.get();
-      $scope.tipAsPercent = tip.convertTipToPercent();
-
-      $scope.addDollars = function(d){
-        bill.addToInts(d)
-      };
-      $scope.addCents = function(c){
-        bill.addToFracts(c);
-      };
+      $scope.per = "0";
   }])
-  .controller('sliderView', ["$scope", "bill", "tip", "tax", 
-    function($scope, bill, tip, tax){
+  .controller('sliderView', ["$scope", "bill", "tip", "tax", "$animate",
+    function($scope, bill, tip, tax, $animate){
       // Testing scopes
       $scope.bill = bill.get();
       $scope.tip = tip.get();
       $scope.tax = tax.get();
-      // 
-
+      $scope.per = tip.get();
+      $scope.testing = function(){
+        console.log("the slider is now moved")
+      }
       // keep track of slider position
       $scope.activeSection = 0;
+      $scope.decimalPressed = false;
       $scope.slideHasChanged = function(i){
         $scope.activeSection = i;
+        $scope.decimalPressed = false;
+        var el = document.getElementById('calc')
+        if (i === 3){
+          $animate.addClass(el , 'hidden-calc');
+        } else {
+          $animate.removeClass(el, 'hidden-calc');
+        }
       };
 
       // init scopes
       $scope.billAsCurrency = bill.getAsString();
       $scope.tipAsCurrency = tip.getAsString();
-      $scope.tipAsPercent = tip.calcTipOfBillAsPercent($scope.billAsCurrency);
+      $scope.tipAsPercent = tip.calcAsPercent($scope.billAsCurrency);
       $scope.taxAsCurrency = tax.getAsString();
-      $scope.taxAsPercent = tax.calcTaxOfBillAsPercent($scope.billAsCurrency);
+      $scope.taxAsPercent = tax.calcAsPercent($scope.billAsCurrency);
 
-      $scope.calcTip = function(){
-        $scope.tipAsCurrency = tip.getAsString();
-        $scope.tipAsPercent = tip.calcTipOfBillAsPercent($scope.billAsCurrency);
+      $scope.clearActiveSection = function(){
+        switch($scope.activeSection) {
+          case 0:
+            bill.clear();
+            $scope.calcBill();
+            $scope.calcTip();
+            break;
+          case 1:
+            tip.clear();
+            $scope.calcTip();
+            break;
+          case 2:
+            tax.clear();
+            $scope.calcTax();
+            break;
+        }
       };
-
-      $scope.calcTax = function(){
-        $scope.taxAsCurrency = tax.getAsString();
-        $scope.taxAsPercent = tax.calcTaxOfBillAsPercent($scope.billAsCurrency);
-      };
-
       $scope.calcBill = function(){
         $scope.billAsCurrency = bill.getAsString();
       };
 
-      $scope.calcTotal = function(){
-        $scope.total = "lots of methods!"
-      }
+      $scope.calcTip = function(){
+        $scope.tipAsCurrency = tip.getAsString();
+        $scope.tipAsPercent = tip.calcAsPercent($scope.billAsCurrency);
+        tip.setPercent($scope.tipAsPercent);
+      };
 
-      $scope.decimalPressed = false;
-      $scope.btnInput = function(b){
-        bill.addToDollars(b);
-        $scope.calcBill();
+      $scope.calcTax = function(){
+        $scope.taxAsCurrency = tax.getAsString();
+        $scope.taxAsPercent = tax.calcAsPercent($scope.billAsCurrency);
+      };
+
+      $scope.calcTotal = function(){
+        $scope.total = "lots of methods!";
+      };
+
+      $scope.calcFromTipSlider = function(){
+        $scope.calcTip();
+        $scope.calcTotal();
+        console.log("slider moved");
+      }
+      $scope.btnInput = function(btnVal){
+        if (btnVal == "."){
+          $scope.decimalPressed = true;
+        }
+        else if (btnVal == "C"){
+          $scope.clearActiveSection();
+        }
+        else if ($scope.activeSection === 0){
+          bill.input(btnVal, $scope.decimalPressed);
+          $scope.calcBill();
+          $scope.calcTip();
+          $scope.calcTax();
+        }
+        else if ($scope.activeSection === 1){
+          tip.input(btnVal, $scope.decimalPressed);
+          $scope.calcTip();
+        }
+        else if ($scope.activeSection === 2){
+          tax.input(btnVal, $scope.decimalPressed);
+          $scope.calcTax();
+        }
+        $scope.calcTotal();
       };
 
 

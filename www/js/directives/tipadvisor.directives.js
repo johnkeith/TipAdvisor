@@ -24,6 +24,24 @@ angular.module('tipadvisor.directives')
           }
         })
       }
+  }])
+  .directive('preventDrag', ["$ionicGesture", "$ionicSlideBoxDelegate", 
+    function($ionicGesture, $ionicSlideBoxDelegate) {
+    return {
+      restrict :  'A',
+      link : function(scope, elem, attrs, e) {
+        var reportEvent = function (e){
+          if  (e.target.tagName.toLowerCase() == 'input'){
+            $ionicSlideBoxDelegate.enableSlide(false);
+          }
+          else{
+            $ionicSlideBoxDelegate.enableSlide(true);
+          }
+        };
+        $ionicGesture.on('dragstart', reportEvent, elem);
+        $ionicGesture.on('touchstart', reportEvent, elem);
+      }
+    };
   }]);
   // .directive('showCalc', ["$compile",
   //   function($compile){
