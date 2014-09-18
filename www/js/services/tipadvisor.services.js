@@ -88,7 +88,7 @@ angular.module("tipadvisor.services", [])
       defaultTipPercent: "15.0",
       // will change to what is stored server side
       dollars: "0",
-      cents: "0",
+      cents: "",
       percent: "15"
     };
 
@@ -99,8 +99,10 @@ angular.module("tipadvisor.services", [])
       getPercent: function(){
         return tip.percent;
       },
-      setPercent: function(p){
-        tip.percent = p;
+      setPercent: function(per){
+        console.log("setting as " + per);
+        tip.percent = per;
+        console.log(tip.percent);
       },
       getAsString: function(){
         return tip.dollars + "." + tip.cents;
@@ -117,9 +119,6 @@ angular.module("tipadvisor.services", [])
       clear: function(){
         tip.dollars = "0";
         tip.cents = "0";
-      },
-      setPercent: function(p){
-        tip.percent = p;
       },
       calcAsPercent: function(b){
         if (b == 0){

@@ -126,10 +126,10 @@ angular.module("tipadvisor.controllers", [])
       $scope.bill = bill.get();
       $scope.tip = tip.get();
       $scope.tax = tax.get();
-      $scope.per = tip.get();
+
       $scope.testing = function(){
-        console.log("the slider is now moved")
-      }
+        console.log("testing");
+      };
       // keep track of slider position
       $scope.activeSection = 0;
       $scope.decimalPressed = false;
@@ -147,7 +147,7 @@ angular.module("tipadvisor.controllers", [])
       // init scopes
       $scope.billAsCurrency = bill.getAsString();
       $scope.tipAsCurrency = tip.getAsString();
-      $scope.tipAsPercent = tip.calcAsPercent($scope.billAsCurrency);
+      $scope.tipAsPercent = tip.getPercent();
       $scope.taxAsCurrency = tax.getAsString();
       $scope.taxAsPercent = tax.calcAsPercent($scope.billAsCurrency);
 
@@ -174,7 +174,7 @@ angular.module("tipadvisor.controllers", [])
 
       $scope.calcTip = function(){
         $scope.tipAsCurrency = tip.getAsString();
-        $scope.tipAsPercent = tip.calcAsPercent($scope.billAsCurrency);
+        $scope.tipAsPercent = tip.getPercent();
         tip.setPercent($scope.tipAsPercent);
       };
 
@@ -187,11 +187,12 @@ angular.module("tipadvisor.controllers", [])
         $scope.total = "lots of methods!";
       };
 
-      $scope.calcFromTipSlider = function(){
-        $scope.calcTip();
+      $scope.tipRangeChange = function(){
+        console.log("in tip range change fun");
+        percent = document.getElementById('range-tip').value
+        tip.setPercent(percent);
         $scope.calcTotal();
-        console.log("slider moved");
-      }
+      };
       $scope.btnInput = function(btnVal){
         if (btnVal == "."){
           $scope.decimalPressed = true;
@@ -214,18 +215,5 @@ angular.module("tipadvisor.controllers", [])
           $scope.calcTax();
         }
         $scope.calcTotal();
-      };
-
-
-      $scope.insertTestData = function(){
-        $scope.bill.dollars = "20";
-        $scope.bill.cents = "20";
-        $scope.tip.dollars = "3";
-        $scope.tip.cents = "8";
-        $scope.tax.dollars = "1";
-        $scope.tax.cents = "4";
-        $scope.calcBill();
-        $scope.calcTip();
-        $scope.calcTax();
       };
   }]);

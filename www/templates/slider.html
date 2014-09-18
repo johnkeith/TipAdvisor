@@ -15,7 +15,7 @@
             <div class='label'>Tip</div>
             <div class='number'>{{ tipAsCurrency | currency }}</div>
             <div class='percent'>{{ tipAsPercent | number }}%</div>
-            <input class='range' id='range-tip' max='30' min='0' ng-model='per.percent' step='1' type='range'>
+            <input class='range' id='range-tip' max='30' min='0' ng-change='tipRangeChange()' ng-model='tip.percent' step='1' type='range'>
           </div>
         </div>
       </ion-slide>
@@ -25,7 +25,7 @@
             <div class='label'>Tax</div>
             <div class='number'>{{ taxAsCurrency | currency }}</div>
             <div class='percent'>{{ taxAsPercent | number }}%</div>
-            <input class='range' id='range-tax' max='30' min='0' ng-model='per.percent' step='1' type='range'>
+            <input class='range' id='range-tax' max='30' min='0' ng-model='tax.percent' step='1' type='range'>
           </div>
         </div>
       </ion-slide>
@@ -33,35 +33,35 @@
         <div class='slide-box slide-box-lg slide-total'>
           <div class='slide-content'>
             <div class='summary summary-bill'>
-              <div class='summary-content'>Bill: {{ billAsCurrency | currency }}</div>
+              <div class='summary-content'>
+                <div class='label'>Bill</div>
+                <div class='number'>{{ billAsCurrency | currency }}</div>
+              </div>
             </div>
             <div class='summary summary-tip'>
-              <div class='summary-content'>Tip: ({{ tipAsPercent | number }}%) {{ tipAsCurrency | currency }}</div>
+              <div class='summary-content'>
+                <div class='label'>Tip</div>
+                <div class='number'>{{ tipAsCurrency | currency }}</div>
+                <div class='number'>({{ tipAsPercent | number }}%)</div>
+              </div>
             </div>
             <div class='summary summary-tax'>
-              <div class='summary-content'>Tax: ({{ taxAsPercent | number }}%) {{ taxAsCurrency | currency }}</div>
+              <div class='summary-content'>
+                <div class='label'>Tax</div>
+                <div class='number'>{{ taxAsCurrency | currency }}</div>
+                <div class='number'>({{ taxAsPercent | number }}%)</div>
+              </div>
             </div>
             <div class='summary summary-total'>
-              <div class='summary-content'>Total:</div>
+              <div class='summary-content'>
+                <div class='label'>Total</div>
+              </div>
             </div>
           </div>
         </div>
       </ion-slide>
     </ion-slide-box>
-    <p>ACTIVE SeCTION: {{ activeSection }}</p>
     <input class='range testrange' max='30' min='0' ng-change='testing()' ng-model='per.percent' step='1' type='range'>
-    <button ng-click='insertTestData()'>INSERT TEST DATA</button>
     <div calc='' id='calc'></div>
-    <!-- <ion-slide-box on-slide-changed="slideHasChanged($index)"> -->
-    <!-- <ion-slide> -->
-    <!-- <div class="box blue"><h1>BLUE</h1></div> -->
-    <!-- </ion-slide> -->
-    <!-- <ion-slide> -->
-    <!-- <div class="box yellow"><h1>YELLOW</h1></div> -->
-    <!-- </ion-slide> -->
-    <!-- <ion-slide> -->
-    <!-- <div class="box pink"><h1>PINK</h1></div> -->
-    <!-- </ion-slide> -->
-    <!-- </ion-slide-box> -->
   </ion-content>
 </ion-view>

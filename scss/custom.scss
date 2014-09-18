@@ -221,11 +221,11 @@ body {
   }
 }
 #calc {
-  -webkit-transition: 0.5s linear all;
-  -moz-transition: 0.5s linear all;
-  -ms-transition: 0.5s linear all;
-  -o-transition: 0.5s linear all;
-  transition: 0.5s linear all;
+  -webkit-transition: 0.2s linear all;
+  -moz-transition: 0.2s linear all;
+  -ms-transition: 0.2s linear all;
+  -o-transition: 0.2s linear all;
+  transition: 0.2s linear all;
 }
 .hidden-calc {
   -ms-opacity: 0;
@@ -372,7 +372,7 @@ $debian-red: RGBA(212, 14, 82, 1);
   height: 300px;
   width: 100%;
   &.slide-box-lg {
-    height: 650px;
+    height: 570px;
   }
   .slide-content {
     display: table-cell;
@@ -441,9 +441,19 @@ $debian-red: RGBA(212, 14, 82, 1);
         height: 25%;
         padding-right: 15px;
         width: 100%;
+        text-align: right;
+
         .summary-content {
           display: table-cell;
           vertical-align: middle;
+          .label {
+            font-size:35px;
+            margin-top: -10px;
+          }
+          .number {
+            font-size: 42px;
+            padding-top: 20px;
+          }
         }
       }
       .summary-bill {
@@ -461,7 +471,25 @@ $debian-red: RGBA(212, 14, 82, 1);
     }
   }
 }
+// media queries for iphone
 
+/* iPhone with no retina display */
+@media screen {
+    body {
+    }
+}
+
+/* iPhone < 5 and retina display */
+@media screen and (device-height: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+    body {
+    }
+}
+
+/* iPhone 5 and retina display*/
+@media screen and (device-height: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+    body {
+    }
+}
 // ionic customizations
 .label-bar {
   button:active {

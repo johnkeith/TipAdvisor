@@ -6,46 +6,39 @@
           .slide-content
             .label Bill
             .number {{ billAsCurrency | currency }}
-            
       %ion-slide{ "prevent-drag" => "" }
         .slide-box.slide-tip
           .slide-content
             .label Tip
             .number {{ tipAsCurrency | currency }}
             .percent {{ tipAsPercent | number }}%
-            %input.range#range-tip{ type: "range", min: "0", max: "30", step: "1", "ng-model" => "per.percent" }
-            
+            %input.range#range-tip{ type: "range", min: "0", max: "30", step: "1", "ng-model" => "tip.percent", "ng-change" => "tipRangeChange()" }       
       %ion-slide
         .slide-box.slide-tax
           .slide-content
             .label Tax
             .number {{ taxAsCurrency | currency }}
             .percent {{ taxAsPercent | number }}%
-            %input.range#range-tax{ type: "range", min: "0", max: "30", step: "1", "ng-model" => "per.percent" }
-            
+            %input.range#range-tax{ type: "range", min: "0", max: "30", step: "1", "ng-model" => "tax.percent" }
       %ion-slide
         .slide-box.slide-box-lg.slide-total
           .slide-content
             .summary.summary-bill 
-              .summary-content Bill: {{ billAsCurrency | currency }}
+              .summary-content 
+                .label Bill
+                .number {{ billAsCurrency | currency }}
             .summary.summary-tip
-              .summary-content Tip: ({{ tipAsPercent | number }}%) {{ tipAsCurrency | currency }} 
+              .summary-content
+                .label Tip 
+                .number {{ tipAsCurrency | currency }} 
+                .number ({{ tipAsPercent | number }}%)
             .summary.summary-tax
-              .summary-content Tax: ({{ taxAsPercent | number }}%) {{ taxAsCurrency | currency }}
+              .summary-content
+                .label Tax
+                .number {{ taxAsCurrency | currency }}
+                .number ({{ taxAsPercent | number }}%)
             .summary.summary-total
-              .summary-content Total: 
-    %p ACTIVE SeCTION: {{ activeSection }}
+              .summary-content
+                .label Total
     %input.range.testrange{ type: "range", min: "0", max: "30", step: "1", "ng-model" => "per.percent", "ng-change" => "testing()" }
-    %button{"ng-click" => "insertTestData()"} INSERT TEST DATA
     %div#calc{ "calc" => "" }
-    / <ion-slide-box on-slide-changed="slideHasChanged($index)">
-    /   <ion-slide>
-    /     <div class="box blue"><h1>BLUE</h1></div>
-    /   </ion-slide>
-    /   <ion-slide>
-    /     <div class="box yellow"><h1>YELLOW</h1></div>
-    /   </ion-slide>
-    /   <ion-slide>
-    /     <div class="box pink"><h1>PINK</h1></div>
-    /   </ion-slide>
-    / </ion-slide-box>
