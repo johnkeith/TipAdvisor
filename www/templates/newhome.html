@@ -1,9 +1,21 @@
 <ion-view title='TipAdvisor'>
   <ion-content ng-controller='homeCtrl' scroll='false'>
+    <div class='testing'>
+      <p>Dollars are {{ bill.dollars }}</p>
+      <p>Cents are {{ bill.cents }}</p>
+      <input ng-model='bill.dollars' type='text'>
+      <button ng-click='setBillDollars(10)' type='button'>Set bill to $10</button>
+      <p>Currently, the tip is {{ tip.percent }}</p>
+      <input max='30' min='0' ng-model='tip.percent' step='1' type='range'>
+      <p>The tax is: {{ tax.percent }}</p>
+      <input ng-model='tax.percent' type='number'>
+      <!-- %p Dollars are {{ bill.dollars }} -->
+      <!-- %p Cents are {{ bill.cents }} -->
+      <!-- %input{ type: "text", "ng-model" => "newDollars", placeholder: "New Dollars" } -->
+      <!-- %input{ type: "text", "ng-model" => "newCents", placeholder: "New Cents" } -->
+      <!-- %button{ type: "button", "ng-click" => "setBill(newDollars, newCents)" }Set New $ and Cents -->
+    </div>
     <!-- %p The test dollars are {{ testDollars }} -->
-    <p>Bill Dollars = {{ billDollars }}</p>
-    <p>Bill Cents = {{ billCents }}</p>
-    <p>Bill combined {{ billCombined}}</p>
     <!-- %ion-slide-box{ "on-slide-changed" => "slideHasChanged($index)", "show-pager" => "false", "does-continue" => "true" } -->
     <!-- %ion-slide -->
     <!-- .slide-box.slide-bill -->

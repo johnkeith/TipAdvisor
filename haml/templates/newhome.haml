@@ -1,5 +1,21 @@
 %ion-view{ title: "TipAdvisor"}
   %ion-content{ "ng-controller" => "homeCtrl", "scroll" => "false" }
+    .testing
+      %p Dollars are {{ bill.dollars }}
+      %p Cents are {{ bill.cents }}
+      %input{ type: "text", "ng-model" => "bill.dollars" }
+      %button{ type: "button", "ng-click" => "setBillDollars(10)" } Set bill to $10
+
+      %p Currently, the tip is {{ tip.percent }}
+      %input{ type: "range", min: "0", max: "30", step: "1", "ng-model" => "tip.percent" }
+
+      %p The tax is: {{ tax.percent }}
+      %input{ type: "number", "ng-model" => "tax.percent" }
+      / %p Dollars are {{ bill.dollars }}
+      / %p Cents are {{ bill.cents }}
+      / %input{ type: "text", "ng-model" => "newDollars", placeholder: "New Dollars" }
+      / %input{ type: "text", "ng-model" => "newCents", placeholder: "New Cents" }
+      / %button{ type: "button", "ng-click" => "setBill(newDollars, newCents)" }Set New $ and Cents
     / %p The test dollars are {{ testDollars }}
     / %ion-slide-box{ "on-slide-changed" => "slideHasChanged($index)", "show-pager" => "false", "does-continue" => "true" }
     /   %ion-slide

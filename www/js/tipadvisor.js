@@ -7,7 +7,9 @@ angular.module('tipAdvisor', [
   'ionic',
   'tipadvisor.controllers',
   'tipadvisor.services',
-  'tipadvisor.directives'
+  'tipadvisor.directives',
+  'tipadvisor.newcontrollers', 
+  'tipadvisor.newfactories'
   ])
 
 .config(['$stateProvider', '$urlRouterProvider',
