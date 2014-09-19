@@ -1,0 +1,48 @@
+%ion-view{ title: "TipAdvisor"}
+  %ion-content{ "ng-controller" => "homeCtrl", "scroll" => "false" }
+    / %p The test dollars are {{ testDollars }}
+    / %ion-slide-box{ "on-slide-changed" => "slideHasChanged($index)", "show-pager" => "false", "does-continue" => "true" }
+    /   %ion-slide
+    /     .slide-box.slide-bill
+    /       .slide-content
+    /         .label Bill
+    /         .number {{ billAsCurrency | currency }}
+    /   %ion-slide{ "prevent-drag" => "" }
+    /     .slide-box.slide-tip
+    /       .slide-content
+    /         .label Tip
+    /         .number {{ tipAsCurrency | currency }}
+    /         .percent {{ tipAsPercent | number }}%
+    /         %input.range#range-tip{ type: "range", min: "0", max: "30", step: "1", "ng-model" => "tip.percent", "ng-change" => "tipRangeChange()" }       
+    /   %ion-slide
+    /     .slide-box.slide-tax
+    /       .slide-content
+    /         .label Tax
+    /         .number {{ taxAsCurrency | currency }}
+    /         .percent {{ taxAsPercent | number }}%
+    /         %input.range#range-tax{ type: "range", min: "0", max: "30", step: "1", "ng-model" => "tax.percent" }
+    /   %ion-slide
+    /     .slide-box.slide-box-lg.slide-total
+    /       .slide-content
+    /         .summary.summary-bill 
+    /           .summary-content 
+    /             .label Bill
+    /             .number {{ billAsCurrency | currency }}
+    /         .summary.summary-tip
+    /           .summary-content
+    /             .label Tip 
+    /             .number {{ tipAsCurrency | currency }} 
+    /             .number ({{ tipAsPercent | number }}%)
+    /         .summary.summary-tax
+    /           .summary-content
+    /             .label Tax
+    /             .number {{ taxAsCurrency | currency }}
+    /             .number ({{ taxAsPercent | number }}%)
+    /         .summary.summary-total
+    /           .summary-content
+    /             .label Total
+    / %input.range.testrange{ type: "range", min: "0", max: "30", step: "1", "ng-model" => "testDollars", "ng-change" => "testing()" }
+    / %input{ type: "text", "ng-model" => "testDollars" }
+    / %button{ type: "button", "ng-click" => "testSetDollars()"} Test set $$$
+
+    / %div#calc{ "calc" => "" }

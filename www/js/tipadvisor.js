@@ -31,9 +31,13 @@ angular.module('tipAdvisor', [
         templateUrl: "./templates/test.html"
       })
       .state('slider', {
-        url: '/',
+        url: '/slider',
         templateUrl: "./templates/slider.html"
-      });
+      })
+      .state('newhome', {
+        url: '/', 
+        templateUrl: "./templates/newhome.html"
+      })
     $urlRouterProvider.otherwise('/');
   }
 ])
