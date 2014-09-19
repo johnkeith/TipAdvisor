@@ -134,6 +134,11 @@ angular.module("tipadvisor.controllers", [])
       $scope.bill = bill.get();
       $scope.tip = tip.get();
       $scope.tax = tax.get();
+      $scope.recalcTestVals = function(){
+        $scope.bill = bill.get();
+        $scope.tip = tip.get();
+        $scope.tax = tax.get();
+      };
       $scope.billDollars = bill.dollars;
       $scope.setDollars = function(d){
         console.log("setting dollars");
@@ -203,7 +208,9 @@ angular.module("tipadvisor.controllers", [])
         console.log("in tip range change fun");
         percent = document.getElementById('range-tip').value
         tip.setPercent(percent);
+        $scope.calcTip();
         $scope.calcTotal();
+        $scope.recalcTestVals();
       };
       $scope.btnInput = function(btnVal){
         if (btnVal == "."){
