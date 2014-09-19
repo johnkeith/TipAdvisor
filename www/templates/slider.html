@@ -1,5 +1,9 @@
 <ion-view title='TipAdvisor'>
   <ion-content ng-controller='sliderView' scroll='false'>
+    <input class='range testrange' max='30' min='0' ng-change='testing()' ng-model='testDollars' step='1' type='range'>
+    <input ng-model='testDollars' type='text'>
+    <button ng-click='testSetDollars()' type='button'>Test set $$$</button>
+    <p>The test dollars are {{ testDollars }}</p>
     <ion-slide-box does-continue='true' on-slide-changed='slideHasChanged($index)' show-pager='false'>
       <ion-slide>
         <div class='slide-box slide-bill'>
@@ -61,7 +65,6 @@
         </div>
       </ion-slide>
     </ion-slide-box>
-    <input class='range testrange' max='30' min='0' ng-change='testing()' ng-model='per.percent' step='1' type='range'>
     <div calc='' id='calc'></div>
   </ion-content>
 </ion-view>

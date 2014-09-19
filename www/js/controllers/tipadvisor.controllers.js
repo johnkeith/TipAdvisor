@@ -120,13 +120,25 @@ angular.module("tipadvisor.controllers", [])
       $scope.tip = tip.get();
       $scope.per = "0";
   }])
-  .controller('sliderView', ["$scope", "bill", "tip", "tax", "$animate",
-    function($scope, bill, tip, tax, $animate){
+  .controller('sliderView', ["$scope", "bill", "tip", "tax", "$animate", "test",
+    function($scope, bill, tip, tax, $animate, test){
       // Testing scopes
+      $scope.testDollars = test.getDollars();
+      $scope.testSetDollars = function(){
+        console.log("im about to set the $")
+        test.setDollars(21);
+        $scope.testDollars = test.getDollars();
+      };
+
+
       $scope.bill = bill.get();
       $scope.tip = tip.get();
       $scope.tax = tax.get();
-
+      $scope.billDollars = bill.dollars;
+      $scope.setDollars = function(d){
+        console.log("setting dollars");
+        bill.dollars = d;
+      };
       $scope.testing = function(){
         console.log("testing");
       };

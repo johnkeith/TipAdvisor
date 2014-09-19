@@ -1,5 +1,9 @@
 %ion-view{ title: "TipAdvisor"}
   %ion-content{ "ng-controller" => "sliderView", "scroll" => "false" }
+    %input.range.testrange{ type: "range", min: "0", max: "30", step: "1", "ng-model" => "testDollars", "ng-change" => "testing()" }
+    %input{ type: "text", "ng-model" => "testDollars" }
+    %button{ type: "button", "ng-click" => "testSetDollars()"} Test set $$$
+    %p The test dollars are {{ testDollars }}
     %ion-slide-box{ "on-slide-changed" => "slideHasChanged($index)", "show-pager" => "false", "does-continue" => "true" }
       %ion-slide
         .slide-box.slide-bill
@@ -40,5 +44,5 @@
             .summary.summary-total
               .summary-content
                 .label Total
-    %input.range.testrange{ type: "range", min: "0", max: "30", step: "1", "ng-model" => "per.percent", "ng-change" => "testing()" }
+
     %div#calc{ "calc" => "" }

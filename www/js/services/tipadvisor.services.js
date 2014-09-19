@@ -1,4 +1,21 @@
 angular.module("tipadvisor.services", [])
+  .factory('test', function(){
+    var bill = {
+      dollars: "15", 
+      cents: "0"
+    };
+
+    return {
+      getDollars: function(){
+        return bill.dollars;
+      },
+      setDollars: function(d){
+        console.log("d is " + d)
+        bill.dollars = d;
+        console.log("bill.dollars is now" + bill.dollars);
+      }
+    }
+  })
   .factory('bill', function(){
     var bill = {
       dollars: "0",
@@ -6,6 +23,12 @@ angular.module("tipadvisor.services", [])
     };
 
     return {
+      addDollars: function(d){
+        this.dollars += d;
+      },
+      setDollars: function(d){
+        this.dollars = d;
+      },
       get: function(){
         return bill;
       },
