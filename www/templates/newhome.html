@@ -1,16 +1,25 @@
 <ion-view title='TipAdvisor'>
   <ion-content ng-controller='homeCtrl'>
     <div class='four-panel-container'>
-      <p>The bill is {{ bill.currency | currency }}</p>
-      <input ng-change='recalcTaxPercent(); recalcTipPercent()' ng-model='bill.currency' placeholder='{{ bill.currency | number : 2}}' type='number'>
-      <p>The tip is {{ tip.percent * 100 | number : 2 }} %</p>
-      <input ng-change='recalcTipPercent()' ng-model='tip.currency' type='number'>
-      <p>Change tip by percent</p>
-      <input max='0.30' min='0.00' ng-change='recalcTipCurrency()' ng-model='tip.percent' step='0.01' type='range'>
-      <p>The tax is: {{ tax.currency | currency }}</p>
-      <input ng-change='recalcTaxPercent()' ng-model='tax.currency' type='number'>
-      <p>Change tax by percent (current percent is {{ tax.percent * 100 | number : 2 }})</p>
-      <input max='1' min='0.00' ng-change='recalcTaxCurrency()' ng-model='tax.percent' step='0.01' type='range'>
+      <div class='bill-panel quarter-panel'>
+        <p>The bill is {{ bill.currency | currency }}</p>
+        <input ng-change='recalcTipPercent(); recalcTaxPercent(); calcTotal()' ng-model='bill.currency' placeholder='{{ bill.currency | number : 2}}' type='number'>
+      </div>
+      <div class='tip-panel quarter-panel'>
+        <p>The tip is {{ tip.percent * 100 | number : 2 }} %</p>
+        <input ng-change='recalcTipPercent(); calcTotal()' ng-model='tip.currency' type='number'>
+        <p>Change tip by percent</p>
+        <input max='0.30' min='0.00' ng-change='recalcTipCurrency(); calcTotal()' ng-model='tip.percent' step='0.01' type='range'>
+      </div>
+      <div class='tax-panel quarter-panel'>
+        <p>The tax is: {{ tax.currency | currency }}</p>
+        <input ng-change='recalcTaxPercent(); calcTotal()' ng-model='tax.currency' type='number'>
+        <p>Change tax by percent (current percent is {{ tax.percent * 100 | number : 2 }})</p>
+        <input max='1' min='0.00' ng-change='recalcTaxCurrency(); calcTotal()' ng-model='tax.percent' step='0.01' type='range'>
+      </div>
+      <div class='total-panel quarter-panel'>
+        <p>The total is {{ total | currency }}</p>
+      </div>
       <!-- %p Dollars are {{ bill.dollars }} -->
       <!-- %p Cents are {{ bill.cents }} -->
       <!-- %input{ type: "text", "ng-model" => "newDollars", placeholder: "New Dollars" } -->

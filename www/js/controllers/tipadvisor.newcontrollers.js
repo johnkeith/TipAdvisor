@@ -4,6 +4,7 @@ angular.module('tipadvisor.newcontrollers', [])
       $scope.bill = billFactory.getBill();
       $scope.tip = tipFactory.getTip();
       $scope.tax = taxFactory.getTax();
+      $scope.total = 0;
 
       // YOU HAVE TO USE A DOT! OTHERWISE THE WATCH DOESN'T WORK
       // $scope.$watch('bill.dollars', function(n, o){
@@ -26,6 +27,9 @@ angular.module('tipadvisor.newcontrollers', [])
         tipFactory.setCurrencyFromPercent(billFactory.getBillFloat() - $scope.tax.currency);
       };
 
+      $scope.calcTotal = function(){
+        $scope.total = $scope.bill.currency + $scope.tip.currency;
+      };
 
 
   }]);

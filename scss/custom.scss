@@ -477,19 +477,22 @@ $debian-red: RGBA(212, 14, 82, 1);
 }
 
 .four-panel-container {
-  color: black;
+  color: white;
   height: 100%;
+  .quarter-panel {
+    height: 25%;
+  }
   .bill-panel {
-
+    background: $blue-green;
   }
   .tip-panel {
-
+    background: $lemon;
   }
   .tax-panel {
-
+    background: $debian-red;
   }
   .total-panel {
-    
+    background: $dark-purple;
   }
 }
 .scroll {
