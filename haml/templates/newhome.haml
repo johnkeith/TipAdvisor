@@ -1,6 +1,6 @@
 %ion-view{ title: "TipAdvisor"}
   %ion-content{ "ng-controller" => "homeCtrl" }
-    .testing
+    .four-panel-container
       %p The bill is {{ bill.currency | currency }}
       %input{ type: "number", "ng-model" => "bill.currency", "ng-change" => "recalcTaxPercent(); recalcTipPercent()", placeholder: "{{ bill.currency | number : 2}}" }
 

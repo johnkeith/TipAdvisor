@@ -1,6 +1,6 @@
 <ion-view title='TipAdvisor'>
   <ion-content ng-controller='homeCtrl'>
-    <div class='testing'>
+    <div class='four-panel-container'>
       <p>The bill is {{ bill.currency | currency }}</p>
       <input ng-change='recalcTaxPercent(); recalcTipPercent()' ng-model='bill.currency' placeholder='{{ bill.currency | number : 2}}' type='number'>
       <p>The tip is {{ tip.percent * 100 | number : 2 }} %</p>

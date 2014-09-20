@@ -42,13 +42,13 @@ angular.module('tipadvisor.directives')
         $ionicGesture.on('touchstart', reportEvent, elem);
       }
     };
-  }])
-  .direction('inputOnlyNumsTwoDec', function(){
-    return {
-      restrict: "A",
+  }]);
+  // .direction('inputOnlyNumsTwoDec', function(){
+  //   return {
+  //     restrict: "A",
 
-    };
-  });
+  //   };
+  // });
   // .directive('forcePrecision', function () {
   //   return {
   //       restrict: 'A',

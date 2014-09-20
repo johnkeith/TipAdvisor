@@ -10,22 +10,22 @@ angular.module('tipadvisor.newcontrollers', [])
       //   console.log("watch firing");
       //   taxFactory.setCurrencyFromPercent(billFactory.getBillFloat());
       // });
+      $scope.recalcTipCurrency = function(){
+        tipFactory.setCurrencyFromPercent(billFactory.getBillFloat() - $scope.tax.currency);
+      };
+      $scope.recalcTipPercent = function(){
+        tipFactory.setPercentFromCurrency(billFactory.getBillFloat() - $scope.tax.currency);
+      };
 
       $scope.recalcTaxCurrency = function(){
         taxFactory.setCurrencyFromPercent(billFactory.getBillFloat());
+        tipFactory.setCurrencyFromPercent(billFactory.getBillFloat() - $scope.tax.currency);
       };
       $scope.recalcTaxPercent = function(){
         taxFactory.setPercentFromCurrency(billFactory.getBillFloat());
+        tipFactory.setCurrencyFromPercent(billFactory.getBillFloat() - $scope.tax.currency);
       };
 
-      $scope.recalcTipCurrency = function(){
-        tipFactory.setCurrencyFromPercent(billFactory.getBillFloat());
-      };
-      $scope.recalcTipPercent = function(){
-        tipFactory.setPercentFromCurrency(billFactory.getBillFloat());
-      };
 
-      // instead, place a watch on bill, tip, and tax
-      // when those change, fire recalcs
-      // define calcs in service for calculations
+
   }]);
