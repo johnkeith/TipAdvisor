@@ -1,17 +1,16 @@
 <ion-view title='TipAdvisor'>
   <ion-content ng-controller='homeCtrl'>
     <div class='testing'>
-      <p>Dollars are {{ bill.dollars }}</p>
-      <p>Cents are {{ bill.cents }}</p>
-      <input ng-change='recalcTaxCurrency()' ng-model='bill.dollars' type='text'>
-      <button ng-click='setBillDollars(10)' type='button'>Set bill to $10</button>
-      <p>Currently, the tip is {{ tip.percent * 100 }} %</p>
-      <input max='0.30' min='0.00' ng-model='tip.percent' step='0.01' type='range'>
-      <p>The tax is: $ {{ tax.currency }}</p>
+      <p>The bill is {{ bill.currency | currency }}</p>
+      <input ng-change='recalcTaxPercent(); recalcTipPercent()' ng-model='bill.currency' placeholder='{{ bill.currency | number : 2}}' type='number'>
+      <p>The tip is {{ tip.percent * 100 | number : 2 }} %</p>
+      <input ng-change='recalcTipPercent()' ng-model='tip.currency' type='number'>
+      <p>Change tip by percent</p>
+      <input max='0.30' min='0.00' ng-change='recalcTipCurrency()' ng-model='tip.percent' step='0.01' type='range'>
+      <p>The tax is: {{ tax.currency | currency }}</p>
       <input ng-change='recalcTaxPercent()' ng-model='tax.currency' type='number'>
-      <p>Change tax by percent (current percent is {{ tax.percent }})</p>
+      <p>Change tax by percent (current percent is {{ tax.percent * 100 | number : 2 }})</p>
       <input max='1' min='0.00' ng-change='recalcTaxCurrency()' ng-model='tax.percent' step='0.01' type='range'>
-      <button ng-click='calcTaxCur()' type='button'>Calc Tax from Bill</button>
       <!-- %p Dollars are {{ bill.dollars }} -->
       <!-- %p Cents are {{ bill.cents }} -->
       <!-- %input{ type: "text", "ng-model" => "newDollars", placeholder: "New Dollars" } -->

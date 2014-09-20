@@ -42,7 +42,43 @@ angular.module('tipadvisor.directives')
         $ionicGesture.on('touchstart', reportEvent, elem);
       }
     };
-  }]);
+  }])
+  .direction('inputOnlyNumsTwoDec', function(){
+    return {
+      restrict: "A",
+
+    };
+  });
+  // .directive('forcePrecision', function () {
+  //   return {
+  //       restrict: 'A',
+  //       scope: {
+  //          step: '@'
+  //       },
+  //       link: function (scope, element, attrs) {
+  //           if (!scope.step || scope.step == 'any') {
+  //              return;
+  //           }
+
+  //           var prec = 1;
+  //           for (var i = scope.step; i != 1; i *= 10) {
+  //               prec *= 10;
+  //           }
+
+  //           element.on('keypress', function (e) {
+  //               var val = Number(element.val() + (e.charCode !== 0  ? String.fromCharCode(e.charCode) : ''));
+
+  //               if (val) {
+  //                   var newVal = Math.floor(val * prec) / prec;
+
+  //                   if (val != newVal) {
+  //                       e.preventDefault();
+  //                   }
+  //               }
+  //           });
+  //       }
+  //   };
+  // });
   // .directive('showCalc', ["$compile",
   //   function($compile){
   //     return function(scope, element, attrs){

@@ -1,8 +1,7 @@
 angular.module('tipadvisor.newfactories', [])
   .factory('billFactory', function(){
     var bill = {
-      dollars: "0",
-      cents: "0"
+      currency: "0"
     };
 
     return {
@@ -10,13 +9,7 @@ angular.module('tipadvisor.newfactories', [])
         return bill;
       },
       getBillFloat: function(){
-        return parseFloat(bill.dollars + "." + bill.cents);
-      },
-      setBillDollars: function(d){
-        bill.dollars = d;
-      },
-      setBillCents: function(c){
-        bill.cents = c;
+        return parseFloat(bill.currency);
       }
     };
   })
@@ -35,6 +28,12 @@ angular.module('tipadvisor.newfactories', [])
       },
       setCurrency: function(c){
         tip.currency = c;
+      },
+      setCurrencyFromPercent: function(bill){
+        tip.currency = bill * tip.percent;
+      },
+      setPercentFromCurrency: function(bill){
+        tip.percent = tip.currency / bill;
       }
     };
   })
@@ -55,11 +54,12 @@ angular.module('tipadvisor.newfactories', [])
         tax.currency = c;
       }, 
       setCurrencyFromPercent: function(bill){
-        console.log(bill);
-        console.log(tax.percent);
         tax.currency = bill * tax.percent;
       },
       setPercentFromCurrency: function(bill){
+        if (bill == 0){
+          return;
+        };
         tax.percent = tax.currency / bill;
       }
     };
