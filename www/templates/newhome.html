@@ -3,7 +3,7 @@
     <div class='four-panel-container'>
       <div class='bill-panel quarter-panel'>
         <p>The bill is {{ bill.currency | currency }}</p>
-        <input ng-change='recalcTipPercent(); recalcTaxPercent(); calcTotal()' ng-model='bill.currency' placeholder='{{ bill.currency | number : 2}}' type='number'>
+        <input inputOnlyNumsTwoDec='' ng-change='recalcTipPercent(); recalcTaxPercent(); calcTotal()' ng-model='bill.currency' placeholder='{{ bill.currency | number : 2}}' type='number'>
       </div>
       <div class='tip-panel quarter-panel'>
         <p>The tip is {{ tip.percent * 100 | number : 2 }} %</p>

@@ -42,13 +42,29 @@ angular.module('tipadvisor.directives')
         $ionicGesture.on('touchstart', reportEvent, elem);
       }
     };
-  }]);
-  // .direction('inputOnlyNumsTwoDec', function(){
-  //   return {
-  //     restrict: "A",
-
-  //   };
-  // });
+  }])
+  .directive('inputonlynumstwodec',
+    function(){
+      return {
+        restrict: "A",
+        scope: {},
+        link: function(scope, element, attrs) {
+          element.on('keypress', function(e){
+            console.log("The decPressed equals" + $scope.decPressed);
+            console.log("The charCode is " + e.charCode);
+            console.log("The keyCode is " + e.keyCode);
+            if (e.charCode === 46) {
+              if ($scope.decPressed === true){
+                console.log("Dec. pressed second time");
+                e.preventDefault();
+              } else {
+                $scope.decPressed = true;
+              }
+            };
+          });
+        }
+      };
+  });
   // .directive('forcePrecision', function () {
   //   return {
   //       restrict: 'A',

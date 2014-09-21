@@ -3,7 +3,7 @@
     .four-panel-container
       .bill-panel.quarter-panel
         %p The bill is {{ bill.currency | currency }}
-        %input{ type: "number", "ng-model" => "bill.currency", "ng-change" => "recalcTipPercent(); recalcTaxPercent(); calcTotal()", placeholder: "{{ bill.currency | number : 2}}" }
+        %input{ type: "number", "ng-model" => "bill.currency", "ng-change" => "recalcTipPercent(); recalcTaxPercent(); calcTotal()", placeholder: "{{ bill.currency | number : 2}}", "inputOnlyNumsTwoDec" => "" }
       .tip-panel.quarter-panel
         %p The tip is {{ tip.percent * 100 | number : 2 }} %
         %input{ type: "number", "ng-model" => "tip.currency", "ng-change" => "recalcTipPercent(); calcTotal()" }
