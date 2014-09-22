@@ -50,27 +50,24 @@ angular.module('tipadvisor.directives')
         scope: {},
         link: function(scope, element, attrs) {
           element.on('keypress', function(e){
-            console.log("The decPressed equals" + $scope.decPressed);
-            console.log("The charCode is " + e.charCode);
-            console.log("The keyCode is " + e.keyCode);
-            console.log("The current val is " + element.val());
             var validKeys = [48,49,50,51,52,53,54,55,56,57];
-            // need to figure out how to handle when decimal is erased
+
+            if (element.val() === ""){ scope.decPressed = false; };
 
             if (e.charCode === 46 || e.charCode === 110) {
-              if ($scope.decPressed === true){
+              if (scope.decPressed === true){
                 e.preventDefault();
               } else {
-                $scope.decPressed = true;
+                scope.decPressed = true;
               };
-            } else if ($scope.decPressed === true){
+            } else if (scope.decPressed === true){
               var test = /\.\d{2}/;
               if(test.test(element.val())){
                 e.preventDefault();
               } else if(validKeys.indexOf(e.charCode) === -1){
                 e.preventDefault();
               };
-            } else if (validKeys.indexOf(e.charCode) === -1){
+            } else if(validKeys.indexOf(e.charCode) === -1){
               e.preventDefault();
             }
           });
