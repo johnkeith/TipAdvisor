@@ -8,8 +8,7 @@
       #panel-1.tip-panel.quarter-panel{ "ng-click" => "changeActivePanel(1)" }
         .label Tip
         .number 
-          ({{ tip.percent * 100 | number : 2 }}%) 
-          %span.currency {{ tip.currency | currency }}
+          ({{ tip.percent * 100 | number : 2 }}%) {{ tip.currency | currency }}
         / %input{ type: "number", "ng-model" => "tip.currency", "ng-change" => "recalcTipPercent(); calcTotal()" }
         / %input{ type: "range", min: "0.00", max: "0.30", step: "0.01", "ng-model" => "tip.percent", "ng-change" => "recalcTipCurrency(); calcTotal()" }
       #panel-2.tax-panel.quarter-panel{ "ng-click" => "changeActivePanel(2)" }

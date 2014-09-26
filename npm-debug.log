@@ -1,0 +1,29 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/Cellar/node/0.10.26/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'run',
+1 verbose cli   'ios4in' ]
+2 info using npm@1.4.3
+3 info using node@v0.10.26
+4 verbose run-script [ 'preios4in', 'ios4in', 'postios4in' ]
+5 info preios4in TipAdvisor@1.0.0
+6 info ios4in TipAdvisor@1.0.0
+7 verbose unsafe-perm in lifecycle true
+8 info TipAdvisor@1.0.0 Failed to exec ios4in script
+9 error TipAdvisor@1.0.0 ios4in: `cordova emulate --target='iPhone (Retina 4-inch)'`
+9 error Exit status 1
+10 error Failed at the TipAdvisor@1.0.0 ios4in script.
+10 error This is most likely a problem with the TipAdvisor package,
+10 error not with npm itself.
+10 error Tell the author that this fails on your system:
+10 error     cordova emulate --target='iPhone (Retina 4-inch)'
+10 error You can get their info via:
+10 error     npm owner ls TipAdvisor
+10 error There is likely additional logging output above.
+11 error System Darwin 13.4.0
+12 error command "/usr/local/Cellar/node/0.10.26/bin/node" "/usr/local/bin/npm" "run" "ios4in"
+13 error cwd /Users/johnkeith/Dev/tipadvisor
+14 error node -v v0.10.26
+15 error npm -v 1.4.3
+16 error code ELIFECYCLE
+17 verbose exit [ 1, true ]

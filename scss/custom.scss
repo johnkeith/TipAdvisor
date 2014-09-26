@@ -490,8 +490,8 @@ $debian-red: RGBA(212, 14, 82, 1);
     .label {
       color: rgba(255,255,255,1);
       display: table-cell;
-      font-size: 1.2em;
-      font-weight: bold;
+      font-size: 1.5em;
+      font-weight: normal;
       text-align: left;
       vertical-align: middle;
     }
@@ -507,10 +507,10 @@ $debian-red: RGBA(212, 14, 82, 1);
     }
   }
   .active-panel {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.2);
-    border-left-width: 0px;
-    border-right-width: 0px;
+    background: rgba(255,255,255,0.15);
+    // border: 1px solid rgba(255,255,255,0.2);
+    // border-left-width: 0px;
+    // border-right-width: 0px;
     -webkit-transition: 0.2s ease-in;
     transition: 0.2s ease-in;
   }

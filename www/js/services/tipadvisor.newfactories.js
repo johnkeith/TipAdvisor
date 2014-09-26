@@ -19,8 +19,10 @@ angular.module('tipadvisor.newfactories', [])
         if(test.test(bill.currency)){
           return;
         }
+        else if (btnVal === "." && decimalPressed === true){
+          return;
+        }
         else if (btnVal === "."){
-          console.log("dec pressed");
           bill.currency = bill.currency + ".";
         }
         else if (bill.currency.length < 7){

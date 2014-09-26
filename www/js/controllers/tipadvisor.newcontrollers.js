@@ -51,6 +51,47 @@ angular.module('tipadvisor.newcontrollers', [])
         $scope.calcTotal();
       };
 
+      $scope.decimalPressed = false;
+
+      $scope.clearActiveSection = function(){
+        switch($scope.activePanel) {
+          case 0:
+            billFactory.clear();
+            $scope.calcAll();
+            break;
+          case 1:
+            tipFactory.clear();
+            $scope.calcAll();
+            break;
+          case 2:
+            taxFactory.clear();
+            $scope.calcAll();
+            break;
+        }
+        $scope.decimalPressed = false;
+      };
+
+      $scope.btnInput = function(btnVal){
+        if (btnVal == "."){
+          $scope.decimalPressed = true;
+        };
+
+        if (btnVal == "C"){
+          $scope.clearActiveSection();
+        }
+        else if ($scope.activePanel === 0){
+          billFactory.input(btnVal, $scope.decimalPressed);
+          $scope.calcAll();
+        }
+        else if ($scope.activePanel === 1){
+          tipFactory.input(btnVal, $scope.decimalPressed);
+          $scope.calcTip();
+        }
+        else if ($scope.activePanel === 2){
+          taxFactory.input(btnVal, $scope.decimalPressed);
+          $scope.calcTax();
+        }
+      };
 
 
       // keep track of slider position
