@@ -11,6 +11,20 @@ angular.module('tipadvisor.newcontrollers', [])
       //   console.log("watch firing");
       //   taxFactory.setCurrencyFromPercent(billFactory.getBillFloat());
       // });
+
+      $scope.activePanel = 0;
+      $scope.changeActivePanel = function(panel){
+        if(panel === $scope.activePanel){
+          return
+        } else {
+          currentActive = angular.element(document.getElementById('panel-' + $scope.activePanel));
+          newActive = angular.element(document.getElementById('panel-' + panel));
+          $animate.removeClass(currentActive, 'active-panel');
+          $animate.addClass(newActive, 'active-panel');
+          $scope.activePanel = panel;
+        };
+      };
+
       $scope.recalcTipCurrency = function(){
         tipFactory.setCurrencyFromPercent(billFactory.getBillFloat() - $scope.tax.currency);
       };

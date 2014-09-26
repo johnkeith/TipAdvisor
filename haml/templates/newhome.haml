@@ -1,23 +1,23 @@
 %ion-view{ title: "TipAdvisor"}
   %ion-content{ "ng-controller" => "homeCtrl" }
     .main
-      .bill-panel.quarter-panel.active-panel
+      #panel-0.bill-panel.quarter-panel.active-panel{ "ng-click" => "changeActivePanel(0)" }
         .label Bill
         .number {{ bill.currency | currency }}
         / %input{ type: "number", "ng-model" => "bill.currency", "ng-change" => "recalcTipPercent(); recalcTaxPercent(); calcTotal()", placeholder: "{{ bill.currency | number : 2}}", "inputOnlyNumsTwoDec" => "" }
-      .tip-panel.quarter-panel
+      #panel-1.tip-panel.quarter-panel{ "ng-click" => "changeActivePanel(1)" }
         .label Tip
         .number 
           ({{ tip.percent * 100 | number : 2 }}%) 
           %span.currency {{ tip.currency | currency }}
         / %input{ type: "number", "ng-model" => "tip.currency", "ng-change" => "recalcTipPercent(); calcTotal()" }
         / %input{ type: "range", min: "0.00", max: "0.30", step: "0.01", "ng-model" => "tip.percent", "ng-change" => "recalcTipCurrency(); calcTotal()" }
-      .tax-panel.quarter-panel
+      #panel-2.tax-panel.quarter-panel{ "ng-click" => "changeActivePanel(2)" }
         .label Tax 
         .number ({{ tax.percent * 100 | number : 2 }}%) {{ tax.currency | currency }}
         / %input{ type: "number", "ng-model" => "tax.currency", "ng-change" => "recalcTaxPercent(); calcTotal()" }
         / %input{ type: "range", min: "0.00", max: "1", step: "0.01","ng-model" => "tax.percent", "ng-change" => "recalcTaxCurrency(); calcTotal()"}
-      .total-panel.quarter-panel
+      #panel-3.total-panel.quarter-panel
         .label Total
         .number {{ total | currency }}
       .quarter-panel
