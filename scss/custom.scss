@@ -160,66 +160,66 @@ body {
 .from-top {
   margin-top: 100px;
 }
-.num-btns-container {
-  bottom: 0;
-  position: absolute; 
-  width:100%;
-  z-index: 1000;
-  .row-btns {
-    &:after {
-      content: "";
+// .num-btns-container {
+//   bottom: 0;
+//   position: absolute; 
+//   width:100%;
+//   z-index: 1000;
+//   .row-btns {
+//     &:after {
+//       content: "";
       
-      clear: both;
-    }
-    &:first-child {
-      .num-btn {
-        border-top-width:0px;
-      }
-    }
-    &:last-child {
-      .num-btn {
-        border-bottom-width:0px;
-        height: 67px;
-      }
-    }
-    .num-btn {
-      &:first-child {
-        border-right-width:1px;
-        border-left-width:0px;
-      }
-      &:last-child {
-        border-right-width:0px;
-        border-left-width:1px;
-        width: 106px;
-      }
-      &:active {
-        background: $sunglo;
-        // border: 1px solid transparent;
-        // border-bottom-width:4px;
-        color: white;
-        // -webkit-transform: scale(1.1);
-        // transform: scale(1.1);
-        -webkit-transition: 0.2s ease-in;
-        transition: 0.2s ease-in;
-      }
-      background: white;
-      border: none;
-      border: 0.5px solid #ddd;
-      border-bottom-width:1px;
-      color: $lynch;
-      cursor: pointer;
-      display: inline-block;
-      float: left;
-      font-size: 1.3em;
-      height: 67px;
-      margin:0px;
-      outline: none;
-      text-align: center;
-      width: 107px;
-      -webkit-tap-highlight-color: white;
-    }
-  }
-}
+//       clear: both;
+//     }
+//     &:first-child {
+//       .num-btn {
+//         border-top-width:0px;
+//       }
+//     }
+//     &:last-child {
+//       .num-btn {
+//         border-bottom-width:0px;
+//         height: 67px;
+//       }
+//     }
+//     .num-btn {
+//       &:first-child {
+//         border-right-width:1px;
+//         border-left-width:0px;
+//       }
+//       &:last-child {
+//         border-right-width:0px;
+//         border-left-width:1px;
+//         width: 106px;
+//       }
+//       &:active {
+//         background: $sunglo;
+//         // border: 1px solid transparent;
+//         // border-bottom-width:4px;
+//         color: white;
+//         // -webkit-transform: scale(1.1);
+//         // transform: scale(1.1);
+//         -webkit-transition: 0.2s ease-in;
+//         transition: 0.2s ease-in;
+//       }
+//       background: white;
+//       border: none;
+//       border: 0.5px solid #ddd;
+//       border-bottom-width:1px;
+//       color: $lynch;
+//       cursor: pointer;
+//       display: inline-block;
+//       float: left;
+//       font-size: 1.3em;
+//       height: 67px;
+//       margin:0px;
+//       outline: none;
+//       text-align: center;
+//       width: 107px;
+//       -webkit-tap-highlight-color: white;
+//     }
+//   }
+// }
 #calc {
   -webkit-transition: 0.2s linear all;
   -moz-transition: 0.2s linear all;
@@ -476,30 +476,123 @@ $debian-red: RGBA(212, 14, 82, 1);
   color: black;
 }
 
-.four-panel-container {
+.main {
   color: white;
   height: 100%;
+  font-size: 1.5em;
+  width: 100%;
   .quarter-panel {
-    height: 25%;
+    height: 10%;
+    display: table;
+    position: relative;
+    padding: 0 0.2em 0 0.2em;
+    width: 100%;
+    .label {
+      color: rgba(255,255,255,1);
+      display: table-cell;
+      font-size: 1.2em;
+      font-weight: bold;
+      text-align: left;
+      vertical-align: middle;
+    }
+    .number {
+      display: table-cell;
+      text-align: right;
+      vertical-align: middle;
+      & + .number {
+        border-right: 1px solid white;
+        margin-right: 5px;
+        padding-right: 5px;
+      }
+    }
+  }
+  .active-panel {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-left-width: 0px;
+    border-right-width: 0px;
+    -webkit-transition: 0.2s ease-in;
+    transition: 0.2s ease-in;
   }
   .bill-panel {
-    background: $blue-green;
   }
   .tip-panel {
-    background: $lemon;
   }
   .tax-panel {
-    background: $debian-red;
   }
   .total-panel {
-    background: $dark-purple;
-  }
+  } 
 }
 .scroll {
+  // background: linear-gradient(to bottom,#5856D6,#C644FC 100%);
+  background: linear-gradient(to bottom,$curious-blue, $niagara-green);
   height: 100%;
 }
 
-
+.calc {
+    bottom: 0;
+    height: 50%;
+    position: absolute;
+    right: 0;
+    width: 100%;
+    .num-btns-container {
+      height: 100%;
+      width:100%;
+      z-index: 1000;
+      .row-btns {
+        height: 25%;
+        &:after {
+          content: "";  
+          clear: both;
+        }
+        &:first-child {
+          .num-btn {
+            border-top-width:1px;
+          }
+        }
+        &:last-child {
+          .num-btn {
+            border-bottom-width:0px;
+          }
+        }
+        .num-btn {
+          &:first-child {
+            border-right-width:1px;
+            border-left-width:0px;
+          }
+          &:last-child {
+            border-right-width:0px;
+            border-left-width:1px;
+          }
+          &:active {
+            background: white;
+            // border: 1px solid transparent;
+            // border-bottom-width:4px;
+            color: $lynch;
+            // -webkit-transform: scale(1.1);
+            // transform: scale(1.1);
+            -webkit-transition: 0.2s ease-in;
+            transition: 0.2s ease-in;
+          }
+          background: rgba(255,255,255,0.05);
+          border: none;
+          border: 0.5px solid rgba(255,255,255,0.2);
+          border-bottom-width:1px;
+          color: white;
+          cursor: pointer;
+          display: inline-block;
+          font-size: 1em;
+          float: left;
+          height: 100%;
+          margin:0px;
+          outline: none;
+          text-align: center;
+          width: (100% / 3);
+          -webkit-tap-highlight-color: white;
+        }
+      }
+    }
+  }
 
 
 
@@ -512,20 +605,30 @@ $debian-red: RGBA(212, 14, 82, 1);
 // media queries for iphone
 
 /* iPhone with no retina display */
-@media screen {
-    body {
-    }
-}
+// @media screen {
+//     body {
+//     }
+// }
 
 /* iPhone < 5 and retina display */
-@media screen and (device-height: 480px) and (-webkit-min-device-pixel-ratio: 2) {
-    body {
-    }
-}
+// @media screen and (device-height: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+//     body {
+//     }
+// }
 
-/* iPhone 5 and retina display*/
-@media screen and (device-height: 568px) and (-webkit-min-device-pixel-ratio: 2) {
-    body {
+/* iPhone <= 5 */
+@media screen and (device-width: 320px) {
+    .calc {
+      .num-btns-container {
+        .row-btns {
+          .num-btn {
+            width: 106px;
+            &:last-child, &:first-child {
+              width: 107px;
+            }
+          }
+        }
+      }
     }
 }
 // ionic customizations

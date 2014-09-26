@@ -1,22 +1,27 @@
 %ion-view{ title: "TipAdvisor"}
   %ion-content{ "ng-controller" => "homeCtrl" }
-    .four-panel-container
-      .bill-panel.quarter-panel
-        %p The bill is {{ bill.currency | currency }}
-        %input{ type: "number", "ng-model" => "bill.currency", "ng-change" => "recalcTipPercent(); recalcTaxPercent(); calcTotal()", placeholder: "{{ bill.currency | number : 2}}", "inputOnlyNumsTwoDec" => "" }
+    .main
+      .bill-panel.quarter-panel.active-panel
+        .label Bill
+        .number {{ bill.currency | currency }}
+        / %input{ type: "number", "ng-model" => "bill.currency", "ng-change" => "recalcTipPercent(); recalcTaxPercent(); calcTotal()", placeholder: "{{ bill.currency | number : 2}}", "inputOnlyNumsTwoDec" => "" }
       .tip-panel.quarter-panel
-        %p The tip is {{ tip.percent * 100 | number : 2 }} %
-        %input{ type: "number", "ng-model" => "tip.currency", "ng-change" => "recalcTipPercent(); calcTotal()" }
-        %p Change tip by percent
-        %input{ type: "range", min: "0.00", max: "0.30", step: "0.01", "ng-model" => "tip.percent", "ng-change" => "recalcTipCurrency(); calcTotal()" }
+        .label Tip
+        .number 
+          ({{ tip.percent * 100 | number : 2 }}%) 
+          %span.currency {{ tip.currency | currency }}
+        / %input{ type: "number", "ng-model" => "tip.currency", "ng-change" => "recalcTipPercent(); calcTotal()" }
+        / %input{ type: "range", min: "0.00", max: "0.30", step: "0.01", "ng-model" => "tip.percent", "ng-change" => "recalcTipCurrency(); calcTotal()" }
       .tax-panel.quarter-panel
-        %p The tax is: {{ tax.currency | currency }}
-        %input{ type: "number", "ng-model" => "tax.currency", "ng-change" => "recalcTaxPercent(); calcTotal()" }
-
-        %p Change tax by percent (current percent is {{ tax.percent * 100 | number : 2 }})
-        %input{ type: "range", min: "0.00", max: "1", step: "0.01","ng-model" => "tax.percent", "ng-change" => "recalcTaxCurrency(); calcTotal()"}
+        .label Tax 
+        .number ({{ tax.percent * 100 | number : 2 }}%) {{ tax.currency | currency }}
+        / %input{ type: "number", "ng-model" => "tax.currency", "ng-change" => "recalcTaxPercent(); calcTotal()" }
+        / %input{ type: "range", min: "0.00", max: "1", step: "0.01","ng-model" => "tax.percent", "ng-change" => "recalcTaxCurrency(); calcTotal()"}
       .total-panel.quarter-panel
-        %p The total is {{ total | currency }}
+        .label Total
+        .number {{ total | currency }}
+      .quarter-panel
+      .calc{ "calc" => "" }
       / %p Dollars are {{ bill.dollars }}
       / %p Cents are {{ bill.cents }}
       / %input{ type: "text", "ng-model" => "newDollars", placeholder: "New Dollars" }
