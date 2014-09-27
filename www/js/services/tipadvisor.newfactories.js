@@ -48,14 +48,35 @@ angular.module('tipadvisor.newfactories', [])
         tip.currency = c;
       },
       setCurrencyFromPercent: function(bill){
-        tip.currency = bill * tip.percent;
+        if(tip.percent != 0){
+          tip.currency = bill * tip.percent;
+          tip.currency = tip.currency.toString();
+        }
       },
       setPercentFromCurrency: function(bill){
+        if (bill == 0 || isNaN(bill)){
+          return;
+        };
         tip.percent = tip.currency / bill;
       },
       clear: function(){
         tip.percent = "";
         tip.currency = "";
+      },
+      input: function(btnVal, decimalPressed){
+        var test = /\.\d{2}/;
+        if(test.test(tip.currency)){
+          return;
+        }
+        else if (btnVal === "." && decimalPressed === true){
+          return;
+        }
+        else if (btnVal === "."){
+          tip.currency = tip.currency + ".";
+        }
+        else if (tip.currency.length < 7){
+          tip.currency += btnVal;
+        }
       }
     };
   })
@@ -76,7 +97,10 @@ angular.module('tipadvisor.newfactories', [])
         tax.currency = c;
       }, 
       setCurrencyFromPercent: function(bill){
-        tax.currency = bill * tax.percent;
+        if(tax.percent != 0){
+          tax.currency = bill * tax.percent;
+          tax.currency = tax.currency.toString();
+        }
       },
       setPercentFromCurrency: function(bill){
         if (bill == 0){

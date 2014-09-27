@@ -46,8 +46,21 @@ angular.module('tipadvisor.newcontrollers', [])
       };
 
       $scope.calcAll = function(){
-        taxFactory.setCurrencyFromPercent(billFactory.getBillFloat());
-        tipFactory.setCurrencyFromPercent(billFactory.getBillFloat() - $scope.tax.currency);
+        console.log("calcing all");
+
+        if($scope.tax.currency == 0){
+          taxFactory.setCurrencyFromPercent(billFactory.getBillFloat());
+        } else if($scope.tax.percent == 0){
+          taxFactory.setPercentFromCurrency(billFactory.getBillFloat());
+        };
+
+        if($scope.tip.currency == 0){
+          tipFactory.setCurrencyFromPercent(billFactory.getBillFloat() - $scope.tax.currency);
+        } else if($scope.tip.percent == 0){
+          console.log("setting percent from currency");
+          tipFactory.setPercentFromCurrency(billFactory.getBillFloat() - $scope.tax.currency);
+        };
+
         $scope.calcTotal();
       };
 
@@ -72,10 +85,6 @@ angular.module('tipadvisor.newcontrollers', [])
       };
 
       $scope.btnInput = function(btnVal){
-        if (btnVal == "."){
-          $scope.decimalPressed = true;
-        };
-
         if (btnVal == "C"){
           $scope.clearActiveSection();
         }
@@ -85,12 +94,19 @@ angular.module('tipadvisor.newcontrollers', [])
         }
         else if ($scope.activePanel === 1){
           tipFactory.input(btnVal, $scope.decimalPressed);
-          $scope.calcTip();
+          $scope.recalcTipPercent();
+          $scope.calcTotal();
         }
         else if ($scope.activePanel === 2){
           taxFactory.input(btnVal, $scope.decimalPressed);
-          $scope.calcTax();
-        }
+          $scope.recalcTaxPercent();
+          $scope.calcTotal();
+        };
+
+        if (btnVal == "."){
+          $scope.decimalPressed = true;
+        };
+
       };
 
 
