@@ -7,6 +7,7 @@ $sunset-orange: rgba(246, 71, 71, 1);
 $picton-blue: rgba(34, 167, 240, 1);
 $crusta: rgba(242, 120, 75, 1);
 $sunglo: rgba(226, 106, 106, 1);
+$studio: rgba(142, 68, 173, 1);
 $lynch: rgba(108, 122, 137, 1);
 
 $top-bar-bg: rgba(248, 248, 248, 1);
@@ -511,6 +512,13 @@ $debian-red: RGBA(212, 14, 82, 1);
     -webkit-transition: 0.2s ease-in;
     transition: 0.2s ease-in;
   }
+  .credits-panel {
+      top: 0;
+      color: rgba(255,255,255,0.15);
+      margin-top: -10%;
+      position: absolute;
+      text-align: center;
+  }
   .bill-panel {
   }
   .tip-panel {
@@ -529,10 +537,10 @@ $debian-red: RGBA(212, 14, 82, 1);
         -webkit-appearance: none;
         border: 2px solid white;
         border-radius: 50%;
-        background: $lemon;
-        height: 3em;
+        background: $sunglo;
+        height: 2.5em;
         outline:none;
-        width: 3em;
+        width: 2.5em;
       }
       &::-webkit-slider-thumb:active {
         background: white;
@@ -555,7 +563,7 @@ $debian-red: RGBA(212, 14, 82, 1);
     }
     #tax-slider {
       &::-webkit-slider-thumb {
-        background: $debian-red;
+        background: $studio;
       }
     }
   }
@@ -579,6 +587,14 @@ $debian-red: RGBA(212, 14, 82, 1);
 }
 .scroll-bar {
   visibility: hidden;
+}
+
+.scroll-refresher .ionic-refresher-content {
+  color: white;
+  font-size: 3em;
+}
+.scroll-refresher {
+  top: -15%;
 }
 
 .calc {

@@ -2,6 +2,8 @@
   %ion-content{ "ng-controller" => "homeCtrl" }
     %ion-refresher{ "on-refresh" => "clearAll()", "pulling-icon" => "ion-ios7-reloading", "refreshing-icon" => "ion-ios7-reloading" }
     .main
+      #panel-credits.credits-panel.quarter-panel
+        made by @mrjohnkeith
       #panel-0.bill-panel.quarter-panel.active-panel{ "ng-click" => "changeActivePanel(0)" }
         .label Bill
         .number {{ bill.currency | currency }}
@@ -24,6 +26,7 @@
       / #panel-4-2.slider-panel.panel-hidden.quarter-panel
       /   %input#tax-slider{ type: "range", min: "0.00", max: "1", step: "0.01","ng-model" => "tax.percent", "ng-change" => "sliderUsed(); recalcTaxCurrency(); calcTotal()" }
       .calc{ "calc" => "" }
+
       / %p Dollars are {{ bill.dollars }}
       / %p Cents are {{ bill.cents }}
       / %input{ type: "text", "ng-model" => "newDollars", placeholder: "New Dollars" }
