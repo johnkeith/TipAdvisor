@@ -71,6 +71,11 @@ angular.module('tipadvisor.newcontrollers', [])
       };
 
       $scope.decimalPressed = false;
+      $scope.sliderPressed = false;
+
+      $scope.sliderUsed = function(){
+        $scope.sliderPressed = true;
+      }
 
       $scope.clearActiveSection = function(){
         switch($scope.activePanel) {
@@ -88,9 +93,14 @@ angular.module('tipadvisor.newcontrollers', [])
             break;
         }
         $scope.decimalPressed = false;
+        $scope.sliderPressed = false;
       };
 
       $scope.btnInput = function(btnVal){
+        if ($scope.sliderPressed === true){
+          $scope.clearActiveSection();
+        };
+
         if (btnVal == "C"){
           $scope.clearActiveSection();
         }
