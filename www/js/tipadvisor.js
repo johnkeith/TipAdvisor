@@ -5,8 +5,6 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('tipAdvisor', [
   'ionic',
-  'tipadvisor.controllers',
-  'tipadvisor.services',
   'tipadvisor.directives',
   'tipadvisor.newcontrollers', 
   'tipadvisor.newfactories'
