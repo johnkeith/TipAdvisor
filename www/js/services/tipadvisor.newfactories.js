@@ -19,6 +19,9 @@ angular.module('tipadvisor.newfactories', [])
         if(test.test(bill.currency)){
           return;
         }
+        else if (btnVal === "0" && bill.currency.length === 0){
+          return;
+        }
         else if (btnVal === "." && decimalPressed === true){
           return;
         }

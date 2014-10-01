@@ -520,7 +520,7 @@ $debian-red: RGBA(212, 14, 82, 1);
   .total-panel {
   }
   .slider-panel {
-    background: rgba(255,255,255,0.05);
+    // background: rgba(255,255,255,0.05);
     // border-top: 1px solid rgba(255,255,255,0.2);
     height: 10%;
     padding: 0;
@@ -544,6 +544,7 @@ $debian-red: RGBA(212, 14, 82, 1);
       border-radius: 0;
       background: rgba(255,255,255,0.15);
       height: 2px;
+      margin-top: 2em;
       -webkit-transform: translate3d(0px,0px,0px);
       width: 100%;
       // -ms-transform: rotate(270deg); /* IE 9 */

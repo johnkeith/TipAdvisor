@@ -24,8 +24,8 @@
         <div class='number'>{{ total | currency }}</div>
       </div>
       <div class='slider-panel panel-hidden quarter-panel' id='panel-4'>
-        <input class='slider-hidden' id='tip-slider' max='0.30' min='0.00' ng-change='sliderUsed(); recalcTipCurrency(); calcTotal()' ng-model='tip.percent' step='0.01' type='range'>
-        <input class='slider-hidden' id='tax-slider' max='1' min='0.00' ng-change='sliderUsed(); recalcTaxCurrency(); calcTotal()' ng-model='tax.percent' step='0.01' type='range'>
+        <input class='slider-hidden' id='tip-slider' max='0.30' min='0.00' ng-change='sliderUsed(1); recalcTipCurrency(); calcTotal()' ng-model='tip.percent' step='0.01' type='range'>
+        <input class='slider-hidden' id='tax-slider' max='1' min='0.00' ng-change='sliderUsed(2); recalcTaxCurrency(); calcTotal()' ng-model='tax.percent' step='0.01' type='range'>
       </div>
       <!-- #panel-4-2.slider-panel.panel-hidden.quarter-panel -->
       <!-- %input#tax-slider{ type: "range", min: "0.00", max: "1", step: "0.01","ng-model" => "tax.percent", "ng-change" => "sliderUsed(); recalcTaxCurrency(); calcTotal()" } -->

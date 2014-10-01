@@ -19,8 +19,8 @@
         .label Total
         .number {{ total | currency }}
       #panel-4.slider-panel.panel-hidden.quarter-panel
-        %input#tip-slider.slider-hidden{ type: "range", min: "0.00", max: "0.30", step: "0.01", "ng-model" => "tip.percent", "ng-change" => "sliderUsed(); recalcTipCurrency(); calcTotal()" }
-        %input#tax-slider.slider-hidden{ type: "range", min: "0.00", max: "1", step: "0.01","ng-model" => "tax.percent", "ng-change" => "sliderUsed(); recalcTaxCurrency(); calcTotal()" }
+        %input#tip-slider.slider-hidden{ type: "range", min: "0.00", max: "0.30", step: "0.01", "ng-model" => "tip.percent", "ng-change" => "sliderUsed(1); recalcTipCurrency(); calcTotal()" }
+        %input#tax-slider.slider-hidden{ type: "range", min: "0.00", max: "1", step: "0.01","ng-model" => "tax.percent", "ng-change" => "sliderUsed(2); recalcTaxCurrency(); calcTotal()" }
       / #panel-4-2.slider-panel.panel-hidden.quarter-panel
       /   %input#tax-slider{ type: "range", min: "0.00", max: "1", step: "0.01","ng-model" => "tax.percent", "ng-change" => "sliderUsed(); recalcTaxCurrency(); calcTotal()" }
       .calc{ "calc" => "" }
