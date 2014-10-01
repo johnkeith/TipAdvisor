@@ -1,5 +1,6 @@
 %ion-view{ title: "TipAdvisor"}
-  %ion-content{ "ng-controller" => "homeCtrl"}
+  %ion-content{ "ng-controller" => "homeCtrl" }
+    %ion-refresher{ "on-refresh" => "clearAll()", "pulling-icon" => "ion-ios7-reload", "refreshing-icon" => "ion-ios7-reloading" }
     .main
       #panel-0.bill-panel.quarter-panel.active-panel{ "ng-click" => "changeActivePanel(0)" }
         .label Bill
@@ -17,8 +18,9 @@
       #panel-3.total-panel.quarter-panel
         .label Total
         .number {{ total | currency }}
-      #panel-4-1.slider-panel.panel-hidden.quarter-panel
-        %input#tip-slider{ type: "range", min: "0.00", max: "0.30", step: "0.01", "ng-model" => "tip.percent", "ng-change" => "sliderUsed(); recalcTipCurrency(); calcTotal()" }
+      #panel-4.slider-panel.panel-hidden.quarter-panel
+        %input#tip-slider.slider-hidden{ type: "range", min: "0.00", max: "0.30", step: "0.01", "ng-model" => "tip.percent", "ng-change" => "sliderUsed(); recalcTipCurrency(); calcTotal()" }
+        %input#tax-slider.slider-hidden{ type: "range", min: "0.00", max: "1", step: "0.01","ng-model" => "tax.percent", "ng-change" => "sliderUsed(); recalcTaxCurrency(); calcTotal()" }
       / #panel-4-2.slider-panel.panel-hidden.quarter-panel
       /   %input#tax-slider{ type: "range", min: "0.00", max: "1", step: "0.01","ng-model" => "tax.percent", "ng-change" => "sliderUsed(); recalcTaxCurrency(); calcTotal()" }
       .calc{ "calc" => "" }

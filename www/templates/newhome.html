@@ -1,5 +1,6 @@
 <ion-view title='TipAdvisor'>
   <ion-content ng-controller='homeCtrl'>
+    <ion-refresher on-refresh='clearAll()' pulling-icon='ion-ios7-reload' refreshing-icon='ion-ios7-reloading'></ion-refresher>
     <div class='main'>
       <div class='bill-panel quarter-panel active-panel' id='panel-0' ng-click='changeActivePanel(0)'>
         <div class='label'>Bill</div>
@@ -22,8 +23,9 @@
         <div class='label'>Total</div>
         <div class='number'>{{ total | currency }}</div>
       </div>
-      <div class='slider-panel panel-hidden quarter-panel' id='panel-4-1'>
-        <input id='tip-slider' max='0.30' min='0.00' ng-change='sliderUsed(); recalcTipCurrency(); calcTotal()' ng-model='tip.percent' step='0.01' type='range'>
+      <div class='slider-panel panel-hidden quarter-panel' id='panel-4'>
+        <input class='slider-hidden' id='tip-slider' max='0.30' min='0.00' ng-change='sliderUsed(); recalcTipCurrency(); calcTotal()' ng-model='tip.percent' step='0.01' type='range'>
+        <input class='slider-hidden' id='tax-slider' max='1' min='0.00' ng-change='sliderUsed(); recalcTaxCurrency(); calcTotal()' ng-model='tax.percent' step='0.01' type='range'>
       </div>
       <!-- #panel-4-2.slider-panel.panel-hidden.quarter-panel -->
       <!-- %input#tax-slider{ type: "range", min: "0.00", max: "1", step: "0.01","ng-model" => "tax.percent", "ng-change" => "sliderUsed(); recalcTaxCurrency(); calcTotal()" } -->

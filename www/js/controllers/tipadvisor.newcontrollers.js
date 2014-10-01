@@ -1,5 +1,5 @@
 angular.module('tipadvisor.newcontrollers', [])
-  .controller('homeCtrl', ["$scope", "billFactory", "tipFactory", "taxFactory", "$animate",
+  .controller('homeCtrl', ["$scope", "billFactory", "tipFactory", "taxFactory", "$animate", 
     function($scope, billFactory, tipFactory, taxFactory, $animate){
       $scope.bill = billFactory.getBill();
       $scope.tip = tipFactory.getTip();
@@ -26,18 +26,22 @@ angular.module('tipadvisor.newcontrollers', [])
           $scope.decimalPressed = false;
         };
 
-        tipSlider = angular.element(document.getElementById('panel-4-1'));
-        taxSlider = angular.element(document.getElementById('panel-4-2'));
+        sliderPanel = angular.element(document.getElementById('panel-4'));
+        tipSlider = angular.element(document.getElementById('tip-slider'));
+        taxSlider = angular.element(document.getElementById('tax-slider'));
 
         if (panel === 0){
-          $animate.removeClass(tipSlider, 'panel-visible');
-          $animate.removeClass(taxSlider, 'panel-visible');
+          $animate.removeClass(sliderPanel, 'panel-visible');
+          $animate.removeClass(tipSlider, 'slider-visible');
+          $animate.removeClass(taxSlider, 'slider-visible');
         } else if (panel === 1){
-          $animate.removeClass(taxSlider, 'panel-visible');
-          $animate.addClass(tipSlider, 'panel-visible');
+          $animate.addClass(sliderPanel, 'panel-visible');
+          $animate.removeClass(taxSlider, 'slider-visible');
+          $animate.addClass(tipSlider, 'slider-visible');
         } else if (panel === 2){
-          $animate.removeClass(tipSlider, 'panel-visible');
-          $animate.addClass(taxSlider, 'panel-visible');
+          $animate.addClass(sliderPanel, 'panel-visible');
+          $animate.removeClass(tipSlider, 'slider-visible');
+          $animate.addClass(taxSlider, 'slider-visible');
         };
 
         $scope.clearQueued = true;
@@ -111,6 +115,15 @@ angular.module('tipadvisor.newcontrollers', [])
         $scope.decimalPressed = false;
         $scope.clearQueued = false;
         $scope.sliderPressed = false;
+      };
+
+      $scope.clearAll = function(){
+        billFactory.clear();
+        tipFactory.clear();
+        taxFactory.clear();
+
+        $scope.calcAll();
+        $scope.$broadcast('scroll.refreshComplete');
       };
 
       $scope.btnInput = function(btnVal){

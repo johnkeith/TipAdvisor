@@ -522,17 +522,17 @@ $debian-red: RGBA(212, 14, 82, 1);
   .slider-panel {
     background: rgba(255,255,255,0.05);
     // border-top: 1px solid rgba(255,255,255,0.2);
-    height: 5%;
+    height: 10%;
     padding: 0;
-    #tip-slider {
+    #tip-slider, #tax-slider {
       &::-webkit-slider-thumb {
         -webkit-appearance: none;
         border: 2px solid white;
         border-radius: 50%;
-        background: $sunglo;
-        height: 40px;
+        background: $lemon;
+        height: 3em;
         outline:none;
-        width: 40px;
+        width: 3em;
       }
       &::-webkit-slider-thumb:active {
         background: white;
@@ -543,7 +543,6 @@ $debian-red: RGBA(212, 14, 82, 1);
       -webkit-appearance: none;
       border-radius: 0;
       background: rgba(255,255,255,0.15);
-      display: block;
       height: 2px;
       -webkit-transform: translate3d(0px,0px,0px);
       width: 100%;
@@ -553,15 +552,24 @@ $debian-red: RGBA(212, 14, 82, 1);
       z-index: 10000;
       vertical-align: middle;
     }
+    #tax-slider {
+      &::-webkit-slider-thumb {
+        background: $debian-red;
+      }
+    }
   }
   .panel-hidden{
-    margin-top: 20%;
     opacity: 0;
   }
   .panel-visible {
-    margin-top: 10%;
     opacity: 1;
-  } 
+  }
+  .slider-hidden {
+    display: none;
+  }
+  .slider-visible {
+    display: block;
+  }
 }
 .scroll {
   // background: linear-gradient(to bottom,#5856D6,#C644FC 100%);
