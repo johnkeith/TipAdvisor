@@ -71,6 +71,9 @@ angular.module('tipadvisor.newfactories', [])
         if(test.test(tip.currency)){
           return;
         }
+        else if (btnVal === "0" && tip.currency.length === 0){
+          return;
+        }
         else if (btnVal === "." && decimalPressed === true){
           return;
         }
@@ -118,6 +121,9 @@ angular.module('tipadvisor.newfactories', [])
       input: function(btnVal, decimalPressed){
         var test = /\.\d{2}/;
         if(test.test(tax.currency)){
+          return;
+        }
+        else if (btnVal === "0" && tax.currency.length === 0){
           return;
         }
         else if (btnVal === "." && decimalPressed === true){

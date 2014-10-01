@@ -577,6 +577,9 @@ $debian-red: RGBA(212, 14, 82, 1);
   // background: linear-gradient(to bottom,$curious-blue, $niagara-green);
   height: 100%;
 }
+.scroll-bar {
+  visibility: hidden;
+}
 
 .calc {
     bottom: 0;
