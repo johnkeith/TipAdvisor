@@ -8,19 +8,16 @@
       <div class='bill-panel quarter-panel active-panel' id='panel-0' ng-click='changeActivePanel(0)'>
         <div class='label'>Bill</div>
         <div class='number'>{{ bill.currency | currency }}</div>
-        <!-- %input{ type: "number", "ng-model" => "bill.currency", "ng-change" => "recalcTipPercent(); recalcTaxPercent(); calcTotal()", placeholder: "{{ bill.currency | number : 2}}", "inputOnlyNumsTwoDec" => "" } -->
       </div>
       <div class='tip-panel quarter-panel' id='panel-1' ng-click='changeActivePanel(1)'>
         <div class='label'>Tip</div>
         <div class='number'>
           ({{ tip.percent * 100 | number : 2 }}%) {{ tip.currency | currency }}
         </div>
-        <!-- %input{ type: "number", "ng-model" => "tip.currency", "ng-change" => "recalcTipPercent(); calcTotal()" } -->
       </div>
       <div class='tax-panel quarter-panel' id='panel-2' ng-click='changeActivePanel(2)'>
         <div class='label'>Tax</div>
         <div class='number'>({{ tax.percent * 100 | number : 2 }}%) {{ tax.currency | currency }}</div>
-        <!-- %input{ type: "number", "ng-model" => "tax.currency", "ng-change" => "recalcTaxPercent(); calcTotal()" } -->
       </div>
       <div class='total-panel quarter-panel' id='panel-3'>
         <div class='label'>Total</div>
@@ -30,59 +27,7 @@
         <input class='slider-hidden' id='tip-slider' max='0.30' min='0.00' ng-change='sliderUsed(1); recalcTipCurrency(); calcTotal()' ng-model='tip.percent' step='0.01' type='range'>
         <input class='slider-hidden' id='tax-slider' max='1' min='0.00' ng-change='sliderUsed(2); recalcTaxCurrency(); calcTotal()' ng-model='tax.percent' step='0.01' type='range'>
       </div>
-      <!-- #panel-4-2.slider-panel.panel-hidden.quarter-panel -->
-      <!-- %input#tax-slider{ type: "range", min: "0.00", max: "1", step: "0.01","ng-model" => "tax.percent", "ng-change" => "sliderUsed(); recalcTaxCurrency(); calcTotal()" } -->
       <div calc='' class='calc'></div>
-      <!-- %p Dollars are {{ bill.dollars }} -->
-      <!-- %p Cents are {{ bill.cents }} -->
-      <!-- %input{ type: "text", "ng-model" => "newDollars", placeholder: "New Dollars" } -->
-      <!-- %input{ type: "text", "ng-model" => "newCents", placeholder: "New Cents" } -->
-      <!-- %button{ type: "button", "ng-click" => "setBill(newDollars, newCents)" }Set New $ and Cents -->
     </div>
-    <!-- %p The test dollars are {{ testDollars }} -->
-    <!-- %ion-slide-box{ "on-slide-changed" => "slideHasChanged($index)", "show-pager" => "false", "does-continue" => "true" } -->
-    <!-- %ion-slide -->
-    <!-- .slide-box.slide-bill -->
-    <!-- .slide-content -->
-    <!-- .label Bill -->
-    <!-- .number {{ billAsCurrency | currency }} -->
-    <!-- %ion-slide{ "prevent-drag" => "" } -->
-    <!-- .slide-box.slide-tip -->
-    <!-- .slide-content -->
-    <!-- .label Tip -->
-    <!-- .number {{ tipAsCurrency | currency }} -->
-    <!-- .percent {{ tipAsPercent | number }}% -->
-    <!-- %input.range#range-tip{ type: "range", min: "0", max: "30", step: "1", "ng-model" => "tip.percent", "ng-change" => "tipRangeChange()" } -->
-    <!-- %ion-slide -->
-    <!-- .slide-box.slide-tax -->
-    <!-- .slide-content -->
-    <!-- .label Tax -->
-    <!-- .number {{ taxAsCurrency | currency }} -->
-    <!-- .percent {{ taxAsPercent | number }}% -->
-    <!-- %input.range#range-tax{ type: "range", min: "0", max: "30", step: "1", "ng-model" => "tax.percent" } -->
-    <!-- %ion-slide -->
-    <!-- .slide-box.slide-box-lg.slide-total -->
-    <!-- .slide-content -->
-    <!-- .summary.summary-bill -->
-    <!-- .summary-content -->
-    <!-- .label Bill -->
-    <!-- .number {{ billAsCurrency | currency }} -->
-    <!-- .summary.summary-tip -->
-    <!-- .summary-content -->
-    <!-- .label Tip -->
-    <!-- .number {{ tipAsCurrency | currency }} -->
-    <!-- .number ({{ tipAsPercent | number }}%) -->
-    <!-- .summary.summary-tax -->
-    <!-- .summary-content -->
-    <!-- .label Tax -->
-    <!-- .number {{ taxAsCurrency | currency }} -->
-    <!-- .number ({{ taxAsPercent | number }}%) -->
-    <!-- .summary.summary-total -->
-    <!-- .summary-content -->
-    <!-- .label Total -->
-    <!-- %input.range.testrange{ type: "range", min: "0", max: "30", step: "1", "ng-model" => "testDollars", "ng-change" => "testing()" } -->
-    <!-- %input{ type: "text", "ng-model" => "testDollars" } -->
-    <!-- %button{ type: "button", "ng-click" => "testSetDollars()"} Test set $$$ -->
-    <!-- %div#calc{ "calc" => "" } -->
   </ion-content>
 </ion-view>
