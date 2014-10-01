@@ -12,6 +12,7 @@ angular.module('tipadvisor.newcontrollers', [])
       //   taxFactory.setCurrencyFromPercent(billFactory.getBillFloat());
       // });
 
+// NEED TO REFACTOR INTO DIRECTIVES
       $scope.activePanel = 0;
       $scope.changeActivePanel = function(panel){
         if(panel === $scope.activePanel){
@@ -22,9 +23,24 @@ angular.module('tipadvisor.newcontrollers', [])
           $animate.removeClass(currentActive, 'active-panel');
           $animate.addClass(newActive, 'active-panel');
           $scope.activePanel = panel;
-
           $scope.decimalPressed = false;
         };
+
+        tipSlider = angular.element(document.getElementById('panel-4-1'));
+        taxSlider = angular.element(document.getElementById('panel-4-2'));
+
+        if (panel === 0){
+          $animate.removeClass(tipSlider, 'panel-visible');
+          $animate.removeClass(taxSlider, 'panel-visible');
+        } else if (panel === 1){
+          $animate.removeClass(taxSlider, 'panel-visible');
+          $animate.addClass(tipSlider, 'panel-visible');
+        } else if (panel === 2){
+          $animate.removeClass(tipSlider, 'panel-visible');
+          $animate.addClass(taxSlider, 'panel-visible');
+        };
+
+        $scope.clearQueued = true;
       };
 
       $scope.recalcTipCurrency = function(){
@@ -71,12 +87,12 @@ angular.module('tipadvisor.newcontrollers', [])
       };
 
       $scope.decimalPressed = false;
+      $scope.clearQueued = false;
       $scope.sliderPressed = false;
 
       $scope.sliderUsed = function(){
         $scope.sliderPressed = true;
       }
-
       $scope.clearActiveSection = function(){
         switch($scope.activePanel) {
           case 0:
@@ -93,11 +109,12 @@ angular.module('tipadvisor.newcontrollers', [])
             break;
         }
         $scope.decimalPressed = false;
+        $scope.clearQueued = false;
         $scope.sliderPressed = false;
       };
 
       $scope.btnInput = function(btnVal){
-        if ($scope.sliderPressed === true){
+        if ($scope.clearQueued === true || $scope.sliderPressed === true){
           $scope.clearActiveSection();
         };
 
@@ -125,59 +142,4 @@ angular.module('tipadvisor.newcontrollers', [])
         };
 
       };
-
-
-      // keep track of slider position
-      // $scope.activeSection = 0;
-      // $scope.decimalPressed = false;
-      
-      // $scope.slideHasChanged = function(i){
-      //   $scope.activeSection = i;
-      //   $scope.decimalPressed = false;
-      //   var el = document.getElementById('calc')
-      //   if (i === 3){
-      //     $animate.addClass(el , 'hidden-calc');
-      //   } else {
-      //     $animate.removeClass(el, 'hidden-calc');
-      //   }
-      // };
-
-      // $scope.clearActiveSection = function(){
-      //   switch($scope.activeSection) {
-      //     case 0:
-      //       billFactory.clear();
-      //       $scope.calcAll();
-      //       break;
-      //     case 1:
-      //       tipFactory.clear();
-      //       $scope.calcAll();
-      //       break;
-      //     case 2:
-      //       taxFactory.clear();
-      //       $scope.calcAll();
-      //       break;
-      //   }
-      // };
-
-      // $scope.btnInput = function(btnVal){
-      //   if (btnVal == "."){
-      //     $scope.decimalPressed = true;
-      //   };
-
-      //   if (btnVal == "C"){
-      //     $scope.clearActiveSection();
-      //   }
-      //   else if ($scope.activeSection === 0){
-      //     billFactory.input(btnVal, $scope.decimalPressed);
-      //     $scope.calcAll();
-      //   }
-      //   else if ($scope.activeSection === 1){
-      //     tip.input(btnVal, $scope.decimalPressed);
-      //     $scope.calcTip();
-      //   }
-      //   else if ($scope.activeSection === 2){
-      //     tax.input(btnVal, $scope.decimalPressed);
-      //     $scope.calcTax();
-      //   }
-      // };
   }]);

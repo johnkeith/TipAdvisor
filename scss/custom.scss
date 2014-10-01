@@ -508,9 +508,6 @@ $debian-red: RGBA(212, 14, 82, 1);
   }
   .active-panel {
     background: rgba(255,255,255,0.15);
-    // border: 1px solid rgba(255,255,255,0.2);
-    // border-left-width: 0px;
-    // border-right-width: 0px;
     -webkit-transition: 0.2s ease-in;
     transition: 0.2s ease-in;
   }
@@ -521,11 +518,54 @@ $debian-red: RGBA(212, 14, 82, 1);
   .tax-panel {
   }
   .total-panel {
+  }
+  .slider-panel {
+    background: rgba(255,255,255,0.05);
+    // border-top: 1px solid rgba(255,255,255,0.2);
+    height: 5%;
+    padding: 0;
+    #tip-slider {
+      &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        border: 2px solid white;
+        border-radius: 50%;
+        background: $sunglo;
+        height: 40px;
+        outline:none;
+        width: 40px;
+      }
+      &::-webkit-slider-thumb:active {
+        background: white;
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+        z-index: 10000;
+      }
+      -webkit-appearance: none;
+      border-radius: 0;
+      background: rgba(255,255,255,0.15);
+      display: block;
+      height: 2px;
+      -webkit-transform: translate3d(0px,0px,0px);
+      width: 100%;
+      // -ms-transform: rotate(270deg); /* IE 9 */
+      // -webkit-transform: rotate(270deg); /* Chrome, Safari, Opera */
+      // transform: rotate(270deg);
+      z-index: 10000;
+      vertical-align: middle;
+    }
+  }
+  .panel-hidden{
+    margin-top: 20%;
+    opacity: 0;
+  }
+  .panel-visible {
+    margin-top: 10%;
+    opacity: 1;
   } 
 }
 .scroll {
   // background: linear-gradient(to bottom,#5856D6,#C644FC 100%);
-  background: linear-gradient(to bottom,$curious-blue, $niagara-green);
+  // background: linear-gradient(to bottom,$curious-blue, $niagara-green);
   height: 100%;
 }
 
@@ -571,11 +611,8 @@ $debian-red: RGBA(212, 14, 82, 1);
             color: $lynch;
             // -webkit-transform: scale(1.1);
             // transform: scale(1.1);
-            -webkit-transition: 0.2s ease-in;
-            transition: 0.2s ease-in;
           }
           background: rgba(255,255,255,0.05);
-          border: none;
           border: 0.5px solid rgba(255,255,255,0.2);
           border-bottom-width:1px;
           color: white;
@@ -638,7 +675,7 @@ $debian-red: RGBA(212, 14, 82, 1);
   }
 }
 .pane {
-  background: white;
+  background: linear-gradient(to bottom,$curious-blue, $niagara-green);
 }
 .bar {
   border-bottom: 0px solid transparent;
