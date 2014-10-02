@@ -164,7 +164,7 @@ angular.module('tipadvisor.newcontrollers', [])
         else if ($scope.activePanel === 2){
           taxFactory.input(btnVal, $scope.decimalPressed);
           taxFactory.setPercentFromCurrency(billFactory.getBillFloat());
-          tipFactory.setPercentFromCurrency(billFactory.getBillFloat() - $scope.tax.currency);
+          tipFactory.setCurrencyFromPercent(billFactory.getBillFloat() - $scope.tax.currency);
           $scope.taxSetWithBtn = true;
           $scope.calcTotal();
         };

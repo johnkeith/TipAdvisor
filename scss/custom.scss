@@ -22,7 +22,7 @@ $max-height: 100%;
 }
 
 html {
-
+  background: linear-gradient(to bottom,$curious-blue, $niagara-green);
 }
 body {
   background: darken($curious-blue, 10%);

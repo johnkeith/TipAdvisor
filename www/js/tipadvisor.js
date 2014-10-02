@@ -44,6 +44,12 @@ angular.module('tipAdvisor', [
 
 .run(function($ionicPlatform, $rootScope) {
   $ionicPlatform.ready(function() {
+    // dealing with splash screen hiding 
+    // http://forum.ionicframework.com/t/white-page-showing-after-splash-screen-before-app-load/2908/9
+    // the below is not working.....
+    setTimeout(function() {
+      navigator.splashscreen.hide();
+    }, 100);
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if(window.cordova && window.cordova.plugins.Keyboard) {
@@ -52,10 +58,5 @@ angular.module('tipAdvisor', [
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
-    // dealing with splash screen hiding 
-    // http://forum.ionicframework.com/t/white-page-showing-after-splash-screen-before-app-load/2908/9
-    setTimeout(function() {
-      navigator.splashscreen.hide();
-    }, 100);
   });
 });
