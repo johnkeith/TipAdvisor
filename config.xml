@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.ionicframework.tipadvisor228301" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>tipadvisor</name>
+  <name>TipAdvisor</name>
   <description>
-        An Ionic Framework and Cordova project.
+        Calculate tips to save time and money
     </description>
-  <author email="hi@ionicframework" href="http://ionicframework.com/">
-      Ionic Framework Team
+  <author email="johnkeith@outlook.com" href="http://johnkeith.us/">
+      John Keith
     </author>
   <content src="index.html"/>
   <access origin="*"/>
