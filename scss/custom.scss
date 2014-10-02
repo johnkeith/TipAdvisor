@@ -9,6 +9,7 @@ $crusta: rgba(242, 120, 75, 1);
 $sunglo: rgba(226, 106, 106, 1);
 $studio: rgba(142, 68, 173, 1);
 $lynch: rgba(108, 122, 137, 1);
+$sandstorm: rgba(249, 191, 59, 1);
 
 $top-bar-bg: rgba(248, 248, 248, 1);
 $top-bar-border: rgba(248, 248, 248, 1);
@@ -116,7 +117,7 @@ body {
         -webkit-appearance: none;
         border: 2px solid white;
         border-radius: 50%;
-        background: $sunglo;
+        background: $sandstorm;
         height: 2.5em;
         outline:none;
         width: 2.5em;
@@ -129,7 +130,7 @@ body {
       }
       -webkit-appearance: none;
       border-radius: 0;
-      background: rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.2);
       height: 2px;
       margin-top: 2em;
       -webkit-transform: translate3d(0px,0px,0px);
@@ -142,7 +143,7 @@ body {
     }
     #tax-slider {
       &::-webkit-slider-thumb {
-        background: $studio;
+        background: $sunglo;
       }
     }
   }

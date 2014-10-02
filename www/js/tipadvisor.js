@@ -52,5 +52,10 @@ angular.module('tipAdvisor', [
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
+    // dealing with splash screen hiding 
+    // http://forum.ionicframework.com/t/white-page-showing-after-splash-screen-before-app-load/2908/9
+    setTimeout(function() {
+      navigator.splashscreen.hide();
+    }, 100);
   });
 });
