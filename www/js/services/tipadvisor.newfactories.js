@@ -112,7 +112,7 @@ angular.module('tipadvisor.newfactories', [])
         if (bill == 0 || isNaN(bill)){
           return;
         };
-        tax.percent = tax.currency / bill;
+        tax.percent = tax.currency / (bill - tax.currency);
       }, 
       clear: function(){
         tax.percent = "";
