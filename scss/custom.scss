@@ -115,12 +115,12 @@ body {
     #tip-slider, #tax-slider {
       &::-webkit-slider-thumb {
         -webkit-appearance: none;
-        border: 2px solid white;
+        border: 2px solid rgba(255,255,255,1);
         border-radius: 50%;
-        background: $sandstorm;
-        height: 2.5em;
+        background: $sunglo;
+        height: 2.8em;
         outline:none;
-        width: 2.5em;
+        width: 2.8em;
       }
       &::-webkit-slider-thumb:active {
         background: white;
@@ -179,7 +179,7 @@ body {
         }
         &:first-child {
           .num-btn {
-            border-top-width:1px;
+            border-top-width:2px;
           }
         }
         &:last-child {
@@ -276,7 +276,8 @@ body {
   }
 }
 .pane {
-  background: linear-gradient(to bottom,$curious-blue, $niagara-green);
+  // background: linear-gradient(to bottom,$curious-blue, $niagara-green);
+  background: $curious-blue;
 }
 .bar {
   border-bottom: 0px solid transparent;

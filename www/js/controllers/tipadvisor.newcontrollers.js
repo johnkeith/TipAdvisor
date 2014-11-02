@@ -26,23 +26,23 @@ angular.module('tipadvisor.newcontrollers', [])
           $scope.decimalPressed = false;
         };
 
-        sliderPanel = angular.element(document.getElementById('panel-4'));
-        tipSlider = angular.element(document.getElementById('tip-slider'));
-        taxSlider = angular.element(document.getElementById('tax-slider'));
+        // sliderPanel = angular.element(document.getElementById('panel-4'));
+        // tipSlider = angular.element(document.getElementById('tip-slider'));
+        // taxSlider = angular.element(document.getElementById('tax-slider'));
 
-        if (panel === 0){
-          $animate.removeClass(sliderPanel, 'panel-visible');
-          $animate.removeClass(tipSlider, 'slider-visible');
-          $animate.removeClass(taxSlider, 'slider-visible');
-        } else if (panel === 1){
-          $animate.addClass(sliderPanel, 'panel-visible');
-          $animate.removeClass(taxSlider, 'slider-visible');
-          $animate.addClass(tipSlider, 'slider-visible');
-        } else if (panel === 2){
-          $animate.addClass(sliderPanel, 'panel-visible');
-          $animate.removeClass(tipSlider, 'slider-visible');
-          $animate.addClass(taxSlider, 'slider-visible');
-        };
+        // if (panel === 0){
+        //   $animate.removeClass(sliderPanel, 'panel-visible');
+        //   $animate.removeClass(tipSlider, 'slider-visible');
+        //   $animate.removeClass(taxSlider, 'slider-visible');
+        // } else if (panel === 1){
+        //   $animate.addClass(sliderPanel, 'panel-visible');
+        //   $animate.removeClass(taxSlider, 'slider-visible');
+        //   $animate.addClass(tipSlider, 'slider-visible');
+        // } else if (panel === 2){
+        //   $animate.addClass(sliderPanel, 'panel-visible');
+        //   $animate.removeClass(tipSlider, 'slider-visible');
+        //   $animate.addClass(taxSlider, 'slider-visible');
+        // };
 
         $scope.clearQueued = true;
       };
