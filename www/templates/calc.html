@@ -1,4 +1,7 @@
 <div class='num-btns-container'>
+  <div class='slider-panel quarter-panel' id='panel-4'>
+    <input id='tip-slider' max='0.30' min='0.00' ng-change='sliderUsed(1); recalcTipCurrency(); calcTotal()' ng-model='tip.percent' step='0.01' type='range'>
+  </div>
   <div class='row-btns'>
     <button class='num-btn' ng-click="btnInput('1')" type='button'>
       <div class='num-btn-text'>1</div>

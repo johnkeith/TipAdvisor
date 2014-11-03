@@ -1,4 +1,6 @@
 .num-btns-container
+  #panel-4.slider-panel.quarter-panel
+    %input#tip-slider{ type: "range", min: "0.00", max: "0.30", step: "0.01", "ng-model" => "tip.percent", "ng-change" => "sliderUsed(1); recalcTipCurrency(); calcTotal()" }
   .row-btns
     %button.num-btn{ type: "button", "ng-click" => "btnInput('1')" }
       .num-btn-text 1

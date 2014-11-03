@@ -9,22 +9,19 @@
         <div class='label'>Bill</div>
         <div class='number'>{{ bill.currency | currency }}</div>
       </div>
+      <div class='tax-panel quarter-panel' id='panel-2' ng-click='changeActivePanel(2)'>
+        <div class='label'>Tax</div>
+        <div class='number'>({{ tax.percent * 100 | number : 2 }}%) {{ tax.currency | currency }}</div>
+      </div>
       <div class='tip-panel quarter-panel' id='panel-1' ng-click='changeActivePanel(1)'>
         <div class='label'>Tip</div>
         <div class='number'>
           ({{ tip.percent * 100 | number : 2 }}%) {{ tip.currency | currency }}
         </div>
       </div>
-      <div class='tax-panel quarter-panel' id='panel-2' ng-click='changeActivePanel(2)'>
-        <div class='label'>Tax</div>
-        <div class='number'>({{ tax.percent * 100 | number : 2 }}%) {{ tax.currency | currency }}</div>
-      </div>
       <div class='total-panel quarter-panel' id='panel-3'>
         <div class='label'>Total</div>
         <div class='number'>{{ total | currency }}</div>
-      </div>
-      <div class='slider-panel quarter-panel' id='panel-4'>
-        <input id='tip-slider' max='0.30' min='0.00' ng-change='sliderUsed(1); recalcTipCurrency(); calcTotal()' ng-model='tip.percent' step='0.01' type='range'>
         <!-- %input#tax-slider.slider-hidden{ type: "range", min: "0.00", max: "1", step: "0.01","ng-model" => "tax.percent", "ng-change" => "sliderUsed(2); recalcTaxCurrency(); calcTotal()" } -->
       </div>
       <div calc='' class='calc'></div>

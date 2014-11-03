@@ -110,17 +110,17 @@ body {
   .slider-panel {
     // background: rgba(255,255,255,0.05);
     // border-top: 1px solid rgba(255,255,255,0.2);
-    height: 10%;
+    height: 20%;
     padding: 0;
     #tip-slider, #tax-slider {
       &::-webkit-slider-thumb {
         -webkit-appearance: none;
         border: 2px solid rgba(255,255,255,1);
         border-radius: 50%;
-        background: $sunglo;
-        height: 2.8em;
+        background: rgba(255,255,255,0.15);
+        height: 4em;
         outline:none;
-        width: 2.8em;
+        width: 4em;
       }
       &::-webkit-slider-thumb:active {
         background: white;
@@ -130,9 +130,11 @@ body {
       }
       -webkit-appearance: none;
       border-radius: 0;
-      background: rgba(255,255,255,0.2);
-      height: 2px;
-      margin-top: 2em;
+      // background: rgba(255,255,255,0.2);
+      // height: 2px;
+      // margin-top: 1em;
+      background: rgba(255,255,255,0.15);
+      height: 100%;
       -webkit-transform: translate3d(0px,0px,0px);
       width: 100%;
       // -ms-transform: rotate(270deg); /* IE 9 */
@@ -162,66 +164,66 @@ body {
 }
 
 .calc {
-    bottom: 0;
-    height: 50%;
-    position: absolute;
-    right: 0;
-    width: 100%;
-    .num-btns-container {
-      height: 100%;
-      width:100%;
-      z-index: 1000;
-      .row-btns {
-        height: 25%;
-        &:after {
-          content: "";  
-          clear: both;
+  bottom: 0;
+  height: 60%;
+  position: absolute;
+  right: 0;
+  width: 100%;
+  .num-btns-container {
+    height: 100%;
+    width:100%;
+    z-index: 1000;
+    .row-btns {
+      height: 20%;
+      &:after {
+        content: "";  
+        clear: both;
+      }
+      &:first-child {
+        .num-btn {
+          border-top-width:0px;
         }
+      }
+      &:last-child {
+        .num-btn {
+          border-bottom-width:0px;
+        }
+      }
+      .num-btn {
         &:first-child {
-          .num-btn {
-            border-top-width:2px;
-          }
+          border-right-width:1px;
+          border-left-width:0px;
         }
         &:last-child {
-          .num-btn {
-            border-bottom-width:0px;
-          }
+          border-right-width:0px;
+          border-left-width:1px;
         }
-        .num-btn {
-          &:first-child {
-            border-right-width:1px;
-            border-left-width:0px;
-          }
-          &:last-child {
-            border-right-width:0px;
-            border-left-width:1px;
-          }
-          &:active {
-            background: white;
-            // border: 1px solid transparent;
-            // border-bottom-width:4px;
-            color: $lynch;
-            // -webkit-transform: scale(1.1);
-            // transform: scale(1.1);
-          }
-          background: rgba(255,255,255,0.05);
-          border: 0.5px solid rgba(255,255,255,0.2);
-          border-bottom-width:1px;
-          color: white;
-          cursor: pointer;
-          display: inline-block;
-          font-size: 1em;
-          float: left;
-          height: 100%;
-          margin:0px;
-          outline: none;
-          text-align: center;
-          width: (100% / 3);
-          -webkit-tap-highlight-color: white;
+        &:active {
+          background: white;
+          // border: 1px solid transparent;
+          // border-bottom-width:4px;
+          color: $lynch;
+          // -webkit-transform: scale(1.1);
+          // transform: scale(1.1);
         }
+        background: transparent;
+        border: 0.5px solid rgba(255,255,255,0.2);
+        border-bottom-width:1px;
+        color: white;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 1em;
+        float: left;
+        height: 100%;
+        margin:0px;
+        outline: none;
+        text-align: center;
+        width: (100% / 3);
+        -webkit-tap-highlight-color: white;
       }
     }
   }
+}
 
 // media queries for iphone
 
@@ -276,8 +278,8 @@ body {
   }
 }
 .pane {
-  // background: linear-gradient(to bottom,$curious-blue, $niagara-green);
-  background: $curious-blue;
+  background: linear-gradient(to bottom,$curious-blue, $niagara-green);
+  // background: $curious-blue;
 }
 .bar {
   border-bottom: 0px solid transparent;

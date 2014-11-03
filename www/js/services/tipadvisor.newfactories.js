@@ -36,7 +36,7 @@ angular.module('tipadvisor.newfactories', [])
   })
   .factory('tipFactory', function(){
     var tip = {
-      percent: "",
+      percent: 0.15,
       currency: ""
     };
 
