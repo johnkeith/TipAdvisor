@@ -2,9 +2,8 @@
   <ion-content ng-controller='homeCtrl'>
     <ion-refresher on-refresh='clearAll()' pulling-icon='ion-ios7-reloading' refreshing-icon='ion-ios7-reloading'></ion-refresher>
     <div class='main'>
-      <div class='credits-panel quarter-panel' id='panel-credits'>
-        made by @mrjohnkeith
-      </div>
+      <!-- #panel-credits.credits-panel.quarter-panel -->
+      <!-- made by @mrjohnkeith -->
       <div class='bill-panel quarter-panel active-panel' id='panel-0' ng-click='changeActivePanel(0)'>
         <div class='label'>Bill</div>
         <div class='number'>{{ bill.currency | currency }}</div>

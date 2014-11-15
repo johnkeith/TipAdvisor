@@ -2,8 +2,8 @@
   %ion-content{ "ng-controller" => "homeCtrl" }
     %ion-refresher{ "on-refresh" => "clearAll()", "pulling-icon" => "ion-ios7-reloading", "refreshing-icon" => "ion-ios7-reloading" }
     .main
-      #panel-credits.credits-panel.quarter-panel
-        made by @mrjohnkeith
+      / #panel-credits.credits-panel.quarter-panel
+      /   made by @mrjohnkeith
       #panel-0.bill-panel.quarter-panel.active-panel{ "ng-click" => "changeActivePanel(0)" }
         .label Bill
         .number {{ bill.currency | currency }}
