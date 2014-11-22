@@ -3,7 +3,6 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-var db = null;
 
 angular.module('tipAdvisor', [
   'ionic',
@@ -11,15 +10,13 @@ angular.module('tipAdvisor', [
   'tipadvisor.directives',
   'tipadvisor.newcontrollers', 
   'tipadvisor.newfactories',
-  'tipadvisor.providers'
+  // 'tipadvisor.providers'
   ])
 
-.config(['$stateProvider', '$urlRouterProvider', 'ngRecord',
-  function($stateProvider, $urlRouterProvider, ngRecord){
+.config(['$stateProvider', '$urlRouterProvider',
+  function($stateProvider, $urlRouterProvider){
     'use strict';
     
-    ngRecordProvider.dbname = 'tipbetter';
-
     $stateProvider
       .state('calc', {
         url: '/calc',
@@ -49,7 +46,7 @@ angular.module('tipAdvisor', [
   }
 ])
 
-.run(function($ionicPlatform, $rootScope, $cordovaSQLite, ngRecord) {
+.run(function($ionicPlatform, $rootScope, $cordovaSQLite) {
   $ionicPlatform.ready(function() {
     // dealing with splash screen hiding 
     // http://forum.ionicframework.com/t/white-page-showing-after-splash-screen-before-app-load/2908/9
@@ -65,10 +62,5 @@ angular.module('tipAdvisor', [
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
-    ngRecordProvider.connectToDb();
-    ngRecordProvider.createTable("preferences", {
-      id: "integer primary key",
-      description: "text"
-    });
   });
 });
