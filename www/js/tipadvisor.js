@@ -10,12 +10,16 @@ angular.module('tipAdvisor', [
   'ngCordova',
   'tipadvisor.directives',
   'tipadvisor.newcontrollers', 
-  'tipadvisor.newfactories'
+  'tipadvisor.newfactories',
+  'tipadvisor.providers'
   ])
 
-.config(['$stateProvider', '$urlRouterProvider',
-  function($stateProvider, $urlRouterProvider){
+.config(['$stateProvider', '$urlRouterProvider', 'ngRecord',
+  function($stateProvider, $urlRouterProvider, ngRecord){
     'use strict';
+    
+    ngRecordProvider.dbname = 'tipbetter';
+
     $stateProvider
       .state('calc', {
         url: '/calc',
@@ -45,7 +49,7 @@ angular.module('tipAdvisor', [
   }
 ])
 
-.run(function($ionicPlatform, $rootScope, $cordovaSQLite) {
+.run(function($ionicPlatform, $rootScope, $cordovaSQLite, ngRecord) {
   $ionicPlatform.ready(function() {
     // dealing with splash screen hiding 
     // http://forum.ionicframework.com/t/white-page-showing-after-splash-screen-before-app-load/2908/9
@@ -61,10 +65,10 @@ angular.module('tipAdvisor', [
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
-
-    db = $cordovaSQLite.openDB({ name: "tipbetter.db" });
-    $cordovaSQLite.execute(db, 
-      "CREATE TABLE IF NOT EXISTS preferences (id integer primary key, description text, value real)"
-    );
+    ngRecordProvider.connectToDb();
+    ngRecordProvider.createTable("preferences", {
+      id: "integer primary key",
+      description: "text"
+    });
   });
 });
