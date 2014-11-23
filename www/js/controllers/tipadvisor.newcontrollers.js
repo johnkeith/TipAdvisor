@@ -1,11 +1,13 @@
 angular.module('tipadvisor.newcontrollers', [])
-  .controller('homeCtrl', ["$scope", "billFactory", "tipFactory", "taxFactory", "$animate", 
-    function($scope, billFactory, tipFactory, taxFactory, $animate){
+  .controller('homeCtrl', ["$scope", "billFactory", "tipFactory", "taxFactory", "$animate", "$localstorage",
+    function($scope, billFactory, tipFactory, taxFactory, $animate, $localstorage){
       $scope.bill = billFactory.getBill();
       $scope.tip = tipFactory.getTip();
       $scope.tax = taxFactory.getTax();
       $scope.total = 0;
 
+      console.log($localstorage.get('taxPercent'));
+      console.log($localstorage.get('tipPercent'));
       // YOU HAVE TO USE A DOT! OTHERWISE THE WATCH DOESN'T WORK
       // $scope.$watch('bill.dollars', function(n, o){
       //   console.log("watch firing");
@@ -67,6 +69,8 @@ angular.module('tipadvisor.newcontrollers', [])
         bill = parseFloat($scope.bill.currency) || 0;
         tip = parseFloat($scope.tip.currency) || 0;
         $scope.total = bill + tip;
+        $localstorage.set('tipPercent', $scope.tip.percent);
+        $localstorage.set('taxPercent', $scope.tax.percent);
       };
 
       $scope.tipSetWithBtn = false;

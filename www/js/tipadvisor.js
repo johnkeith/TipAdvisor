@@ -46,7 +46,7 @@ angular.module('tipAdvisor', [
   }
 ])
 
-.run(function($ionicPlatform, $rootScope, $cordovaSQLite) {
+.run(function($ionicPlatform, $rootScope) {
   $ionicPlatform.ready(function() {
     // dealing with splash screen hiding 
     // http://forum.ionicframework.com/t/white-page-showing-after-splash-screen-before-app-load/2908/9

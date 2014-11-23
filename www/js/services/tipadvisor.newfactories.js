@@ -1,4 +1,20 @@
 angular.module('tipadvisor.newfactories', [])
+  .factory('$localstorage', ['$window', function($window) {
+    return {
+      set: function(key, value) {
+        $window.localStorage[key] = value;
+      },
+      get: function(key, defaultValue) {
+        return $window.localStorage[key] || defaultValue;
+      },
+      setObject: function(key, value) {
+        $window.localStorage[key] = JSON.stringify(value);
+      },
+      getObject: function(key) {
+        return JSON.parse($window.localStorage[key] || '{}');
+      }
+    }
+  }])
   .factory('billFactory', function(){
     var bill = {
       currency: ""
@@ -34,9 +50,9 @@ angular.module('tipadvisor.newfactories', [])
       }
     };
   })
-  .factory('tipFactory', function(){
+  .factory('tipFactory', ['$localstorage', function($localstorage){
     var tip = {
-      percent: 0.15,
+      percent: $localstorage.get("tipPercent", null) || 0.15,
       currency: ""
     };
 
@@ -85,10 +101,10 @@ angular.module('tipadvisor.newfactories', [])
         }
       }
     };
-  })
-  .factory('taxFactory', function(){
+  }])
+  .factory('taxFactory', ['$localstorage', function($localstorage){
     var tax = {
-      percent: "",
+      percent: $localstorage.get("taxPercent", null) || "",
       currency: ""
     };
 
@@ -137,4 +153,4 @@ angular.module('tipadvisor.newfactories', [])
         }
       }
     };
-  });
+  }]);
