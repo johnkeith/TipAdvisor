@@ -41,6 +41,9 @@ angular.module('tipadvisor.newfactories', [])
         else if (btnVal === "." && decimalPressed === true){
           return;
         }
+        else if (btnVal === "." && bill.currency == ""){
+          bill.currency = "0.";
+        }
         else if (btnVal === "."){
           bill.currency = bill.currency + ".";
         }
@@ -93,6 +96,9 @@ angular.module('tipadvisor.newfactories', [])
         else if (btnVal === "." && decimalPressed === true){
           return;
         }
+        else if (btnVal === "." && tip.currency == ""){
+          tip.currency = "0.";
+        }
         else if (btnVal === "."){
           tip.currency = tip.currency + ".";
         }
@@ -144,6 +150,9 @@ angular.module('tipadvisor.newfactories', [])
         }
         else if (btnVal === "." && decimalPressed === true){
           return;
+        }
+        else if (btnVal === "." && tax.currency == ""){
+          tax.currency = "0.";
         }
         else if (btnVal === "."){
           tax.currency = tax.currency + ".";
