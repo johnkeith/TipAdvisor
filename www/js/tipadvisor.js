@@ -6,7 +6,7 @@
 
 angular.module('tipAdvisor', [
   'ionic',
-  'ngCordova',
+  // 'ngCordova',
   'tipadvisor.directives',
   'tipadvisor.newcontrollers', 
   'tipadvisor.newfactories',
