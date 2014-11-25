@@ -15,7 +15,10 @@
       <div class='tip-panel quarter-panel' id='panel-1' ng-click='changeActivePanel(1)'>
         <div class='label'>Tip</div>
         <div class='number'>
-          ({{ tip.percent * 100 | number : 2 }}%) {{ tip.currency | currency }}
+          <span style='font-weight: bold'>
+            ({{ tip.percent * 100 | number : 2 }}%)
+          </span>
+          {{ tip.currency | currency }}
         </div>
       </div>
       <div class='total-panel quarter-panel' id='panel-3'>

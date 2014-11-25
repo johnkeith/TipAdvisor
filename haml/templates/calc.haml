@@ -27,5 +27,5 @@
       .num-btn-text 0
     %button.num-btn{ type: "button", "ng-click" => "btnInput('.')" }
       .num-btn-text .
-    %button.num-btn{ type: "button", "ng-click" => "btnInput('C')" }
+    %button.num-btn{ type: "button", "ng-click" => "btnInput('C')", "on-hold" => "clearAll()" }
       .num-btn-text C
