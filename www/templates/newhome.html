@@ -1,6 +1,6 @@
 <ion-view title='TipAdvisor'>
-  <ion-content ng-controller='homeCtrl'>
-    <ion-refresher on-refresh='clearAll()' pulling-icon='ion-ios7-reloading' refreshing-icon='ion-ios7-reloading'></ion-refresher>
+  <ion-content ng-controller='homeCtrl' scroll='false'>
+    <!-- %ion-refresher{ "on-refresh" => "clearAll()", "pulling-icon" => "ion-ios7-reloading", "refreshing-icon" => "ion-ios7-reloading" } -->
     <div class='main'>
       <!-- #panel-credits.credits-panel.quarter-panel -->
       <!-- made by @mrjohnkeith -->
@@ -15,7 +15,7 @@
       <div class='tip-panel quarter-panel' id='panel-1' ng-click='changeActivePanel(1)'>
         <div class='label'>Tip</div>
         <div class='number'>
-          <span style='font-weight: bold'>
+          <span>
             ({{ tip.percent * 100 | number : 2 }}%)
           </span>
           {{ tip.currency | currency }}

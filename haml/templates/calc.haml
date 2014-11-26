@@ -25,7 +25,7 @@
   .row-btns
     %button.num-btn{ type: "button", "ng-click" => "btnInput('0')" }
       .num-btn-text 0
-    %button.num-btn{ type: "button", "ng-click" => "btnInput('.')" }
+    %button.num-btn{ type: "button", "ng-click" => "btnInput('.')", "on-hold" => "changeBGColor()" }
       .num-btn-text .
     %button.num-btn{ type: "button", "ng-click" => "btnInput('C')", "on-hold" => "clearAll()" }
       .num-btn-text C

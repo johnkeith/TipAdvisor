@@ -1,6 +1,6 @@
 %ion-view{ title: "TipAdvisor"}
-  %ion-content{ "ng-controller" => "homeCtrl" }
-    %ion-refresher{ "on-refresh" => "clearAll()", "pulling-icon" => "ion-ios7-reloading", "refreshing-icon" => "ion-ios7-reloading" }
+  %ion-content{ "ng-controller" => "homeCtrl", "scroll" => "false" }
+    / %ion-refresher{ "on-refresh" => "clearAll()", "pulling-icon" => "ion-ios7-reloading", "refreshing-icon" => "ion-ios7-reloading" }
     .main
       / #panel-credits.credits-panel.quarter-panel
       /   made by @mrjohnkeith
@@ -13,7 +13,7 @@
       #panel-1.tip-panel.quarter-panel{ "ng-click" => "changeActivePanel(1)" }
         .label Tip
         .number  
-          %span{ style: "font-weight: bold" }
+          %span{}
             ({{ tip.percent * 100 | number : 2 }}%)
           {{ tip.currency | currency }}
       #panel-3.total-panel.quarter-panel

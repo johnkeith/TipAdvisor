@@ -39,7 +39,7 @@
     <button class='num-btn' ng-click="btnInput('0')" type='button'>
       <div class='num-btn-text'>0</div>
     </button>
-    <button class='num-btn' ng-click="btnInput('.')" type='button'>
+    <button class='num-btn' ng-click="btnInput('.')" on-hold='changeBGColor()' type='button'>
       <div class='num-btn-text'>.</div>
     </button>
     <button class='num-btn' ng-click="btnInput('C')" on-hold='clearAll()' type='button'>

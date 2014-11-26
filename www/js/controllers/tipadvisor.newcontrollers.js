@@ -1,6 +1,6 @@
 angular.module('tipadvisor.newcontrollers', [])
-  .controller('homeCtrl', ["$scope", "billFactory", "tipFactory", "taxFactory", "$animate", "$localstorage",
-    function($scope, billFactory, tipFactory, taxFactory, $animate, $localstorage){
+  .controller('homeCtrl', ["$scope", "billFactory", "tipFactory", "taxFactory", "$animate", "$localstorage", "$window",
+    function($scope, billFactory, tipFactory, taxFactory, $animate, $localstorage, $window){
       $scope.bill = billFactory.getBill();
       $scope.tip = tipFactory.getTip();
       $scope.tax = taxFactory.getTax();
@@ -14,7 +14,15 @@ angular.module('tipadvisor.newcontrollers', [])
       //   taxFactory.setCurrencyFromPercent(billFactory.getBillFloat());
       // });
 
-// NEED TO REFACTOR INTO DIRECTIVES
+      $scope.changeBGColor = function(){
+        pane = angular.element($window.document.getElementsByClassName('pane'));
+        shades = ['green', 'orange', 'blue', 'purple']
+        randomShade = shades[Math.floor(Math.random()*shades.length)];
+        colorOne = randomColor({hue: randomShade, luminosity: 'bright'})
+        colorTwo = randomColor({hue: randomShade, luminosity: 'bright'})
+        pane.css('background', 'linear-gradient(to bottom,' + colorOne + ',' + colorTwo + ')');
+      };
+      // NEED TO REFACTOR INTO DIRECTIVES
       $scope.activePanel = 0;
       $scope.changeActivePanel = function(panel){
         if(panel === $scope.activePanel){
