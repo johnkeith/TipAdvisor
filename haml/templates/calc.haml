@@ -8,6 +8,9 @@
       .num-btn-text 2
     %button.num-btn{ type: "button", "ng-click" => "btnInput('3')" }
       .num-btn-text 3
+    %button.num-btn{ type: "button", "ng-click" => "clearAll()" }
+      .num-btn-text
+        %i.icon.ion-ios7-refresh-empty
   .row-btns
     %button.num-btn{ type: "button", "ng-click" => "btnInput('4')" }
       .num-btn-text 4
@@ -15,6 +18,9 @@
       .num-btn-text 5
     %button.num-btn{ type: "button", "ng-click" => "btnInput('6')" }
       .num-btn-text 6
+    %button.num-btn{ type: "button", "ng-click" => "changeBGColor()" }
+      .num-btn-text
+        %i.icon.ion-ios7-analytics-outline
   .row-btns
     %button.num-btn{ type: "button", "ng-click" => "btnInput('7')" }
       .num-btn-text 7
@@ -22,10 +28,13 @@
       .num-btn-text 8
     %button.num-btn{ type: "button", "ng-click" => "btnInput('9')" }
       .num-btn-text 9
+    %button.num-btn{ type: "button", "ng-click" => "btnInput('1')" }
+      .num-btn-text
+        %i.icon.ion-ios7-heart-outline
   .row-btns
     %button.num-btn{ type: "button", "ng-click" => "btnInput('0')" }
       .num-btn-text 0
-    %button.num-btn{ type: "button", "ng-click" => "btnInput('.')", "on-hold" => "changeBGColor()" }
+    %button.num-btn{ type: "button", "ng-click" => "btnInput('.')" }
       .num-btn-text .
-    %button.num-btn{ type: "button", "ng-click" => "btnInput('C')", "on-hold" => "clearAll()" }
-      .num-btn-text C
+    %button.num-btn{ type: "button", "ng-click" => "btnInput('C')" }
+      .num-btn-text Del

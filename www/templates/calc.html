@@ -12,6 +12,11 @@
     <button class='num-btn' ng-click="btnInput('3')" type='button'>
       <div class='num-btn-text'>3</div>
     </button>
+    <button class='num-btn' ng-click='clearAll()' type='button'>
+      <div class='num-btn-text'>
+        <i class='icon ion-ios7-refresh-empty'></i>
+      </div>
+    </button>
   </div>
   <div class='row-btns'>
     <button class='num-btn' ng-click="btnInput('4')" type='button'>
@@ -22,6 +27,11 @@
     </button>
     <button class='num-btn' ng-click="btnInput('6')" type='button'>
       <div class='num-btn-text'>6</div>
+    </button>
+    <button class='num-btn' ng-click='changeBGColor()' type='button'>
+      <div class='num-btn-text'>
+        <i class='icon ion-ios7-analytics-outline'></i>
+      </div>
     </button>
   </div>
   <div class='row-btns'>
@@ -34,16 +44,21 @@
     <button class='num-btn' ng-click="btnInput('9')" type='button'>
       <div class='num-btn-text'>9</div>
     </button>
+    <button class='num-btn' ng-click="btnInput('1')" type='button'>
+      <div class='num-btn-text'>
+        <i class='icon ion-ios7-heart-outline'></i>
+      </div>
+    </button>
   </div>
   <div class='row-btns'>
     <button class='num-btn' ng-click="btnInput('0')" type='button'>
       <div class='num-btn-text'>0</div>
     </button>
-    <button class='num-btn' ng-click="btnInput('.')" on-hold='changeBGColor()' type='button'>
+    <button class='num-btn' ng-click="btnInput('.')" type='button'>
       <div class='num-btn-text'>.</div>
     </button>
-    <button class='num-btn' ng-click="btnInput('C')" on-hold='clearAll()' type='button'>
-      <div class='num-btn-text'>C</div>
+    <button class='num-btn' ng-click="btnInput('C')" type='button'>
+      <div class='num-btn-text'>Del</div>
     </button>
   </div>
 </div>

@@ -30,6 +30,12 @@ angular.module('tipadvisor.newfactories', [])
       clear: function(){
         bill.currency = "";
       },
+      backspace: function(){
+        bill.currency = bill.currency.slice(0,-1);
+        if (bill.currency.charAt(bill.currency - 1) == "."){
+          bill.currency = bill.currency.slice(0,-1);
+        }
+      },
       input: function(btnVal, decimalPressed){
         var test = /\.\d{2}/;
         if(test.test(bill.currency)){
@@ -85,6 +91,12 @@ angular.module('tipadvisor.newfactories', [])
         tip.percent = "";
         tip.currency = "";
       },
+      backspace: function(){
+        tip.currency = tip.currency.slice(0,-1);
+        if (tip.currency.charAt(tip.currency - 1) == "."){
+          tip.currency = tip.currency.slice(0,-1);
+        }
+      },
       input: function(btnVal, decimalPressed){
         var test = /\.\d{2}/;
         if(test.test(tip.currency)){
@@ -139,6 +151,12 @@ angular.module('tipadvisor.newfactories', [])
       clear: function(){
         tax.percent = "";
         tax.currency = "";
+      },
+      backspace: function(){
+        tax.currency = tax.currency.slice(0,-1);
+        if (tax.currency.charAt(tax.currency - 1) == "."){
+          tax.currency = tax.currency.slice(0,-1);
+        }
       },
       input: function(btnVal, decimalPressed){
         var test = /\.\d{2}/;

@@ -16,12 +16,16 @@ angular.module('tipadvisor.newcontrollers', [])
 
       $scope.changeBGColor = function(){
         pane = angular.element($window.document.getElementsByClassName('pane'));
+        
         shades = ['green', 'orange', 'blue', 'purple']
         randomShade = shades[Math.floor(Math.random()*shades.length)];
+        
         colorOne = randomColor({hue: randomShade, luminosity: 'bright'})
         colorTwo = randomColor({hue: randomShade, luminosity: 'bright'})
+        
         pane.css('background', 'linear-gradient(to bottom,' + colorOne + ',' + colorTwo + ')');
       };
+
       // NEED TO REFACTOR INTO DIRECTIVES
       $scope.activePanel = 0;
       $scope.changeActivePanel = function(panel){
@@ -143,6 +147,21 @@ angular.module('tipadvisor.newcontrollers', [])
         $scope.sliderPressed = false;
       };
 
+      $scope.backspaceSection = function(){
+        switch($scope.activePanel) {
+          case 0:
+            billFactory.backspace();
+            break;
+          case 1:
+            tipFactory.backspace();
+            break;
+          case 2:
+            taxFactory.backspace();
+            break;
+        }
+        $scope.calcAll();
+      };
+
       $scope.clearAll = function(){
         billFactory.clear();
         tipFactory.clear();
@@ -161,7 +180,7 @@ angular.module('tipadvisor.newcontrollers', [])
         };
 
         if (btnVal == "C"){
-          $scope.clearActiveSection();
+          $scope.backspaceSection();
         }
         else if ($scope.activePanel === 0){
           billFactory.input(btnVal, $scope.decimalPressed);
