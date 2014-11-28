@@ -31,9 +31,16 @@ angular.module('tipadvisor.newfactories', [])
         bill.currency = "";
       },
       backspace: function(){
+        if (bill.currency.charAt(bill.currency.length - 1) == "."){
+          bill.currency = bill.currency.slice(0,-2);
+          return true;
+        }
+        
         bill.currency = bill.currency.slice(0,-1);
-        if (bill.currency.charAt(bill.currency - 1) == "."){
+
+        if (bill.currency.charAt(bill.currency.length - 1) == "."){
           bill.currency = bill.currency.slice(0,-1);
+          return true;
         }
       },
       input: function(btnVal, decimalPressed){
@@ -92,9 +99,16 @@ angular.module('tipadvisor.newfactories', [])
         tip.currency = "";
       },
       backspace: function(){
+      if (tip.currency.charAt(tip.currency.length - 1) == "."){
+          tip.currency = tip.currency.slice(0,-2);
+          return true;
+        }
+        
         tip.currency = tip.currency.slice(0,-1);
-        if (tip.currency.charAt(tip.currency - 1) == "."){
+
+        if (tip.currency.charAt(tip.currency.length - 1) == "."){
           tip.currency = tip.currency.slice(0,-1);
+          return true;
         }
       },
       input: function(btnVal, decimalPressed){
@@ -153,9 +167,16 @@ angular.module('tipadvisor.newfactories', [])
         tax.currency = "";
       },
       backspace: function(){
+       if (tax.currency.charAt(tax.currency.length - 1) == "."){
+          tax.currency = tax.currency.slice(0,-2);
+          return true;
+        }
+        
         tax.currency = tax.currency.slice(0,-1);
-        if (tax.currency.charAt(tax.currency - 1) == "."){
+
+        if (tax.currency.charAt(tax.currency.length - 1) == "."){
           tax.currency = tax.currency.slice(0,-1);
+          return true;
         }
       },
       input: function(btnVal, decimalPressed){

@@ -150,13 +150,19 @@ angular.module('tipadvisor.newcontrollers', [])
       $scope.backspaceSection = function(){
         switch($scope.activePanel) {
           case 0:
-            billFactory.backspace();
+            if (billFactory.backspace() == true){
+              $scope.decimalPressed = false;
+            };
             break;
           case 1:
-            tipFactory.backspace();
+            if (tipFactory.backspace() == true){
+              $scope.decimalPressed = false;
+            };
             break;
           case 2:
-            taxFactory.backspace();
+            if (taxFactory.backspace() == true){
+              $scope.decimalPressed = false;
+            };
             break;
         }
         $scope.calcAll();
@@ -169,6 +175,7 @@ angular.module('tipadvisor.newcontrollers', [])
 
         $scope.tipSetWithBtn = false;
         $scope.taxSetWithBtn = false;
+        $scope.decimalPressed = false;
 
         $scope.calcAll();
         $scope.$broadcast('scroll.refreshComplete');
