@@ -19,7 +19,7 @@
     </button>
   </div>
   <div class='row-btns'>
-    <button class='num-btn' ng-click='changeBGColor()' type='button'>
+    <button class='num-btn' ng-click='changeBGColor({})' on-hold='changeBGColor({fromDefaults: true})' type='button'>
       <div class='num-btn-text'>
         <i class='icon ion-ios7-analytics-outline'></i>
       </div>
@@ -35,7 +35,7 @@
     </button>
   </div>
   <div class='row-btns'>
-    <button class='num-btn' ng-click="btnInput('1')" type='button'>
+    <button class='num-btn' ng-click='saveBGColor({})' type='button'>
       <div class='num-btn-text'>
         <i class='icon ion-ios7-heart-outline'></i>
       </div>

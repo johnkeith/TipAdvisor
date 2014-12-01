@@ -11,9 +11,8 @@
       .num-btn-text 2
     %button.num-btn{ type: "button", "ng-click" => "btnInput('3')" }
       .num-btn-text 3
-
   .row-btns
-    %button.num-btn{ type: "button", "ng-click" => "changeBGColor()" }
+    %button.num-btn{ type: "button", "ng-click" => "changeBGColor({})", "on-hold" => "changeBGColor({fromDefaults: true})" }
       .num-btn-text
         %i.icon.ion-ios7-analytics-outline
     %button.num-btn{ type: "button", "ng-click" => "btnInput('4')" }
@@ -22,9 +21,8 @@
       .num-btn-text 5
     %button.num-btn{ type: "button", "ng-click" => "btnInput('6')" }
       .num-btn-text 6
-
   .row-btns
-    %button.num-btn{ type: "button", "ng-click" => "btnInput('1')" }
+    %button.num-btn{ type: "button", "ng-click" => "saveBGColor({})" }
       .num-btn-text
         %i.icon.ion-ios7-heart-outline
     %button.num-btn{ type: "button", "ng-click" => "btnInput('7')" }

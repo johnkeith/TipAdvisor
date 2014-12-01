@@ -1,30 +1,64 @@
 angular.module('tipadvisor.newcontrollers', [])
   .controller('homeCtrl', ["$scope", "billFactory", "tipFactory", "taxFactory", "$animate", "$localstorage", "$window",
     function($scope, billFactory, tipFactory, taxFactory, $animate, $localstorage, $window){
+      windowcolor = $localstorage.getObject('windowcolor');
+      if (windowcolor.length != 0){
+        pane = angular.element($window.document.getElementsByClassName('pane'));
+        pane.css('background', 'linear-gradient(to bottom,' + windowcolor['colorOne'] + ',' + windowcolor['colorTwo'] + ')');
+      }
+
       $scope.bill = billFactory.getBill();
       $scope.tip = tipFactory.getTip();
       $scope.tax = taxFactory.getTax();
       $scope.total = 0;
+      
+      $scope.defaultColorOne = 'rgba(30, 139, 195, 1)';
+      $scope.defaultColorTwo = 'rgba(42, 187, 155, 1)';
 
       console.log($localstorage.get('taxPercent'));
       console.log($localstorage.get('tipPercent'));
+      
       // YOU HAVE TO USE A DOT! OTHERWISE THE WATCH DOESN'T WORK
       // $scope.$watch('bill.dollars', function(n, o){
       //   console.log("watch firing");
       //   taxFactory.setCurrencyFromPercent(billFactory.getBillFloat());
       // });
 
-      $scope.changeBGColor = function(){
-        pane = angular.element($window.document.getElementsByClassName('pane'));
-        
+      $scope.getRandomColors = function(){
         shades = ['green', 'orange', 'blue', 'purple']
         randomShade = shades[Math.floor(Math.random()*shades.length)];
         
-        colorOne = randomColor({hue: randomShade, luminosity: 'bright'})
-        colorTwo = randomColor({hue: randomShade, luminosity: 'bright'})
-        
-        pane.css('background', 'linear-gradient(to bottom,' + colorOne + ',' + colorTwo + ')');
+        $scope.colorOne = randomColor({hue: randomShade, luminosity: 'bright'})
+        $scope.colorTwo = randomColor({hue: randomShade, luminosity: 'bright'})
       };
+
+      $scope.changeBGColor = function(opts){
+        pane = angular.element($window.document.getElementsByClassName('pane'));
+        
+        if (opts['fromDefaults'] == true){
+          pane.css('background', 'linear-gradient(to bottom,' + $scope.defaultColorOne + ',' + $scope.defaultColorTwo + ')');
+        }
+        else {
+          $scope.getRandomColors();
+          pane.css('background', 'linear-gradient(to bottom,' + $scope.colorOne + ',' + $scope.colorTwo + ')');
+        };
+      };
+
+      // need to pass default function stuff
+      $scope.saveBGColor = function(opts){
+        if (opts['fromDefaults'] == true){
+          $localstorage.setObject('windowcolor', {
+            colorOne: $scope.defaultColorOne,
+            colorTwo: $scope.defaultColorTwo
+          });
+        } 
+        else {
+          $localstorage.setObject('windowcolor', {
+            colorOne: $scope.colorOne,
+            colorTwo: $scope.colorTwo
+          });
+        };
+      }
 
       // NEED TO REFACTOR INTO DIRECTIVES
       $scope.activePanel = 0;
