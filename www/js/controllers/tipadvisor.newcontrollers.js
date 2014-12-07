@@ -1,11 +1,19 @@
 angular.module('tipadvisor.newcontrollers', [])
-  .controller('homeCtrl', ["$scope", "billFactory", "tipFactory", "taxFactory", "$animate", "$localstorage", "$window",
-    function($scope, billFactory, tipFactory, taxFactory, $animate, $localstorage, $window){
+  .controller('homeCtrl', ["$scope", "billFactory", "tipFactory", "taxFactory", "$animate", "$localstorage", "$window", "$ionicModal",
+    function($scope, billFactory, tipFactory, taxFactory, $animate, $localstorage, $window, $ionicModal){
+      // set window color on load
       windowcolor = $localstorage.getObject('windowcolor');
       if (windowcolor.length != 0){
         pane = angular.element($window.document.getElementsByClassName('pane'));
         pane.css('background', 'linear-gradient(to bottom,' + windowcolor['colorOne'] + ',' + windowcolor['colorTwo'] + ')');
       }
+
+      $ionicModal.fromTemplateUrl("./templates/info.html", function(modal){
+        $scope.modal = modal;
+      }, {
+        scope: $scope, 
+        animation: 'slide-in-up'
+      });
 
       $scope.bill = billFactory.getBill();
       $scope.tip = tipFactory.getTip();

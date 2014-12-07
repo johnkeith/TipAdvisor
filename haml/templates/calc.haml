@@ -33,12 +33,13 @@
       .num-btn-text 9
 
   .row-btns
-    %button.num-btn{ type: "button", "ng-click" => "btnInput('0')" }
+    %button.num-btn{ type: "button", "ng-click" => "modal.show()" }
       .num-btn-text
-        %i.icon.ion-more
+        %i.icon.ion-ios7-information-outline
     %button.num-btn{ type: "button", "ng-click" => "btnInput('0')" }
       .num-btn-text 0
     %button.num-btn{ type: "button", "ng-click" => "btnInput('.')" }
       .num-btn-text .
-    %button.num-btn{ type: "button", "ng-click" => "btnInput('C')" }
-      .num-btn-text &#9003;
+    %button.num-btn{ type: "button", "ng-click" => "btnInput('C')", "on-hold" => "clearActiveSection()" }
+      .num-btn-text
+        %i.icon.ion-ios7-arrow-left

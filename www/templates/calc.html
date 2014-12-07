@@ -51,9 +51,9 @@
     </button>
   </div>
   <div class='row-btns'>
-    <button class='num-btn' ng-click="btnInput('0')" type='button'>
+    <button class='num-btn' ng-click='modal.show()' type='button'>
       <div class='num-btn-text'>
-        <i class='icon ion-more'></i>
+        <i class='icon ion-ios7-information-outline'></i>
       </div>
     </button>
     <button class='num-btn' ng-click="btnInput('0')" type='button'>
@@ -62,8 +62,10 @@
     <button class='num-btn' ng-click="btnInput('.')" type='button'>
       <div class='num-btn-text'>.</div>
     </button>
-    <button class='num-btn' ng-click="btnInput('C')" type='button'>
-      <div class='num-btn-text'>&#9003;</div>
+    <button class='num-btn' ng-click="btnInput('C')" on-hold='clearActiveSection()' type='button'>
+      <div class='num-btn-text'>
+        <i class='icon ion-ios7-arrow-left'></i>
+      </div>
     </button>
   </div>
 </div>
