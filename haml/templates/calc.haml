@@ -2,40 +2,38 @@
   #panel-4.slider-panel.quarter-panel
     %input#tip-slider{ type: "range", min: "0.00", max: "0.30", step: "0.01", "ng-model" => "tip.percent", "ng-change" => "sliderUsed(1); recalcTipCurrency(); calcTotal()" }
   .row-btns
-    %button.num-btn{ type: "button", "ng-click" => "clearAll()" }
-      .num-btn-text
-        %i.icon.ion-ios7-refresh-empty
     %button.num-btn{ type: "button", "ng-click" => "btnInput('1')" }
       .num-btn-text 1
     %button.num-btn{ type: "button", "ng-click" => "btnInput('2')" }
       .num-btn-text 2
     %button.num-btn{ type: "button", "ng-click" => "btnInput('3')" }
       .num-btn-text 3
-  .row-btns
-    %button.num-btn{ type: "button", "ng-click" => "changeBGColor({})", "on-hold" => "changeBGColor({fromDefaults: true})" }
+    %button.num-btn{ type: "button", "ng-click" => "clearAll()" }
       .num-btn-text
-        %i.icon.ion-ios7-analytics-outline
+        %i.icon.ion-ios7-refresh-empty
+  .row-btns
+
     %button.num-btn{ type: "button", "ng-click" => "btnInput('4')" }
       .num-btn-text 4
     %button.num-btn{ type: "button", "ng-click" => "btnInput('5')" }
       .num-btn-text 5
     %button.num-btn{ type: "button", "ng-click" => "btnInput('6')" }
       .num-btn-text 6
-  .row-btns
-    %button.num-btn{ type: "button", "ng-click" => "saveBGColor({})" }
+    %button.num-btn{ type: "button", "ng-click" => "changeBGColor({})", "on-hold" => "changeBGColor({fromDefaults: true})" }
       .num-btn-text
-        %i.icon.ion-ios7-heart-outline
+        %i.icon.ion-ios7-analytics-outline
+  .row-btns
     %button.num-btn{ type: "button", "ng-click" => "btnInput('7')" }
       .num-btn-text 7
     %button.num-btn{ type: "button", "ng-click" => "btnInput('8')" }
       .num-btn-text 8
     %button.num-btn{ type: "button", "ng-click" => "btnInput('9')" }
       .num-btn-text 9
+    %button.num-btn{ type: "button", "ng-click" => "saveBGColor({})" }
+      .num-btn-text
+        %i.icon.ion-ios7-heart-outline
 
   .row-btns
-    %button.num-btn{ type: "button", "ng-click" => "modal.show()" }
-      .num-btn-text
-        %i.icon.ion-ios7-information-outline
     %button.num-btn{ type: "button", "ng-click" => "btnInput('0')" }
       .num-btn-text 0
     %button.num-btn{ type: "button", "ng-click" => "btnInput('.')" }

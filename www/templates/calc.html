@@ -3,11 +3,6 @@
     <input id='tip-slider' max='0.30' min='0.00' ng-change='sliderUsed(1); recalcTipCurrency(); calcTotal()' ng-model='tip.percent' step='0.01' type='range'>
   </div>
   <div class='row-btns'>
-    <button class='num-btn' ng-click='clearAll()' type='button'>
-      <div class='num-btn-text'>
-        <i class='icon ion-ios7-refresh-empty'></i>
-      </div>
-    </button>
     <button class='num-btn' ng-click="btnInput('1')" type='button'>
       <div class='num-btn-text'>1</div>
     </button>
@@ -17,13 +12,13 @@
     <button class='num-btn' ng-click="btnInput('3')" type='button'>
       <div class='num-btn-text'>3</div>
     </button>
-  </div>
-  <div class='row-btns'>
-    <button class='num-btn' ng-click='changeBGColor({})' on-hold='changeBGColor({fromDefaults: true})' type='button'>
+    <button class='num-btn' ng-click='clearAll()' type='button'>
       <div class='num-btn-text'>
-        <i class='icon ion-ios7-analytics-outline'></i>
+        <i class='icon ion-ios7-refresh-empty'></i>
       </div>
     </button>
+  </div>
+  <div class='row-btns'>
     <button class='num-btn' ng-click="btnInput('4')" type='button'>
       <div class='num-btn-text'>4</div>
     </button>
@@ -33,13 +28,13 @@
     <button class='num-btn' ng-click="btnInput('6')" type='button'>
       <div class='num-btn-text'>6</div>
     </button>
-  </div>
-  <div class='row-btns'>
-    <button class='num-btn' ng-click='saveBGColor({})' type='button'>
+    <button class='num-btn' ng-click='changeBGColor({})' on-hold='changeBGColor({fromDefaults: true})' type='button'>
       <div class='num-btn-text'>
-        <i class='icon ion-ios7-heart-outline'></i>
+        <i class='icon ion-ios7-analytics-outline'></i>
       </div>
     </button>
+  </div>
+  <div class='row-btns'>
     <button class='num-btn' ng-click="btnInput('7')" type='button'>
       <div class='num-btn-text'>7</div>
     </button>
@@ -49,13 +44,13 @@
     <button class='num-btn' ng-click="btnInput('9')" type='button'>
       <div class='num-btn-text'>9</div>
     </button>
-  </div>
-  <div class='row-btns'>
-    <button class='num-btn' ng-click='modal.show()' type='button'>
+    <button class='num-btn' ng-click='saveBGColor({})' type='button'>
       <div class='num-btn-text'>
-        <i class='icon ion-ios7-information-outline'></i>
+        <i class='icon ion-ios7-heart-outline'></i>
       </div>
     </button>
+  </div>
+  <div class='row-btns'>
     <button class='num-btn' ng-click="btnInput('0')" type='button'>
       <div class='num-btn-text'>0</div>
     </button>

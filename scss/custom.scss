@@ -194,8 +194,13 @@ body {
         .num-btn {
           border-bottom-width:0px;
         }
+        .num-btn:first-child {
+
+        }
         .num-btn:last-child {
           border-right-width: 1px;
+          width: 50%;
+
         }
       }
       .num-btn {
@@ -232,7 +237,6 @@ body {
         outline: none;
         text-align: center;
         width: (100% / 4);
-        -webkit-tap-highlight-color: white;
       }
     }
   }
@@ -316,7 +320,7 @@ body {
 }
 
 .info-modal {
-  background: rgba(255,255,255,1);
+  background: rgba(255,255,255,0.26);
   color: black;
   font-size: 1.2em;
 }
@@ -326,4 +330,16 @@ body {
 }
 .example-text {
   display: inline-block;
+}
+.bar {
+  height: 0;
+}
+.modal-title {
+  display: inline-block;
+  text-align: center;
+
+}
+.modal-button {
+  display: inline-block;
+  text-align: right;
 }

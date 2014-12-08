@@ -1,34 +1,35 @@
-.modal
-	%ion-header-bar.bar-secondary
-		%h1.title About TipBetter
-		.button.button-clear{ "ng-click" => "modal.hide()" }
-			%i.icon.ion-ios7-close-outline
-	%ion-content.info-modal{ "has-header" => "true" }
-		.padding
-			.card
-				.item.item-body
-					%p TipBetter determines the best tip to give by subtracting the taxation from your bill before calculating the tip. 	
-			.card
-				.item.item-body
-					%img.full-image{ src: "./img/info_sections.jpg" }
-					%p Start by entering your bill and then the tax.
-			.card
-				.item.item-body
-					%img.full-image{ src: "./img/info_slider.jpg" }
-					%p Next, you can use the slider to choose the percent of tip to add.
-			.card
-				.item.item-body
-					%img.full-image{ src: "./img/info_refresh.jpg" }
-					%p Press the refresh button to reset the bill, tax, and tip fields to zero.
-			.card
-				.item.item-body
-					%img.full-image{ src: "./img/info_color.jpg" }
-					%p Press the color button to change the background color of your tip calculator. Press and hold this button to return to the default coloration of TipBetter.
-			.card
-				.item.item-body
-					%img.full-image{ src: "./img/info_save.jpg" }
-					%p Press the heart button to save your current color scheme. Next time you load TipBetter, the background color will be the same!
-			.card
-				.item.item-body
-					%img.full-image{ src: "./img/info_back.jpg" }
-					%p Press the back button to erase your most recent keypad entry. Press and hold this button to reset the active section (bill, tax, or tip) to zero.
+.modal{ "on-swipe-down" => "modal.hide()" }
+	%ion-content.info-modal
+		.card
+			.item.item-body
+				%p TipBetter was made by John Keith. 
+				%p @mrjohnkeith on Twitter
+				%p github.com/johnkeith
+		/ %h4.modal-title About TipBetter
+		/ .button.button-clear.modal-button{ "ng-click" => "modal.hide()" }
+		/ 	%i.icon.ion-ios7-close-outline
+		/ .card
+		/ 	.item.item-body
+		/ 		%img.full-image{ src: "./img/info_sections.jpg" }
+		/ 		%p TipBetter determines the best tip to give by subtracting the taxation from your bill before calculating the tip.
+		/ 		%p Start by entering your bill and then the tax.
+		/ .card
+		/ 	.item.item-body
+		/ 		%img.full-image{ src: "./img/info_slider.jpg" }
+		/ 		%p Next, you can use the slider to choose the percent of tip to add.
+		/ .card
+		/ 	.item.item-body
+		/ 		%img.full-image{ src: "./img/info_refresh.jpg" }
+		/ 		%p Press the refresh button to reset the bill, tax, and tip fields to zero.
+		/ .card
+		/ 	.item.item-body
+		/ 		%img.full-image{ src: "./img/info_color.jpg" }
+		/ 		%p Press the color button to change the background color of your tip calculator. Press and hold this button to return to the default coloration of TipBetter.
+		/ .card
+		/ 	.item.item-body
+		/ 		%img.full-image{ src: "./img/info_save.jpg" }
+		/ 		%p Press the heart button to save your current color scheme. Next time you load TipBetter, the background color will be the same!
+		/ .card
+		/ 	.item.item-body
+		/ 		%img.full-image{ src: "./img/info_back.jpg" }
+		/ 		%p Press the back button to erase your most recent keypad entry. Press and hold this button to reset the active section (bill, tax, or tip) to zero.

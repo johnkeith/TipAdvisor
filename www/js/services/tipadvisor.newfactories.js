@@ -87,12 +87,15 @@ angular.module('tipadvisor.newfactories', [])
           tip.currency = bill * tip.percent || "";
           tip.currency = tip.currency.toString();
         }
+        else {
+          tip.currency = "";
+        }
       },
       setPercentFromCurrency: function(bill){
         if (bill == 0 || isNaN(bill)){
           return;
         };
-        tip.percent = tip.currency / bill;
+        tip.percent = Math.abs(tip.currency / bill);
       },
       clear: function(){
         tip.percent = "";
@@ -160,7 +163,7 @@ angular.module('tipadvisor.newfactories', [])
         if (bill == 0 || isNaN(bill)){
           return;
         };
-        tax.percent = tax.currency / (bill - tax.currency);
+        tax.percent = Math.abs(tax.currency / (bill - tax.currency));
       }, 
       clear: function(){
         tax.percent = "";
