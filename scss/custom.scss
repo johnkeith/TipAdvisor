@@ -25,10 +25,9 @@ html {
   background: linear-gradient(to bottom,$curious-blue, $niagara-green);
 }
 body {
-  background: darken($curious-blue, 10%);
+  background: black;
   color: white;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-  -webkit-tap-highlight-color:rgba(0,0,0,0);
 }
 
 #calc {
@@ -297,6 +296,13 @@ body {
 .pane {
   background: linear-gradient(to bottom,$curious-blue, $niagara-green);
   // background: $curious-blue;
+  visibility: hidden;
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+  -webkit-transition: 1.2s linear all;
+  -moz-transition: 1.2s linear all;
+  -ms-transition: 1.2s linear all;
+  -o-transition: 1.2s linear all;
+  transition: 1.2s linear all;
 }
 .bar {
   border-bottom: 0px solid transparent;
