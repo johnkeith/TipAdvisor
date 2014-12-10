@@ -11,6 +11,7 @@ angular.module('tipAdvisor', [
   'tipadvisor.newcontrollers', 
   'tipadvisor.newfactories',
   // 'tipadvisor.providers'
+  'tipadvisor.filters'
   ])
 
 .config(['$stateProvider', '$urlRouterProvider',

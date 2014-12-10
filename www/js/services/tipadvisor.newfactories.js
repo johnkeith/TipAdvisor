@@ -68,7 +68,7 @@ angular.module('tipadvisor.newfactories', [])
   })
   .factory('tipFactory', ['$localstorage', function($localstorage){
     var tip = {
-      percent: $localstorage.get("tipPercent", null) || 0.15,
+      percent: $localstorage.get("tipPercent", null) == ">= 100" ? 0.15 : $localstorage.get("tipPercent", 0.15),
       currency: ""
     };
 
@@ -92,10 +92,16 @@ angular.module('tipadvisor.newfactories', [])
         }
       },
       setPercentFromCurrency: function(bill){
+        console.log("the current tip percent is " + typeof(tip.percent))
         if (bill == 0 || isNaN(bill)){
           return;
-        };
-        tip.percent = Math.abs(tip.currency / bill);
+        }
+        else if (Math.abs(tip.currency / bill) > 1) {
+          tip.percent = ">= 100";
+        }
+        else {
+          tip.percent = Math.abs(tip.currency / bill);
+        }
       },
       clear: function(){
         tip.percent = "";
@@ -139,7 +145,7 @@ angular.module('tipadvisor.newfactories', [])
   }])
   .factory('taxFactory', ['$localstorage', function($localstorage){
     var tax = {
-      percent: $localstorage.get("taxPercent", null) || "",
+      percent: $localstorage.get("taxPercent", null) == ">= 100" ? "" : $localstorage.get("taxPercent", null),
       currency: ""
     };
 
@@ -162,8 +168,13 @@ angular.module('tipadvisor.newfactories', [])
       setPercentFromCurrency: function(bill){
         if (bill == 0 || isNaN(bill)){
           return;
+        }
+        else if (Math.abs(tax.currency / (bill - tax.currency)) > 1) {
+          tax.percent = ">= 100";
+        }
+        else {
+          tax.percent = Math.abs(tax.currency / (bill - tax.currency));
         };
-        tax.percent = Math.abs(tax.currency / (bill - tax.currency));
       }, 
       clear: function(){
         tax.percent = "";

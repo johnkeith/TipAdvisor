@@ -11,12 +11,12 @@ angular.module('tipadvisor.newcontrollers', [])
 
       pane.css('visibility', 'visible');
 
-      $ionicModal.fromTemplateUrl("./templates/info.html", function(modal){
-        $scope.modal = modal;
-      }, {
-        scope: $scope, 
-        animation: 'slide-in-up'
-      });
+      // $ionicModal.fromTemplateUrl("./templates/info.html", function(modal){
+      //   $scope.modal = modal;
+      // }, {
+      //   scope: $scope, 
+      //   animation: 'slide-in-up'
+      // });
 
       $scope.bill = billFactory.getBill();
       $scope.tip = tipFactory.getTip();

@@ -10,13 +10,13 @@
       </div>
       <div class='tax-panel quarter-panel' id='panel-2' ng-click='changeActivePanel(2)'>
         <div class='label'>Tax</div>
-        <div class='number'>({{ tax.percent * 100 | number : 2 }}%) {{ tax.currency | currency }}</div>
+        <div class='number'>({{ tax.percent | percent }}%) {{ tax.currency | currency }}</div>
       </div>
       <div class='tip-panel quarter-panel' id='panel-1' ng-click='changeActivePanel(1)'>
         <div class='label'>Tip</div>
         <div class='number'>
           <span>
-            ({{ tip.percent * 100 | number : 2 }}%)
+            ({{ tip.percent | percent }}%)
           </span>
           {{ tip.currency | currency }}
         </div>
